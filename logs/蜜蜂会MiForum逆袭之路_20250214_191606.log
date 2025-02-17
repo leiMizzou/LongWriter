@@ -1,0 +1,366 @@
+2025-02-14 19:16:06,541 - INFO - Starting article generation for: 蜜蜂会（MiForum）逆袭之路
+2025-02-14 19:16:06,541 - INFO - Log file created at: logs/蜜蜂会MiForum逆袭之路_20250214_191606.log
+2025-02-14 19:16:06,541 - INFO - Generating outline for title: 蜜蜂会（MiForum）逆袭之路, length: 10000, genre: 城市科幻逆袭爽文, language: 中文
+2025-02-14 19:16:20,254 - INFO - Outline text:
+```json
+[
+  {
+    "title": "Introduction: 蜜蜂会（MiForum）的诞生",
+    "length": 500,
+    "level": 1
+  },
+  {
+    "title": "Genesis of MiForum: 六个人的梦想",
+    "length": 200,
+    "level": 2,
+    "parent": "Introduction: 蜜蜂会（MiForum）的诞生"
+  },
+  {
+    "title": "2002年的野望：医疗信息化的星火",
+    "length": 300,
+    "level": 2,
+    "parent": "Introduction: 蜜蜂会（MiForum）的诞生"
+  },
+  {
+    "title": "Early Struggles: 荆棘之路",
+    "length": 1500,
+    "level": 1
+  },
+  {
+    "title": "Bootstrapping岁月：代码、泡面与梦想",
+    "length": 500,
+    "level": 2,
+    "parent": "Early Struggles: 荆棘之路"
+  },
+  {
+    "title": "内部分歧：理想与现实的碰撞",
+    "length": 500,
+    "level": 2,
+    "parent": "Early Struggles: 荆棘之路"
+  },
+  {
+    "title": "初尝败果：几乎夭折的蜜蜂",
+    "length": 500,
+    "level": 2,
+    "parent": "Early Struggles: 荆棘之路"
+  },
+  {
+    "title": "Turning Point: 绝处逢生",
+    "length": 1000,
+    "level": 1
+  },
+  {
+    "title": "技术革新：打破僵局的火花",
+    "length": 500,
+    "level": 2,
+    "parent": "Turning Point: 绝处逢生"
+  },
+  {
+    "title": "战略调整：石头的大胆决策",
+    "length": 500,
+    "level": 2,
+    "parent": "Turning Point: 绝处逢生"
+  },
+  {
+    "title": "Growth and Expansion: 乘风破浪",
+    "length": 2000,
+    "level": 1
+  },
+  {
+    "title": "市场扩张：从地方医院到三甲巨头",
+    "length": 700,
+    "level": 2,
+    "parent": "Growth and Expansion: 乘风破浪"
+  },
+  {
+    "title": "团队建设：精英汇聚，各显神通",
+    "length": 700,
+    "level": 2,
+    "parent": "Growth and Expansion: 乘风破浪"
+  },
+  {
+    "title": "产品迭代：不断进化的蜜蜂系统",
+    "length": 600,
+    "level": 2,
+    "parent": "Growth and Expansion: 乘风破浪"
+  },
+  {
+    "title": "Love and Hate: 红尘滚滚",
+    "length": 2000,
+    "level": 1
+  },
+  {
+    "title": "办公室恋情：张琨与萧薰儿的邂逅",
+    "length": 700,
+    "level": 2,
+    "parent": "Love and Hate: 红尘滚滚"
+  },
+  {
+    "title": "三角纠葛：明哥、青鳞与未婚妻",
+    "length": 700,
+    "level": 2,
+    "parent": "Love and Hate: 红尘滚滚"
+  },
+  {
+    "title": "背叛与救赎：晓阳的迷失与回归",
+    "length": 600,
+    "level": 2,
+    "parent": "Love and Hate: 红尘滚滚"
+  },
+  {
+    "title": "The IPO Journey: 逐鹿资本",
+    "length": 2000,
+    "level": 1
+  },
+  {
+    "title": "上市准备：规范化与财务洗礼",
+    "length": 700,
+    "level": 2,
+    "parent": "The IPO Journey: 逐鹿资本"
+  },
+  {
+    "title": "路演风云：资本市场的博弈",
+    "length": 700,
+    "level": 2,
+    "parent": "The IPO Journey: 逐鹿资本"
+  },
+  {
+    "title": "敲钟时刻：梦想照进现实",
+    "length": 600,
+    "level": 2,
+    "parent": "The IPO Journey: 逐鹿资本"
+  },
+  {
+    "title": "Triumph and Reflection: 功成名就",
+    "length": 500,
+    "level": 1
+  },
+  {
+    "title": "上市后的蜜蜂会：新的起点与挑战",
+    "length": 250,
+    "level": 2,
+    "parent": "Triumph and Reflection: 功成名就"
+  },
+  {
+    "title": "创始人感悟：十年磨一剑",
+    "length": 250,
+    "level": 2,
+    "parent": "Triumph and Reflection: 功成名就"
+  },
+  {
+    "title": "Epilogue/Future: 未完待续",
+    "length": 500,
+    "level": 1
+  },
+  {
+    "title": "蜜蜂会的新篇章：科技向善的未来",
+    "length": 250,
+    "level": 2,
+    "parent": "Epilogue/Future: 未完待续"
+  },
+  {
+    "title": "六个人的未来：各自的归宿与新的征程",
+    "length": 250,
+    "level": 2,
+    "parent": "Epilogue/Future: 未完待续"
+  }
+]
+```
+2025-02-14 19:16:20,256 - INFO - Parsed outline: [
+  {
+    "title": "Introduction: 蜜蜂会（MiForum）的诞生",
+    "length": 500,
+    "level": 1
+  },
+  {
+    "title": "Genesis of MiForum: 六个人的梦想",
+    "length": 200,
+    "level": 2,
+    "parent": "Introduction: 蜜蜂会（MiForum）的诞生"
+  },
+  {
+    "title": "2002年的野望：医疗信息化的星火",
+    "length": 300,
+    "level": 2,
+    "parent": "Introduction: 蜜蜂会（MiForum）的诞生"
+  },
+  {
+    "title": "Early Struggles: 荆棘之路",
+    "length": 1500,
+    "level": 1
+  },
+  {
+    "title": "Bootstrapping岁月：代码、泡面与梦想",
+    "length": 500,
+    "level": 2,
+    "parent": "Early Struggles: 荆棘之路"
+  },
+  {
+    "title": "内部分歧：理想与现实的碰撞",
+    "length": 500,
+    "level": 2,
+    "parent": "Early Struggles: 荆棘之路"
+  },
+  {
+    "title": "初尝败果：几乎夭折的蜜蜂",
+    "length": 500,
+    "level": 2,
+    "parent": "Early Struggles: 荆棘之路"
+  },
+  {
+    "title": "Turning Point: 绝处逢生",
+    "length": 1000,
+    "level": 1
+  },
+  {
+    "title": "技术革新：打破僵局的火花",
+    "length": 500,
+    "level": 2,
+    "parent": "Turning Point: 绝处逢生"
+  },
+  {
+    "title": "战略调整：石头的大胆决策",
+    "length": 500,
+    "level": 2,
+    "parent": "Turning Point: 绝处逢生"
+  },
+  {
+    "title": "Growth and Expansion: 乘风破浪",
+    "length": 2000,
+    "level": 1
+  },
+  {
+    "title": "市场扩张：从地方医院到三甲巨头",
+    "length": 700,
+    "level": 2,
+    "parent": "Growth and Expansion: 乘风破浪"
+  },
+  {
+    "title": "团队建设：精英汇聚，各显神通",
+    "length": 700,
+    "level": 2,
+    "parent": "Growth and Expansion: 乘风破浪"
+  },
+  {
+    "title": "产品迭代：不断进化的蜜蜂系统",
+    "length": 600,
+    "level": 2,
+    "parent": "Growth and Expansion: 乘风破浪"
+  },
+  {
+    "title": "Love and Hate: 红尘滚滚",
+    "length": 2000,
+    "level": 1
+  },
+  {
+    "title": "办公室恋情：张琨与萧薰儿的邂逅",
+    "length": 700,
+    "level": 2,
+    "parent": "Love and Hate: 红尘滚滚"
+  },
+  {
+    "title": "三角纠葛：明哥、青鳞与未婚妻",
+    "length": 700,
+    "level": 2,
+    "parent": "Love and Hate: 红尘滚滚"
+  },
+  {
+    "title": "背叛与救赎：晓阳的迷失与回归",
+    "length": 600,
+    "level": 2,
+    "parent": "Love and Hate: 红尘滚滚"
+  },
+  {
+    "title": "The IPO Journey: 逐鹿资本",
+    "length": 2000,
+    "level": 1
+  },
+  {
+    "title": "上市准备：规范化与财务洗礼",
+    "length": 700,
+    "level": 2,
+    "parent": "The IPO Journey: 逐鹿资本"
+  },
+  {
+    "title": "路演风云：资本市场的博弈",
+    "length": 700,
+    "level": 2,
+    "parent": "The IPO Journey: 逐鹿资本"
+  },
+  {
+    "title": "敲钟时刻：梦想照进现实",
+    "length": 600,
+    "level": 2,
+    "parent": "The IPO Journey: 逐鹿资本"
+  },
+  {
+    "title": "Triumph and Reflection: 功成名就",
+    "length": 500,
+    "level": 1
+  },
+  {
+    "title": "上市后的蜜蜂会：新的起点与挑战",
+    "length": 250,
+    "level": 2,
+    "parent": "Triumph and Reflection: 功成名就"
+  },
+  {
+    "title": "创始人感悟：十年磨一剑",
+    "length": 250,
+    "level": 2,
+    "parent": "Triumph and Reflection: 功成名就"
+  },
+  {
+    "title": "Epilogue/Future: 未完待续",
+    "length": 500,
+    "level": 1
+  },
+  {
+    "title": "蜜蜂会的新篇章：科技向善的未来",
+    "length": 250,
+    "level": 2,
+    "parent": "Epilogue/Future: 未完待续"
+  },
+  {
+    "title": "六个人的未来：各自的归宿与新的征程",
+    "length": 250,
+    "level": 2,
+    "parent": "Epilogue/Future: 未完待续"
+  }
+]
+2025-02-14 19:16:20,256 - INFO - Outline generated successfully.
+2025-02-14 19:16:20,257 - INFO - Outline saved to: articles/蜜蜂会MiForum逆袭之路_20250214_191620_outline.json
+2025-02-14 19:16:20,257 - INFO - Assembling article...
+2025-02-14 19:16:20,258 - INFO - Writing section: Introduction: 蜜蜂会（MiForum）的诞生
+2025-02-14 19:16:30,289 - INFO - Writing section: Genesis of MiForum: 六个人的梦想
+2025-02-14 19:16:35,159 - INFO - Writing section: 2002年的野望：医疗信息化的星火
+2025-02-14 19:16:41,144 - INFO - Writing section: Early Struggles: 荆棘之路
+2025-02-14 19:16:59,886 - INFO - Writing section: Bootstrapping岁月：代码、泡面与梦想
+2025-02-14 19:17:08,483 - INFO - Writing section: 内部分歧：理想与现实的碰撞
+2025-02-14 19:17:16,779 - INFO - Writing section: 初尝败果：几乎夭折的蜜蜂
+2025-02-14 19:17:27,607 - INFO - Writing section: Turning Point: 绝处逢生
+2025-02-14 19:17:41,254 - INFO - Writing section: 技术革新：打破僵局的火花
+2025-02-14 19:17:48,625 - INFO - Writing section: 战略调整：石头的大胆决策
+2025-02-14 19:17:59,402 - INFO - Writing section: Growth and Expansion: 乘风破浪
+2025-02-14 19:18:21,803 - INFO - Writing section: 市场扩张：从地方医院到三甲巨头
+2025-02-14 19:18:32,518 - INFO - Writing section: 团队建设：精英汇聚，各显神通
+2025-02-14 19:18:42,990 - INFO - Writing section: 产品迭代：不断进化的蜜蜂系统
+2025-02-14 19:18:53,138 - INFO - Writing section: Love and Hate: 红尘滚滚
+2025-02-14 19:19:14,140 - INFO - Writing section: 办公室恋情：张琨与萧薰儿的邂逅
+2025-02-14 19:19:24,577 - INFO - Writing section: 三角纠葛：明哥、青鳞与未婚妻
+2025-02-14 19:19:35,119 - INFO - Writing section: 背叛与救赎：晓阳的迷失与回归
+2025-02-14 19:19:48,877 - INFO - Writing section: The IPO Journey: 逐鹿资本
+2025-02-14 19:20:11,753 - INFO - Writing section: 上市准备：规范化与财务洗礼
+2025-02-14 19:20:26,258 - INFO - Writing section: 路演风云：资本市场的博弈
+2025-02-14 19:20:39,429 - INFO - Writing section: 敲钟时刻：梦想照进现实
+2025-02-14 19:20:51,614 - INFO - Writing section: Triumph and Reflection: 功成名就
+2025-02-14 19:21:01,584 - INFO - Writing section: 上市后的蜜蜂会：新的起点与挑战
+2025-02-14 19:21:08,916 - INFO - Writing section: 创始人感悟：十年磨一剑
+2025-02-14 19:21:18,701 - INFO - Writing section: Epilogue/Future: 未完待续
+2025-02-14 19:21:28,477 - INFO - Writing section: 蜜蜂会的新篇章：科技向善的未来
+2025-02-14 19:21:35,807 - INFO - Writing section: 六个人的未来：各自的归宿与新的征程
+2025-02-14 19:21:43,837 - INFO - Article saved to: articles/蜜蜂会MiForum逆袭之路_20250214_192143.md
+2025-02-14 19:21:43,837 - INFO - Article generation completed successfully
+2025-02-14 19:21:43,837 - INFO - Log file: logs/蜜蜂会MiForum逆袭之路_20250214_191606.log
+2025-02-14 19:21:43,837 - INFO - Outline file: articles/蜜蜂会MiForum逆袭之路_20250214_191620_outline.json
+2025-02-14 19:21:43,837 - INFO - Article file: articles/蜜蜂会MiForum逆袭之路_20250214_192143.md

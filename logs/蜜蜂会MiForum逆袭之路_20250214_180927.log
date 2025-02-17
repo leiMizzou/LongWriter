@@ -1,0 +1,622 @@
+2025-02-14 18:09:27,153 - INFO - Starting article generation for: 蜜蜂会（MiForum）逆袭之路
+2025-02-14 18:09:27,153 - INFO - Log file created at: logs/蜜蜂会MiForum逆袭之路_20250214_180927.log
+2025-02-14 18:09:27,153 - INFO - Generating outline for title: 蜜蜂会（MiForum）逆袭之路, length: 10000, genre: 城市科幻逆袭爽文, language: 中文
+2025-02-14 18:09:48,079 - INFO - Outline text:
+```json
+[
+    {
+        "title": "楔子：2002年的中关村，和六个不安分的年轻人 (Prologue: Zhongguancun in 2002, and Six Restless Young Men)",
+        "length": 300,
+        "level": 1
+    },
+    {
+        "title": "第一章：蜜蜂会初啼 (Chapter 1: MiForum's First Cry)",
+        "length": 1200,
+        "level": 1
+    },
+    {
+        "title": "1.1 石头和张琨：一个理想，一腔热血 (1.1 Shi Tou and Zhang Kun: An Ideal, A Heart Full of Passion)",
+        "length": 250,
+        "level": 2,
+        "parent": "第一章：蜜蜂会初啼 (Chapter 1: MiForum's First Cry)"
+    },
+    {
+        "title": "1.2 明哥的加入：技术大牛的加盟 (1.2 Ming Ge's Arrival: The Joining of a Tech Guru)",
+        "length": 200,
+        "level": 2,
+        "parent": "第一章：蜜蜂会初啼 (Chapter 1: MiForum's First Cry)"
+    },
+    {
+        "title": "1.3 晓阳和Daniel：销售与运营的基石 (1.3 Xiao Yang and Daniel: Cornerstones of Sales and Operations)",
+        "length": 200,
+        "level": 2,
+        "parent": "第一章：蜜蜂会初啼 (Chapter 1: MiForum's First Cry)"
+    },
+    {
+        "title": "1.4 三石的意外入伙：美工与论坛的颜值担当 (1.4 San Shi's Accidental Partnership: Art Design and the Forum's Face Value)",
+        "length": 200,
+        "level": 2,
+        "parent": "第一章：蜜蜂会初啼 (Chapter 1: MiForum's First Cry)"
+    },
+    {
+        "title": "1.5 MiForum 1.0 上线：简陋但充满希望的开始 (1.5 MiForum 1.0 Launch: Humble but Hopeful Beginnings)",
+        "length": 350,
+        "level": 2,
+        "parent": "第一章：蜜蜂会初啼 (Chapter 1: MiForum's First Cry)"
+    },
+    {
+        "title": "第二章：摸爬滚打的早期岁月 (Chapter 2: The Early Years of Struggle)",
+        "length": 1500,
+        "level": 1
+    },
+    {
+        "title": "2.1 服务器宕机与Bug横飞：技术难题的 ആദ്യ挑战 (2.1 Server Downtime and Bug Infestation: The First Tech Challenges)",
+        "length": 300,
+        "level": 2,
+        "parent": "第二章：摸爬滚打的早期岁月 (Chapter 2: The Early Years of Struggle)"
+    },
+    {
+        "title": "2.2 用户增长瓶颈：免费论坛的生存困境 (2.2 User Growth Bottleneck: The Survival Dilemma of a Free Forum)",
+        "length": 300,
+        "level": 2,
+        "parent": "第二章：摸爬滚打的早期岁月 (Chapter 2: The Early Years of Struggle)"
+    },
+    {
+        "title": "2.3 第一次商业化尝试：广告与会员制的试水 (2.3 First Commercialization Attempt: Dipping Toes into Advertising and Membership)",
+        "length": 350,
+        "level": 2,
+        "parent": "第二章：摸爬滚打的早期岁月 (Chapter 2: The Early Years of Struggle)"
+    },
+    {
+        "title": "2.4 石头和晓 Xun'er 的办公室恋情萌芽：苦涩中的一丝甜蜜 (2.4 Shi Tou and Xiao Xun'er's Office Romance Budding: A Touch of Sweetness in Bitterness)",
+        "length": 300,
+        "level": 2,
+        "parent": "第二章：摸爬滚打的早期岁月 (Chapter 2: The Early Years of Struggle)"
+    },
+    {
+        "title": "2.5 来自竞争对手的打压：行业潜规则的初次体验 (2.5 Pressure from Competitors: The First Experience of Industry Under-the-Table Rules)",
+        "length": 250,
+        "level": 2,
+        "parent": "第二章：摸爬滚打的早期岁月 (Chapter 2: The Early Years of Struggle)"
+    },
+    {
+        "title": "第三章：转型与突破 (Chapter 3: Transformation and Breakthrough)",
+        "length": 1800,
+        "level": 1
+    },
+    {
+        "title": "3.1 医疗信息化行业的机遇：政策风向与市场需求 (3.1 Opportunities in the Medical Informatics Industry: Policy Trends and Market Demand)",
+        "length": 300,
+        "level": 2,
+        "parent": "第三章：转型与突破 (Chapter 3: Transformation and Breakthrough)"
+    },
+    {
+        "title": "3.2 MiForum 2.0：专业化内容与社区的构建 (3.2 MiForum 2.0: Building Professional Content and Community)",
+        "length": 350,
+        "level": 2,
+        "parent": "第三章：转型与突破 (Chapter 3: Transformation and Breakthrough)"
+    },
+    {
+        "title": "3.3 与医院合作：从线上论坛到线下服务的探索 (3.3 Collaboration with Hospitals: From Online Forum to Offline Service Exploration)",
+        "length": 350,
+        "level": 2,
+        "parent": "第三章：转型与突破 (Chapter 3: Transformation and Breakthrough)"
+    },
+    {
+        "title": "3.4 张琨的三角恋危机：Ya Fei 的出现与感情的动摇 (3.4 Zhang Kun's Love Triangle Crisis: The Appearance of Ya Fei and Emotional Wavering)",
+        "length": 400,
+        "level": 2,
+        "parent": "第三章：转型与突破 (Chapter 3: Transformation and Breakthrough)"
+    },
+    {
+        "title": "3.5 首个成功案例：小医院信息化改造项目 (3.5 First Successful Case: Small Hospital Informatization Transformation Project)",
+        "length": 400,
+        "level": 2,
+        "parent": "第三章：转型与突破 (Chapter 3: Transformation and Breakthrough)"
+    },
+    {
+        "title": "第四章：高速发展与内部矛盾 (Chapter 4: Rapid Development and Internal Conflicts)",
+        "length": 1500,
+        "level": 1
+    },
+    {
+        "title": "4.1 用户和业务爆发式增长：MiForum 的黄金时代 (4.1 Explosive Growth in Users and Business: MiForum's Golden Age)",
+        "length": 300,
+        "level": 2,
+        "parent": "第四章：高速发展与内部矛盾 (Chapter 4: Rapid Development and Internal Conflicts)"
+    },
+    {
+        "title": "4.2 团队扩张与管理难题：六人创业团队的裂痕 (4.2 Team Expansion and Management Challenges: Cracks in the Six-Person Founding Team)",
+        "length": 350,
+        "level": 2,
+        "parent": "第四章：高速发展与内部矛盾 (Chapter 4: Rapid Development and Internal Conflicts)"
+    },
+    {
+        "title": "4.3 利益分配的争议：股权、期权与兄弟情义的考验 (4.3 Disputes over Profit Distribution: Equity, Options, and the Test of Brotherhood)",
+        "length": 400,
+        "level": 2,
+        "parent": "第四章：高速发展与内部矛盾 (Chapter 4: Rapid Development and Internal Conflicts)"
+    },
+    {
+        "title": "4.4 明哥的技术路线之争：保守与激进的选择 (4.4 Ming Ge's Technical Route Dispute: Conservative vs. Radical Choices)",
+        "length": 250,
+        "level": 2,
+        "parent": "第四章：高速发展与内部矛盾 (Chapter 4: Rapid Development and Internal Conflicts)"
+    },
+    {
+        "title": "4.5 晓阳的野心与Daniel的保守：市场扩张策略的分歧 (4.5 Xiao Yang's Ambition and Daniel's Conservatism: Divergence in Market Expansion Strategies)",
+        "length": 200,
+        "level": 2,
+        "parent": "第四章：高速发展与内部矛盾 (Chapter 4: Rapid Development and Internal Conflicts)"
+    },
+    {
+        "title": "第五章：危机与挑战 (Chapter 5: Crisis and Challenge)",
+        "length": 1500,
+        "level": 1
+    },
+    {
+        "title": "5.1 行业巨头的入场：竞争加剧与生存压力 (5.1 Entry of Industry Giants: Intensified Competition and Survival Pressure)",
+        "length": 300,
+        "level": 2,
+        "parent": "第五章：危机与挑战 (Chapter 5: Crisis and Challenge)"
+    },
+    {
+        "title": "5.2 负面舆情危机：医疗事故与论坛责任的质疑 (5.2 Negative Public Opinion Crisis: Medical Accidents and Questions about Forum Responsibility)",
+        "length": 350,
+        "level": 2,
+        "parent": "第五章：危机与挑战 (Chapter 5: Crisis and Challenge)"
+    },
+    {
+        "title": "5.3 资金链断裂风险：扩张过快与融资困境 (5.3 Risk of Capital Chain Breakage: Over-Rapid Expansion and Financing Difficulties)",
+        "length": 300,
+        "level": 2,
+        "parent": "第五章：危机与挑战 (Chapter 5: Crisis and Challenge)"
+    },
+    {
+        "title": "5.4 内部信任危机：猜疑与背叛的阴影 (5.4 Internal Trust Crisis: Shadows of Suspicion and Betrayal)",
+        "length": 300,
+        "level": 2,
+        "parent": "第五章：危机与挑战 (Chapter 5: Crisis and Challenge)"
+    },
+    {
+        "title": "5.5 石头与晓 Xun'er 的感情危机：误会与第三者的插足 (5.5 Shi Tou and Xiao Xun'er's Relationship Crisis: Misunderstandings and Third-Party Intervention)",
+        "length": 250,
+        "level": 2,
+        "parent": "第五章：危机与挑战 (Chapter 5: Crisis and Challenge)"
+    },
+    {
+        "title": "第六章：绝地反击 (Chapter 6: Counterattack from the Brink)",
+        "length": 1500,
+        "level": 1
+    },
+    {
+        "title": "6.1 团队重聚与反思：重拾初心，凝聚力量 (6.1 Team Reunion and Reflection: Rediscovering the Original Intention and Gathering Strength)",
+        "length": 300,
+        "level": 2,
+        "parent": "第六章：绝地反击 (Chapter 6: Counterattack from the Brink)"
+    },
+    {
+        "title": "6.2 技术创新与产品升级：MiForum 3.0 的诞生 (6.2 Technical Innovation and Product Upgrade: The Birth of MiForum 3.0)",
+        "length": 350,
+        "level": 2,
+        "parent": "第六章：绝地反击 (Chapter 6: Counterattack from the Brink)"
+    },
+    {
+        "title": "6.3 危机公关与舆论反转：化解负面影响，重塑品牌形象 (6.3 Crisis Public Relations and Public Opinion Reversal: Resolving Negative Impact, Reshaping Brand Image)",
+        "length": 300,
+        "level": 2,
+        "parent": "第六章：绝地反击 (Chapter 6: Counterattack from the Brink)"
+    },
+    {
+        "title": "6.4 引入战略投资：获得资金支持，摆脱困境 (6.4 Introducing Strategic Investment: Obtaining Financial Support, Getting Out of Trouble)",
+        "length": 300,
+        "level": 2,
+        "parent": "第六章：绝地反击 (Chapter 6: Counterattack from the Brink)"
+    },
+    {
+        "title": "6.5 张琨与Ya Fei 的抉择：感情的最终归宿 (6.5 Zhang Kun and Ya Fei's Choice: The Final Destination of Emotion)",
+        "length": 250,
+        "level": 2,
+        "parent": "第六章：绝地反击 (Chapter 6: Counterattack from the Brink)"
+    },
+    {
+        "title": "第七章：走向巅峰 (Chapter 7: Towards the Peak)",
+        "length": 1500,
+        "level": 1
+    },
+    {
+        "title": "7.1 MiForum 品牌影响力扩大：行业领导者地位的确立 (7.1 MiForum Brand Influence Expansion: Establishment of Industry Leader Status)",
+        "length": 300,
+        "level": 2,
+        "parent": "第七章：走向巅峰 (Chapter 7: Towards the Peak)"
+    },
+    {
+        "title": "7.2 业务多元化拓展：产业链上下游的布局 (7.2 Business Diversification Expansion: Layout of the Upstream and Downstream of the Industrial Chain)",
+        "length": 300,
+        "level": 2,
+        "parent": "第七章：走向巅峰 (Chapter 7: Towards the Peak)"
+    },
+    {
+        "title": "7.3 国际化战略启动：进军海外市场，走向全球 (7.3 Internationalization Strategy Launch: Entering Overseas Markets, Going Global)",
+        "length": 300,
+        "level": 2,
+        "parent": "第七章：走向巅峰 (Chapter 7: Towards the Peak)"
+    },
+    {
+        "title": "7.4 石头和晓 Xun'er 的重归于好：爱情的考验与升华 (7.4 Shi Tou and Xiao Xun'er's Reconciliation: The Test and Sublimation of Love)",
+        "length": 350,
+        "level": 2,
+        "parent": "第七章：走向巅峰 (Chapter 7: Towards the Peak)"
+    },
+    {
+        "title": "7.5 IPO 准备：最后的冲刺与资本市场的期待 (7.5 IPO Preparation: The Final Sprint and Capital Market Expectations)",
+        "length": 250,
+        "level": 2,
+        "parent": "第七章：走向巅峰 (Chapter 7: Towards the Peak)"
+    },
+    {
+        "title": "第八章：敲钟上市，梦想照进现实 (Chapter 8: IPO Listing, Dreams Become Reality)",
+        "length": 800,
+        "level": 1
+    },
+    {
+        "title": "8.1 IPO路演与认购火爆：资本市场的认可 (8.1 IPO Roadshow and Hot Subscription: Recognition from the Capital Market)",
+        "length": 250,
+        "level": 2,
+        "parent": "第八章：敲钟上市，梦想照进现实 (Chapter 8: IPO Listing, Dreams Become Reality)"
+    },
+    {
+        "title": "8.2 敲钟仪式：荣耀时刻与新的起点 (8.2 Bell-Ringing Ceremony: Moment of Glory and New Beginning)",
+        "length": 300,
+        "level": 2,
+        "parent": "第八章：敲钟上市，梦想照进现实 (Chapter 8: IPO Listing, Dreams Become Reality)"
+    },
+    {
+        "title": "8.3 上市后的MiForum：新的挑战与未来展望 (8.3 MiForum After Listing: New Challenges and Future Prospects)",
+        "length": 250,
+        "level": 2,
+        "parent": "第八章：敲钟上市，梦想照进现实 (Chapter 8: IPO Listing, Dreams Become Reality)"
+    },
+    {
+        "title": "尾声：蜜蜂会的故事还在继续 (Epilogue: The Story of MiForum Continues)",
+        "length": 200,
+        "level": 1
+    }
+]
+```
+2025-02-14 18:09:48,081 - INFO - Parsed outline: [
+  {
+    "title": "楔子：2002年的中关村，和六个不安分的年轻人 (Prologue: Zhongguancun in 2002, and Six Restless Young Men)",
+    "length": 300,
+    "level": 1
+  },
+  {
+    "title": "第一章：蜜蜂会初啼 (Chapter 1: MiForum's First Cry)",
+    "length": 1200,
+    "level": 1
+  },
+  {
+    "title": "1.1 石头和张琨：一个理想，一腔热血 (1.1 Shi Tou and Zhang Kun: An Ideal, A Heart Full of Passion)",
+    "length": 250,
+    "level": 2,
+    "parent": "第一章：蜜蜂会初啼 (Chapter 1: MiForum's First Cry)"
+  },
+  {
+    "title": "1.2 明哥的加入：技术大牛的加盟 (1.2 Ming Ge's Arrival: The Joining of a Tech Guru)",
+    "length": 200,
+    "level": 2,
+    "parent": "第一章：蜜蜂会初啼 (Chapter 1: MiForum's First Cry)"
+  },
+  {
+    "title": "1.3 晓阳和Daniel：销售与运营的基石 (1.3 Xiao Yang and Daniel: Cornerstones of Sales and Operations)",
+    "length": 200,
+    "level": 2,
+    "parent": "第一章：蜜蜂会初啼 (Chapter 1: MiForum's First Cry)"
+  },
+  {
+    "title": "1.4 三石的意外入伙：美工与论坛的颜值担当 (1.4 San Shi's Accidental Partnership: Art Design and the Forum's Face Value)",
+    "length": 200,
+    "level": 2,
+    "parent": "第一章：蜜蜂会初啼 (Chapter 1: MiForum's First Cry)"
+  },
+  {
+    "title": "1.5 MiForum 1.0 上线：简陋但充满希望的开始 (1.5 MiForum 1.0 Launch: Humble but Hopeful Beginnings)",
+    "length": 350,
+    "level": 2,
+    "parent": "第一章：蜜蜂会初啼 (Chapter 1: MiForum's First Cry)"
+  },
+  {
+    "title": "第二章：摸爬滚打的早期岁月 (Chapter 2: The Early Years of Struggle)",
+    "length": 1500,
+    "level": 1
+  },
+  {
+    "title": "2.1 服务器宕机与Bug横飞：技术难题的 ആദ്യ挑战 (2.1 Server Downtime and Bug Infestation: The First Tech Challenges)",
+    "length": 300,
+    "level": 2,
+    "parent": "第二章：摸爬滚打的早期岁月 (Chapter 2: The Early Years of Struggle)"
+  },
+  {
+    "title": "2.2 用户增长瓶颈：免费论坛的生存困境 (2.2 User Growth Bottleneck: The Survival Dilemma of a Free Forum)",
+    "length": 300,
+    "level": 2,
+    "parent": "第二章：摸爬滚打的早期岁月 (Chapter 2: The Early Years of Struggle)"
+  },
+  {
+    "title": "2.3 第一次商业化尝试：广告与会员制的试水 (2.3 First Commercialization Attempt: Dipping Toes into Advertising and Membership)",
+    "length": 350,
+    "level": 2,
+    "parent": "第二章：摸爬滚打的早期岁月 (Chapter 2: The Early Years of Struggle)"
+  },
+  {
+    "title": "2.4 石头和晓 Xun'er 的办公室恋情萌芽：苦涩中的一丝甜蜜 (2.4 Shi Tou and Xiao Xun'er's Office Romance Budding: A Touch of Sweetness in Bitterness)",
+    "length": 300,
+    "level": 2,
+    "parent": "第二章：摸爬滚打的早期岁月 (Chapter 2: The Early Years of Struggle)"
+  },
+  {
+    "title": "2.5 来自竞争对手的打压：行业潜规则的初次体验 (2.5 Pressure from Competitors: The First Experience of Industry Under-the-Table Rules)",
+    "length": 250,
+    "level": 2,
+    "parent": "第二章：摸爬滚打的早期岁月 (Chapter 2: The Early Years of Struggle)"
+  },
+  {
+    "title": "第三章：转型与突破 (Chapter 3: Transformation and Breakthrough)",
+    "length": 1800,
+    "level": 1
+  },
+  {
+    "title": "3.1 医疗信息化行业的机遇：政策风向与市场需求 (3.1 Opportunities in the Medical Informatics Industry: Policy Trends and Market Demand)",
+    "length": 300,
+    "level": 2,
+    "parent": "第三章：转型与突破 (Chapter 3: Transformation and Breakthrough)"
+  },
+  {
+    "title": "3.2 MiForum 2.0：专业化内容与社区的构建 (3.2 MiForum 2.0: Building Professional Content and Community)",
+    "length": 350,
+    "level": 2,
+    "parent": "第三章：转型与突破 (Chapter 3: Transformation and Breakthrough)"
+  },
+  {
+    "title": "3.3 与医院合作：从线上论坛到线下服务的探索 (3.3 Collaboration with Hospitals: From Online Forum to Offline Service Exploration)",
+    "length": 350,
+    "level": 2,
+    "parent": "第三章：转型与突破 (Chapter 3: Transformation and Breakthrough)"
+  },
+  {
+    "title": "3.4 张琨的三角恋危机：Ya Fei 的出现与感情的动摇 (3.4 Zhang Kun's Love Triangle Crisis: The Appearance of Ya Fei and Emotional Wavering)",
+    "length": 400,
+    "level": 2,
+    "parent": "第三章：转型与突破 (Chapter 3: Transformation and Breakthrough)"
+  },
+  {
+    "title": "3.5 首个成功案例：小医院信息化改造项目 (3.5 First Successful Case: Small Hospital Informatization Transformation Project)",
+    "length": 400,
+    "level": 2,
+    "parent": "第三章：转型与突破 (Chapter 3: Transformation and Breakthrough)"
+  },
+  {
+    "title": "第四章：高速发展与内部矛盾 (Chapter 4: Rapid Development and Internal Conflicts)",
+    "length": 1500,
+    "level": 1
+  },
+  {
+    "title": "4.1 用户和业务爆发式增长：MiForum 的黄金时代 (4.1 Explosive Growth in Users and Business: MiForum's Golden Age)",
+    "length": 300,
+    "level": 2,
+    "parent": "第四章：高速发展与内部矛盾 (Chapter 4: Rapid Development and Internal Conflicts)"
+  },
+  {
+    "title": "4.2 团队扩张与管理难题：六人创业团队的裂痕 (4.2 Team Expansion and Management Challenges: Cracks in the Six-Person Founding Team)",
+    "length": 350,
+    "level": 2,
+    "parent": "第四章：高速发展与内部矛盾 (Chapter 4: Rapid Development and Internal Conflicts)"
+  },
+  {
+    "title": "4.3 利益分配的争议：股权、期权与兄弟情义的考验 (4.3 Disputes over Profit Distribution: Equity, Options, and the Test of Brotherhood)",
+    "length": 400,
+    "level": 2,
+    "parent": "第四章：高速发展与内部矛盾 (Chapter 4: Rapid Development and Internal Conflicts)"
+  },
+  {
+    "title": "4.4 明哥的技术路线之争：保守与激进的选择 (4.4 Ming Ge's Technical Route Dispute: Conservative vs. Radical Choices)",
+    "length": 250,
+    "level": 2,
+    "parent": "第四章：高速发展与内部矛盾 (Chapter 4: Rapid Development and Internal Conflicts)"
+  },
+  {
+    "title": "4.5 晓阳的野心与Daniel的保守：市场扩张策略的分歧 (4.5 Xiao Yang's Ambition and Daniel's Conservatism: Divergence in Market Expansion Strategies)",
+    "length": 200,
+    "level": 2,
+    "parent": "第四章：高速发展与内部矛盾 (Chapter 4: Rapid Development and Internal Conflicts)"
+  },
+  {
+    "title": "第五章：危机与挑战 (Chapter 5: Crisis and Challenge)",
+    "length": 1500,
+    "level": 1
+  },
+  {
+    "title": "5.1 行业巨头的入场：竞争加剧与生存压力 (5.1 Entry of Industry Giants: Intensified Competition and Survival Pressure)",
+    "length": 300,
+    "level": 2,
+    "parent": "第五章：危机与挑战 (Chapter 5: Crisis and Challenge)"
+  },
+  {
+    "title": "5.2 负面舆情危机：医疗事故与论坛责任的质疑 (5.2 Negative Public Opinion Crisis: Medical Accidents and Questions about Forum Responsibility)",
+    "length": 350,
+    "level": 2,
+    "parent": "第五章：危机与挑战 (Chapter 5: Crisis and Challenge)"
+  },
+  {
+    "title": "5.3 资金链断裂风险：扩张过快与融资困境 (5.3 Risk of Capital Chain Breakage: Over-Rapid Expansion and Financing Difficulties)",
+    "length": 300,
+    "level": 2,
+    "parent": "第五章：危机与挑战 (Chapter 5: Crisis and Challenge)"
+  },
+  {
+    "title": "5.4 内部信任危机：猜疑与背叛的阴影 (5.4 Internal Trust Crisis: Shadows of Suspicion and Betrayal)",
+    "length": 300,
+    "level": 2,
+    "parent": "第五章：危机与挑战 (Chapter 5: Crisis and Challenge)"
+  },
+  {
+    "title": "5.5 石头与晓 Xun'er 的感情危机：误会与第三者的插足 (5.5 Shi Tou and Xiao Xun'er's Relationship Crisis: Misunderstandings and Third-Party Intervention)",
+    "length": 250,
+    "level": 2,
+    "parent": "第五章：危机与挑战 (Chapter 5: Crisis and Challenge)"
+  },
+  {
+    "title": "第六章：绝地反击 (Chapter 6: Counterattack from the Brink)",
+    "length": 1500,
+    "level": 1
+  },
+  {
+    "title": "6.1 团队重聚与反思：重拾初心，凝聚力量 (6.1 Team Reunion and Reflection: Rediscovering the Original Intention and Gathering Strength)",
+    "length": 300,
+    "level": 2,
+    "parent": "第六章：绝地反击 (Chapter 6: Counterattack from the Brink)"
+  },
+  {
+    "title": "6.2 技术创新与产品升级：MiForum 3.0 的诞生 (6.2 Technical Innovation and Product Upgrade: The Birth of MiForum 3.0)",
+    "length": 350,
+    "level": 2,
+    "parent": "第六章：绝地反击 (Chapter 6: Counterattack from the Brink)"
+  },
+  {
+    "title": "6.3 危机公关与舆论反转：化解负面影响，重塑品牌形象 (6.3 Crisis Public Relations and Public Opinion Reversal: Resolving Negative Impact, Reshaping Brand Image)",
+    "length": 300,
+    "level": 2,
+    "parent": "第六章：绝地反击 (Chapter 6: Counterattack from the Brink)"
+  },
+  {
+    "title": "6.4 引入战略投资：获得资金支持，摆脱困境 (6.4 Introducing Strategic Investment: Obtaining Financial Support, Getting Out of Trouble)",
+    "length": 300,
+    "level": 2,
+    "parent": "第六章：绝地反击 (Chapter 6: Counterattack from the Brink)"
+  },
+  {
+    "title": "6.5 张琨与Ya Fei 的抉择：感情的最终归宿 (6.5 Zhang Kun and Ya Fei's Choice: The Final Destination of Emotion)",
+    "length": 250,
+    "level": 2,
+    "parent": "第六章：绝地反击 (Chapter 6: Counterattack from the Brink)"
+  },
+  {
+    "title": "第七章：走向巅峰 (Chapter 7: Towards the Peak)",
+    "length": 1500,
+    "level": 1
+  },
+  {
+    "title": "7.1 MiForum 品牌影响力扩大：行业领导者地位的确立 (7.1 MiForum Brand Influence Expansion: Establishment of Industry Leader Status)",
+    "length": 300,
+    "level": 2,
+    "parent": "第七章：走向巅峰 (Chapter 7: Towards the Peak)"
+  },
+  {
+    "title": "7.2 业务多元化拓展：产业链上下游的布局 (7.2 Business Diversification Expansion: Layout of the Upstream and Downstream of the Industrial Chain)",
+    "length": 300,
+    "level": 2,
+    "parent": "第七章：走向巅峰 (Chapter 7: Towards the Peak)"
+  },
+  {
+    "title": "7.3 国际化战略启动：进军海外市场，走向全球 (7.3 Internationalization Strategy Launch: Entering Overseas Markets, Going Global)",
+    "length": 300,
+    "level": 2,
+    "parent": "第七章：走向巅峰 (Chapter 7: Towards the Peak)"
+  },
+  {
+    "title": "7.4 石头和晓 Xun'er 的重归于好：爱情的考验与升华 (7.4 Shi Tou and Xiao Xun'er's Reconciliation: The Test and Sublimation of Love)",
+    "length": 350,
+    "level": 2,
+    "parent": "第七章：走向巅峰 (Chapter 7: Towards the Peak)"
+  },
+  {
+    "title": "7.5 IPO 准备：最后的冲刺与资本市场的期待 (7.5 IPO Preparation: The Final Sprint and Capital Market Expectations)",
+    "length": 250,
+    "level": 2,
+    "parent": "第七章：走向巅峰 (Chapter 7: Towards the Peak)"
+  },
+  {
+    "title": "第八章：敲钟上市，梦想照进现实 (Chapter 8: IPO Listing, Dreams Become Reality)",
+    "length": 800,
+    "level": 1
+  },
+  {
+    "title": "8.1 IPO路演与认购火爆：资本市场的认可 (8.1 IPO Roadshow and Hot Subscription: Recognition from the Capital Market)",
+    "length": 250,
+    "level": 2,
+    "parent": "第八章：敲钟上市，梦想照进现实 (Chapter 8: IPO Listing, Dreams Become Reality)"
+  },
+  {
+    "title": "8.2 敲钟仪式：荣耀时刻与新的起点 (8.2 Bell-Ringing Ceremony: Moment of Glory and New Beginning)",
+    "length": 300,
+    "level": 2,
+    "parent": "第八章：敲钟上市，梦想照进现实 (Chapter 8: IPO Listing, Dreams Become Reality)"
+  },
+  {
+    "title": "8.3 上市后的MiForum：新的挑战与未来展望 (8.3 MiForum After Listing: New Challenges and Future Prospects)",
+    "length": 250,
+    "level": 2,
+    "parent": "第八章：敲钟上市，梦想照进现实 (Chapter 8: IPO Listing, Dreams Become Reality)"
+  },
+  {
+    "title": "尾声：蜜蜂会的故事还在继续 (Epilogue: The Story of MiForum Continues)",
+    "length": 200,
+    "level": 1
+  }
+]
+2025-02-14 18:09:48,082 - INFO - Outline generated successfully.
+2025-02-14 18:09:48,084 - INFO - Outline saved to: articles/蜜蜂会MiForum逆袭之路_20250214_180948_outline.json
+2025-02-14 18:09:48,084 - INFO - Assembling article...
+2025-02-14 18:09:48,084 - INFO - Writing section: 楔子：2002年的中关村，和六个不安分的年轻人 (Prologue: Zhongguancun in 2002, and Six Restless Young Men)
+2025-02-14 18:09:57,091 - INFO - Writing section: 第一章：蜜蜂会初啼 (Chapter 1: MiForum's First Cry)
+2025-02-14 18:10:17,976 - INFO - Writing section: 1.1 石头和张琨：一个理想，一腔热血 (1.1 Shi Tou and Zhang Kun: An Ideal, A Heart Full of Passion)
+2025-02-14 18:10:24,528 - INFO - Writing section: 1.2 明哥的加入：技术大牛的加盟 (1.2 Ming Ge's Arrival: The Joining of a Tech Guru)
+2025-02-14 18:10:30,597 - INFO - Writing section: 1.3 晓阳和Daniel：销售与运营的基石 (1.3 Xiao Yang and Daniel: Cornerstones of Sales and Operations)
+2025-02-14 18:10:35,692 - INFO - Writing section: 1.4 三石的意外入伙：美工与论坛的颜值担当 (1.4 San Shi's Accidental Partnership: Art Design and the Forum's Face Value)
+2025-02-14 18:10:41,925 - INFO - Writing section: 1.5 MiForum 1.0 上线：简陋但充满希望的开始 (1.5 MiForum 1.0 Launch: Humble but Hopeful Beginnings)
+2025-02-14 18:10:49,406 - INFO - Writing section: 第二章：摸爬滚打的早期岁月 (Chapter 2: The Early Years of Struggle)
+2025-02-14 18:11:06,927 - INFO - Writing section: 2.1 服务器宕机与Bug横飞：技术难题的 ആദ്യ挑战 (2.1 Server Downtime and Bug Infestation: The First Tech Challenges)
+2025-02-14 18:11:12,554 - INFO - Writing section: 2.2 用户增长瓶颈：免费论坛的生存困境 (2.2 User Growth Bottleneck: The Survival Dilemma of a Free Forum)
+2025-02-14 18:11:18,381 - INFO - Writing section: 2.3 第一次商业化尝试：广告与会员制的试水 (2.3 First Commercialization Attempt: Dipping Toes into Advertising and Membership)
+2025-02-14 18:11:26,380 - INFO - Writing section: 2.4 石头和晓 Xun'er 的办公室恋情萌芽：苦涩中的一丝甜蜜 (2.4 Shi Tou and Xiao Xun'er's Office Romance Budding: A Touch of Sweetness in Bitterness)
+2025-02-14 18:11:32,217 - INFO - Writing section: 2.5 来自竞争对手的打压：行业潜规则的初次体验 (2.5 Pressure from Competitors: The First Experience of Industry Under-the-Table Rules)
+2025-02-14 18:11:41,742 - INFO - Writing section: 第三章：转型与突破 (Chapter 3: Transformation and Breakthrough)
+2025-02-14 18:12:03,041 - INFO - Writing section: 3.1 医疗信息化行业的机遇：政策风向与市场需求 (3.1 Opportunities in the Medical Informatics Industry: Policy Trends and Market Demand)
+2025-02-14 18:12:09,181 - INFO - Writing section: 3.2 MiForum 2.0：专业化内容与社区的构建 (3.2 MiForum 2.0: Building Professional Content and Community)
+2025-02-14 18:12:16,352 - INFO - Writing section: 3.3 与医院合作：从线上论坛到线下服务的探索 (3.3 Collaboration with Hospitals: From Online Forum to Offline Service Exploration)
+2025-02-14 18:12:25,156 - INFO - Writing section: 3.4 张琨的三角恋危机：Ya Fei 的出现与感情的动摇 (3.4 Zhang Kun's Love Triangle Crisis: The Appearance of Ya Fei and Emotional Wavering)
+2025-02-14 18:12:32,428 - INFO - Writing section: 3.5 首个成功案例：小医院信息化改造项目 (3.5 First Successful Case: Small Hospital Informatization Transformation Project)
+2025-02-14 18:12:40,825 - INFO - Writing section: 第四章：高速发展与内部矛盾 (Chapter 4: Rapid Development and Internal Conflicts)
+2025-02-14 18:13:02,377 - INFO - Writing section: 4.1 用户和业务爆发式增长：MiForum 的黄金时代 (4.1 Explosive Growth in Users and Business: MiForum's Golden Age)
+2025-02-14 18:13:10,796 - INFO - Writing section: 4.2 团队扩张与管理难题：六人创业团队的裂痕 (4.2 Team Expansion and Management Challenges: Cracks in the Six-Person Founding Team)
+2025-02-14 18:13:22,195 - INFO - Writing section: 4.3 利益分配的争议：股权、期权与兄弟情义的考验 (4.3 Disputes over Profit Distribution: Equity, Options, and the Test of Brotherhood)
+2025-02-14 18:13:30,799 - INFO - Writing section: 4.4 明哥的技术路线之争：保守与激进的选择 (4.4 Ming Ge's Technical Route Dispute: Conservative vs. Radical Choices)
+2025-02-14 18:13:39,089 - INFO - Writing section: 4.5 晓阳的野心与Daniel的保守：市场扩张策略的分歧 (4.5 Xiao Yang's Ambition and Daniel's Conservatism: Divergence in Market Expansion Strategies)
+2025-02-14 18:13:44,414 - INFO - Writing section: 第五章：危机与挑战 (Chapter 5: Crisis and Challenge)
+2025-02-14 18:14:04,643 - INFO - Writing section: 5.1 行业巨头的入场：竞争加剧与生存压力 (5.1 Entry of Industry Giants: Intensified Competition and Survival Pressure)
+2025-02-14 18:14:14,213 - INFO - Writing section: 5.2 负面舆情危机：医疗事故与论坛责任的质疑 (5.2 Negative Public Opinion Crisis: Medical Accidents and Questions about Forum Responsibility)
+2025-02-14 18:14:21,586 - INFO - Writing section: 5.3 资金链断裂风险：扩张过快与融资困境 (5.3 Risk of Capital Chain Breakage: Over-Rapid Expansion and Financing Difficulties)
+2025-02-14 18:14:28,245 - INFO - Writing section: 5.4 内部信任危机：猜疑与背叛的阴影 (5.4 Internal Trust Crisis: Shadows of Suspicion and Betrayal)
+2025-02-14 18:14:36,535 - INFO - Writing section: 5.5 石头与晓 Xun'er 的感情危机：误会与第三者的插足 (5.5 Shi Tou and Xiao Xun'er's Relationship Crisis: Misunderstandings and Third-Party Intervention)
+2025-02-14 18:14:40,531 - INFO - Writing section: 第六章：绝地反击 (Chapter 6: Counterattack from the Brink)
+2025-02-14 18:15:05,440 - INFO - Writing section: 6.1 团队重聚与反思：重拾初心，凝聚力量 (6.1 Team Reunion and Reflection: Rediscovering the Original Intention and Gathering Strength)
+2025-02-14 18:15:14,535 - INFO - Writing section: 6.2 技术创新与产品升级：MiForum 3.0 的诞生 (6.2 Technical Innovation and Product Upgrade: The Birth of MiForum 3.0)
+2025-02-14 18:15:27,019 - INFO - Writing section: 6.3 危机公关与舆论反转：化解负面影响，重塑品牌形象 (6.3 Crisis Public Relations and Public Opinion Reversal: Resolving Negative Impact, Reshaping Brand Image)
+2025-02-14 18:15:35,929 - INFO - Writing section: 6.4 引入战略投资：获得资金支持，摆脱困境 (6.4 Introducing Strategic Investment: Obtaining Financial Support, Getting Out of Trouble)
+2025-02-14 18:15:43,221 - INFO - Writing section: 6.5 张琨与Ya Fei 的抉择：感情的最终归宿 (6.5 Zhang Kun and Ya Fei's Choice: The Final Destination of Emotion)
+2025-02-14 18:15:53,871 - INFO - Writing section: 第七章：走向巅峰 (Chapter 7: Towards the Peak)
+2025-02-14 18:16:17,712 - INFO - Writing section: 7.1 MiForum 品牌影响力扩大：行业领导者地位的确立 (7.1 MiForum Brand Influence Expansion: Establishment of Industry Leader Status)
+2025-02-14 18:16:25,672 - INFO - Writing section: 7.2 业务多元化拓展：产业链上下游的布局 (7.2 Business Diversification Expansion: Layout of the Upstream and Downstream of the Industrial Chain)
+2025-02-14 18:16:33,168 - INFO - Writing section: 7.3 国际化战略启动：进军海外市场，走向全球 (7.3 Internationalization Strategy Launch: Entering Overseas Markets, Going Global)
+2025-02-14 18:16:43,238 - INFO - Writing section: 7.4 石头和晓 Xun'er 的重归于好：爱情的考验与升华 (7.4 Shi Tou and Xiao Xun'er's Reconciliation: The Test and Sublimation of Love)
+2025-02-14 18:16:56,615 - INFO - Writing section: 7.5 IPO 准备：最后的冲刺与资本市场的期待 (7.5 IPO Preparation: The Final Sprint and Capital Market Expectations)
+2025-02-14 18:17:03,480 - INFO - Writing section: 第八章：敲钟上市，梦想照进现实 (Chapter 8: IPO Listing, Dreams Become Reality)
+2025-02-14 18:17:19,983 - INFO - Writing section: 8.1 IPO路演与认购火爆：资本市场的认可 (8.1 IPO Roadshow and Hot Subscription: Recognition from the Capital Market)
+2025-02-14 18:17:31,544 - INFO - Writing section: 8.2 敲钟仪式：荣耀时刻与新的起点 (8.2 Bell-Ringing Ceremony: Moment of Glory and New Beginning)
+2025-02-14 18:17:46,488 - INFO - Writing section: 8.3 上市后的MiForum：新的挑战与未来展望 (8.3 MiForum After Listing: New Challenges and Future Prospects)
+2025-02-14 18:17:53,974 - INFO - Writing section: 尾声：蜜蜂会的故事还在继续 (Epilogue: The Story of MiForum Continues)
+2025-02-14 18:18:01,412 - INFO - Article saved to: articles/蜜蜂会MiForum逆袭之路_20250214_181801.md
+2025-02-14 18:18:01,412 - INFO - Article generation completed successfully
+2025-02-14 18:18:01,412 - INFO - Log file: logs/蜜蜂会MiForum逆袭之路_20250214_180927.log
+2025-02-14 18:18:01,412 - INFO - Outline file: articles/蜜蜂会MiForum逆袭之路_20250214_180948_outline.json
+2025-02-14 18:18:01,412 - INFO - Article file: articles/蜜蜂会MiForum逆袭之路_20250214_181801.md

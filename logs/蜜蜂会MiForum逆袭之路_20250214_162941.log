@@ -1,0 +1,11 @@
+2025-02-14 16:29:41,701 - INFO - Starting enhanced article generation for: 蜜蜂会（MiForum）逆袭之路
+2025-02-14 16:29:42,940 - ERROR - Error generating outline: 400 API key not valid. Please pass a valid API key. [reason: "API_KEY_INVALID"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "generativelanguage.googleapis.com"
+}
+, locale: "en-US"
+message: "API key not valid. Please pass a valid API key."
+]
+2025-02-14 16:29:42,940 - ERROR - Exiting due to outline generation failure.

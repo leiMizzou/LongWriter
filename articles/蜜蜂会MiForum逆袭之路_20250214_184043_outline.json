@@ -1,0 +1,251 @@
+[
+  {
+    "title": "楔子：燕京的夏夜与未名的野心 (Prologue: Summer Night in Yanjing and Unnamed Ambition)",
+    "length": 300,
+    "level": 1
+  },
+  {
+    "title": "初创：中关村陋室里的六个臭皮匠 (Genesis: Six Cobblers in a Cramped Zhongguancun Room)",
+    "length": 1200,
+    "level": 1
+  },
+  {
+    "title": "梦想的萌芽 (The Seed of a Dream)",
+    "length": 300,
+    "level": 2,
+    "parent": "初创：中关村陋室里的六个臭皮匠"
+  },
+  {
+    "title": "石头和他的代码：技术立身的执念 (Shi Tou and His Code: Obsession with Technology as Foundation)",
+    "length": 250,
+    "level": 2,
+    "parent": "初创：中关村陋室里的六个臭皮匠"
+  },
+  {
+    "title": "张琨的忽悠：商业模式的最初构想 (Zhang Kun's Hustle: The Initial Concept of a Business Model)",
+    "length": 250,
+    "level": 2,
+    "parent": "初创：中关村陋室里的六个臭皮匠"
+  },
+  {
+    "title": "明哥的江湖气：早期团队的凝聚力 (Ming Ge's Jianghu Spirit: Cohesion of the Early Team)",
+    "length": 200,
+    "level": 2,
+    "parent": "初创：中关村陋室里的六个臭皮匠"
+  },
+  {
+    "title": "晓阳的网感：论坛的雏形与用户积累 (Xiao Yang's Internet Sense: The Forum's Prototype and User Accumulation)",
+    "length": 200,
+    "level": 2,
+    "parent": "初创：中关村陋室里的六个臭皮匠"
+  },
+  {
+    "title": "Daniel的洋范儿：国际视野的早期布局 (Daniel's Western Style: Early Layout of International Vision)",
+    "length": 100,
+    "level": 2,
+    "parent": "初创：中关村陋室里的六个臭皮匠"
+  },
+  {
+    "title": "三石的沉稳：后勤保障与细节把控 (San Shi's Steadiness: Logistics Support and Detail Control)",
+    "length": 100,
+    "level": 2,
+    "parent": "初创：中关村陋室里的六个臭皮匠"
+  },
+  {
+    "title": "蜜蜂会（MiForum）的诞生：从BBS到行业的灯塔 (The Birth of MiForum: From BBS to Industry Beacon)",
+    "length": 1500,
+    "level": 1
+  },
+  {
+    "title": "医疗信息化的蛮荒时代：政策与市场的夹缝 (The Wild West Era of Medical Informatics: Between Policy and Market)",
+    "length": 300,
+    "level": 2,
+    "parent": "蜜蜂会（MiForum）的诞生：从BBS到行业的灯塔"
+  },
+  {
+    "title": "MiForum 1.0：简陋的界面与狂热的用户 (MiForum 1.0: Crude Interface and Fanatical Users)",
+    "length": 350,
+    "level": 2,
+    "parent": "蜜蜂会（MiForum）的诞生：从BBS到行业的灯塔"
+  },
+  {
+    "title": "内容为王：专业知识与行业八卦的野蛮生长 (Content is King: Savage Growth of Professional Knowledge and Industry Gossip)",
+    "length": 400,
+    "level": 2,
+    "parent": "蜜蜂会（MiForum）的诞生：从BBS到行业的灯塔"
+  },
+  {
+    "title": "第一次线下聚会：理想主义者的激情碰撞 (First Offline Gathering: Passionate Collision of Idealists)",
+    "length": 250,
+    "level": 2,
+    "parent": "蜜蜂会（MiForum）的诞生：从BBS到行业的灯塔"
+  },
+  {
+    "title": "办公室的暧昧：晓阳与萧薰儿的初遇 (Office Ambiguity: Xiao Yang and Xiao Xun'er's First Encounter)",
+    "length": 200,
+    "level": 2,
+    "parent": "蜜蜂会（MiForum）的诞生：从BBS到行业的灯塔"
+  },
+  {
+    "title": "风雨欲来：资本的试探与行业的暗流 (Storm Brewing: Capital's Tentative Probes and Industry Undercurrents)",
+    "length": 1800,
+    "level": 1
+  },
+  {
+    "title": "竞争对手的崛起：山寨论坛与免费模式的冲击 (Rise of Competitors: Shanzhai Forums and the Impact of Free Models)",
+    "length": 400,
+    "level": 2,
+    "parent": "风雨欲来：资本的试探与行业的暗流"
+  },
+  {
+    "title": "资金链危机：服务器成本与运营压力 (Funding Crisis: Server Costs and Operational Pressure)",
+    "length": 350,
+    "level": 2,
+    "parent": "风雨欲来：资本的试探与行业的暗流"
+  },
+  {
+    "title": "内部裂痕：商业化路径的争论与团队分歧 (Internal Rifts: Debate on Commercialization Path and Team Disagreements)",
+    "length": 400,
+    "level": 2,
+    "parent": "风雨欲来：资本的试探与行业的暗流"
+  },
+  {
+    "title": "张琨的背叛？高薪诱惑与兄弟情义的抉择 (Zhang Kun's Betrayal? Temptation of High Salary and Choice Between Brotherhood)",
+    "length": 350,
+    "level": 2,
+    "parent": "风雨欲来：资本的试探与行业的暗流"
+  },
+  {
+    "title": "情场失意：晓阳与萧薰儿的误会与隔阂 (Love Setback: Misunderstanding and Estrangement Between Xiao Yang and Xiao Xun'er)",
+    "length": 300,
+    "level": 2,
+    "parent": "风雨欲来：资本的试探与行业的暗流"
+  },
+  {
+    "title": "绝地反击：技术升级与商业模式的转型 (Counterattack from Desperation: Technical Upgrade and Business Model Transformation)",
+    "length": 2000,
+    "level": 1
+  },
+  {
+    "title": "技术突围：石头带领团队研发新一代平台 (Technical Breakthrough: Shi Tou Leads the Team to Develop a New Generation Platform)",
+    "length": 450,
+    "level": 2,
+    "parent": "绝地反击：技术升级与商业模式的转型"
+  },
+  {
+    "title": "内容生态重塑：从论坛到社区，用户运营的新思路 (Content Ecosystem Reshaping: From Forum to Community, New Ideas for User Operation)",
+    "length": 400,
+    "level": 2,
+    "parent": "绝地反击：技术升级与商业模式的转型"
+  },
+  {
+    "title": "商业模式探索：会员付费与精准广告的尝试 (Business Model Exploration: Attempts at Membership Fees and Targeted Advertising)",
+    "length": 350,
+    "level": 2,
+    "parent": "绝地反击：技术升级与商业模式的转型"
+  },
+  {
+    "title": "明哥的回归：兄弟重聚，再战江湖 (Ming Ge's Return: Brothers Reunited, Fighting in the Jianghu Again)",
+    "length": 300,
+    "level": 2,
+    "parent": "绝地反击：技术升级与商业模式的转型"
+  },
+  {
+    "title": "爱情的转机：晓阳的真诚与萧薰儿的回应 (Turning Point in Love: Xiao Yang's Sincerity and Xiao Xun'er's Response)",
+    "length": 300,
+    "level": 2,
+    "parent": "绝地反击：技术升级与商业模式的转型"
+  },
+  {
+    "title": "乘风破浪：MiForum的快速发展与行业地位的奠定 (Riding the Wind and Waves: MiForum's Rapid Development and Consolidation of Industry Position)",
+    "length": 1800,
+    "level": 1
+  },
+  {
+    "title": "资本青睐：风险投资的注入与估值的飙升 (Capital Favor: Injection of Venture Capital and Soaring Valuation)",
+    "length": 400,
+    "level": 2,
+    "parent": "乘风破浪：MiForum的快速发展与行业地位的奠定"
+  },
+  {
+    "title": "业务扩张：从线上论坛到医疗信息化解决方案提供商 (Business Expansion: From Online Forum to Medical Informatics Solution Provider)",
+    "length": 400,
+    "level": 2,
+    "parent": "乘风破浪：MiForum的快速发展与行业地位的奠定"
+  },
+  {
+    "title": "团队壮大：引入职业经理人与人才梯队建设 (Team Expansion: Introduction of Professional Managers and Talent Pipeline Construction)",
+    "length": 300,
+    "level": 2,
+    "parent": "乘风破浪：MiForum的快速发展与行业地位的奠定"
+  },
+  {
+    "title": "行业峰会：MiForum的声音与行业影响力 (Industry Summit: MiForum's Voice and Industry Influence)",
+    "length": 350,
+    "level": 2,
+    "parent": "乘风破浪：MiForum的快速发展与行业地位的奠定"
+  },
+  {
+    "title": "办公室恋情升温：晓阳与萧薰儿的甜蜜与挑战 (Office Romance Heating Up: Sweetness and Challenges Between Xiao Yang and Xiao Xun'er)",
+    "length": 350,
+    "level": 2,
+    "parent": "乘风破浪：MiForum的快速发展与行业地位的奠定"
+  },
+  {
+    "title": "上市前夜：梦想照进现实与新的焦虑 (The Eve of IPO: Dream Comes True and New Anxieties)",
+    "length": 1500,
+    "level": 1
+  },
+  {
+    "title": "最后的冲刺：Pre-IPO准备与路演的压力 (Final Sprint: Pre-IPO Preparation and Pressure of Roadshow)",
+    "length": 400,
+    "level": 2,
+    "parent": "上市前夜：梦想照进现实与新的焦虑"
+  },
+  {
+    "title": "资本市场的博弈：估值谈判与投资机构的选择 (Game in the Capital Market: Valuation Negotiation and Selection of Investment Institutions)",
+    "length": 350,
+    "level": 2,
+    "parent": "上市前夜：梦想照进现实与新的焦虑"
+  },
+  {
+    "title": "团队的抉择：期权分配与未来的方向 (Team's Choice: Option Allocation and Future Direction)",
+    "length": 300,
+    "level": 2,
+    "parent": "上市前夜：梦想照进现实与新的焦虑"
+  },
+  {
+    "title": "情感的考验：三角恋的爆发与最终的选择 (Emotional Test: Outbreak of Love Triangle and Final Choice)",
+    "length": 300,
+    "level": 2,
+    "parent": "上市前夜：梦想照进现实与新的焦虑"
+  },
+  {
+    "title": "钟声敲响：MiForum成功上市与新的起点 (The Bell Rings: MiForum Successfully Listed and a New Starting Point)",
+    "length": 800,
+    "level": 1
+  },
+  {
+    "title": "上市庆典：鲜花、掌声与功成名就的喜悦 (Listing Celebration: Flowers, Applause, and Joy of Success and Fame)",
+    "length": 250,
+    "level": 2,
+    "parent": "钟声敲响：MiForum成功上市与新的起点"
+  },
+  {
+    "title": "新的挑战：上市后的增长压力与全球化布局 (New Challenges: Post-IPO Growth Pressure and Globalization Layout)",
+    "length": 300,
+    "level": 2,
+    "parent": "钟声敲响：MiForum成功上市与新的起点"
+  },
+  {
+    "title": "回望来路：兄弟情义与梦想的力量 (Looking Back: Brotherhood and the Power of Dreams)",
+    "length": 250,
+    "level": 2,
+    "parent": "钟声敲响：MiForum成功上市与新的起点"
+  },
+  {
+    "title": "尾声：星辰大海，蜜蜂会的未来 (Epilogue: Starry Sea, the Future of MiForum)",
+    "length": 300,
+    "level": 1
+  }
+]

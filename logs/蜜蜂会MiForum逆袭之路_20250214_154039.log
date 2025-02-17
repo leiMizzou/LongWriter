@@ -1,0 +1,1306 @@
+2025-02-14 15:40:39,326 - INFO - Starting article generation for: 蜜蜂会（MiForum）逆袭之路
+2025-02-14 15:40:39,326 - INFO - Log file created at: logs/蜜蜂会MiForum逆袭之路_20250214_154039.log
+2025-02-14 15:40:39,326 - INFO - Generating outline for title: 蜜蜂会（MiForum）逆袭之路, length: 10000, genre: 城市科幻逆袭爽文, language: 中文
+2025-02-14 15:41:17,293 - INFO - Outline text:
+```json
+[
+  {
+    "title": "第一章：萌芽 (Chapter 1: Germination)",
+    "length": 1000,
+    "level": 1
+  },
+  {
+    "title": "1.1 时代的痛点：医疗信息孤岛 (1.1 Pain Points of the Era: Medical Information Silos)",
+    "length": 200,
+    "level": 2,
+    "parent": "第一章：萌芽 (Chapter 1: Germination)"
+  },
+  {
+    "title": "1.2 六个不安分的灵魂 (1.2 Six Restless Souls)",
+    "length": 300,
+    "level": 2,
+    "parent": "第一章：萌芽 (Chapter 1: Germination)"
+  },
+  {
+    "title": "1.2.1 石头：代码理想主义者 (1.2.1 Stone: Code Idealist)",
+    "length": 50,
+    "level": 3,
+    "parent": "1.2 六个不安分的灵魂 (1.2 Six Restless Souls)"
+  },
+  {
+    "title": "1.2.2 张琨：精明的市场猎手 (1.2.2 Zhang Kun: Shrewd Market Hunter)",
+    "length": 50,
+    "level": 3,
+    "parent": "1.2 六个不安分的灵魂 (1.2 Six Restless Souls)"
+  },
+  {
+    "title": "1.2.3 明哥：人脉与战略大师 (1.2.3 Ming Ge: Network and Strategy Master)",
+    "length": 50,
+    "level": 3,
+    "parent": "1.2 六个不安分的灵魂 (1.2 Six Restless Souls)"
+  },
+  {
+    "title": "1.2.4 晓阳：用户体验至上 (1.2.4 Xiaoyang: User Experience First)",
+    "length": 50,
+    "level": 3,
+    "parent": "1.2 六个不安分的灵魂 (1.2 Six Restless Souls)"
+  },
+  {
+    "title": "1.2.5 Daniel：国际视野的技术先锋 (1.2.5 Daniel: International Visionary Tech Pioneer)",
+    "length": 50,
+    "level": 3,
+    "parent": "1.2 六个不安分的灵魂 (1.2 Six Restless Souls)"
+  },
+  {
+    "title": "1.2.6 三石：默默耕耘的基石 (1.2.6 Sanshi: Silent and Diligent Cornerstone)",
+    "length": 50,
+    "level": 3,
+    "parent": "1.2 六个不安分的灵魂 (1.2 Six Restless Souls)"
+  },
+  {
+    "title": "1.3 蜜蜂会（MiForum）的诞生 (1.3 Birth of MiForum)",
+    "length": 300,
+    "level": 2,
+    "parent": "第一章：萌芽 (Chapter 1: Germination)"
+  },
+  {
+    "title": "1.3.1 简陋的论坛雏形 (1.3.1 Rudimentary Forum Prototype)",
+    "length": 100,
+    "level": 3,
+    "parent": "1.3 蜜蜂会（MiForum）的诞生 (1.3 Birth of MiForum)"
+  },
+  {
+    "title": "1.3.2 初期的社区氛围 (1.3.2 Initial Community Atmosphere)",
+    "length": 100,
+    "level": 3,
+    "parent": "1.3 蜜蜂会（MiForum）的诞生 (1.3 Birth of MiForum)"
+  },
+  {
+    "title": "1.3.3 梦想与现实的碰撞 (1.3.3 Clash Between Dreams and Reality)",
+    "length": 100,
+    "level": 3,
+    "parent": "1.3 蜜蜂会（MiForum）的诞生 (1.3 Birth of MiForum)"
+  },
+  {
+    "title": "1.4 初露锋芒 (1.4 Showing Initial Promise)",
+    "length": 200,
+    "level": 2,
+    "parent": "第一章：萌芽 (Chapter 1: Germination)"
+  },
+  {
+    "title": "1.4.1 首批忠实用户 (1.4.1 First Batch of Loyal Users)",
+    "length": 100,
+    "level": 3,
+    "parent": "1.4 初露锋芒 (1.4 Showing Initial Promise)"
+  },
+  {
+    "title": "1.4.2 技术的初步积累 (1.4.2 Initial Technology Accumulation)",
+    "length": 100,
+    "level": 3,
+    "parent": "1.4 初露锋芒 (1.4 Showing Initial Promise)"
+  },
+  {
+    "title": "第二章：成长与阵痛 (Chapter 2: Growth and Growing Pains)",
+    "length": 2000,
+    "level": 1
+  },
+  {
+    "title": "2.1 用户井喷与社区扩张 (2.1 User Explosion and Community Expansion)",
+    "length": 400,
+    "level": 2,
+    "parent": "第二章：成长与阵痛 (Chapter 2: Growth and Growing Pains)"
+  },
+  {
+    "title": "2.1.1 口碑传播的力量 (2.1.1 Power of Word-of-Mouth)",
+    "length": 100,
+    "level": 3,
+    "parent": "2.1 用户井喷与社区扩张 (2.1 User Explosion and Community Expansion)"
+  },
+  {
+    "title": "2.1.2 内容生态的建立 (2.1.2 Establishment of Content Ecosystem)",
+    "length": 150,
+    "level": 3,
+    "parent": "2.1 用户井喷与社区扩张 (2.1 User Explosion and Community Expansion)"
+  },
+  {
+    "title": "2.1.3 论坛功能的迭代升级 (2.1.3 Iterative Upgrades of Forum Functions)",
+    "length": 150,
+    "level": 3,
+    "parent": "2.1 用户井喷与社区扩张 (2.1 User Explosion and Community Expansion)"
+  },
+  {
+    "title": "2.2 技术瓶颈与架构升级 (2.2 Technical Bottlenecks and Architecture Upgrade)",
+    "length": 300,
+    "level": 2,
+    "parent": "第二章：成长与阵痛 (Chapter 2: Growth and Growing Pains)"
+  },
+  {
+    "title": "2.2.1 服务器压力与性能优化 (2.2.1 Server Pressure and Performance Optimization)",
+    "length": 150,
+    "level": 3,
+    "parent": "2.2 技术瓶颈与架构升级 (2.2 Technical Bottlenecks and Architecture Upgrade)"
+  },
+  {
+    "title": "2.2.2 云计算的引入 (2.2.2 Introduction of Cloud Computing)",
+    "length": 150,
+    "level": 3,
+    "parent": "2.2 技术瓶颈与架构升级 (2.2 Technical Bottlenecks and Architecture Upgrade)"
+  },
+  {
+    "title": "2.3 商业模式的探索 (2.3 Exploration of Business Models)",
+    "length": 300,
+    "level": 2,
+    "parent": "第二章：成长与阵痛 (Chapter 2: Growth and Growing Pains)"
+  },
+  {
+    "title": "2.3.1 广告与赞助的尝试 (2.3.1 Attempts at Advertising and Sponsorship)",
+    "length": 150,
+    "level": 3,
+    "parent": "2.3 商业模式的探索 (2.3 Exploration of Business Models)"
+  },
+  {
+    "title": "2.3.2 医疗机构合作的初步构想 (2.3.2 Initial Concept of Cooperation with Medical Institutions)",
+    "length": 150,
+    "level": 3,
+    "parent": "2.3 商业模式的探索 (2.3 Exploration of Business Models)"
+  },
+  {
+    "title": "2.4 内部矛盾与分歧 (2.4 Internal Conflicts and Disagreements)",
+    "length": 400,
+    "level": 2,
+    "parent": "第二章：成长与阵痛 (Chapter 2: Growth and Growing Pains)"
+  },
+  {
+    "title": "2.4.1 发展方向的争论 (2.4.1 Debate on Development Direction)",
+    "length": 150,
+    "level": 3,
+    "parent": "2.4 内部矛盾与分歧 (2.4 Internal Conflicts and Disagreements)"
+  },
+  {
+    "title": "2.4.2 利益分配的难题 (2.4.2 Difficulties in Profit Distribution)",
+    "length": 150,
+    "level": 3,
+    "parent": "2.4 内部矛盾与分歧 (2.4 Internal Conflicts and Disagreements)"
+  },
+  {
+    "title": "2.4.3 情感的暗流涌动 (2.4.3 Undercurrents of Emotions)",
+    "length": 100,
+    "level": 3,
+    "parent": "2.4 内部矛盾与分歧 (2.4 Internal Conflicts and Disagreements)"
+  },
+  {
+    "title": "2.5 竞争对手的出现 (2.5 Emergence of Competitors)",
+    "length": 300,
+    "level": 2,
+    "parent": "第二章：成长与阵痛 (Chapter 2: Growth and Growing Pains)"
+  },
+  {
+    "title": "2.5.1 模仿者与创新者 (2.5.1 Imitators and Innovators)",
+    "length": 150,
+    "level": 3,
+    "parent": "2.5 竞争对手的出现 (2.5 Emergence of Competitors)"
+  },
+  {
+    "title": "2.5.2 市场份额的争夺 (2.5.2 Competition for Market Share)",
+    "length": 150,
+    "level": 3,
+    "parent": "2.5 竞争对手的出现 (2.5 Emergence of Competitors)"
+  },
+  {
+    "title": "第三章：危机与背叛 (Chapter 3: Crisis and Betrayal)",
+    "length": 2000,
+    "level": 1
+  },
+  {
+    "title": "3.1 暴风雨前的宁静 (3.1 Calm Before the Storm)",
+    "length": 200,
+    "level": 2,
+    "parent": "第三章：危机与背叛 (Chapter 3: Crisis and Betrayal)"
+  },
+  {
+    "title": "3.1.1 短暂的辉煌与隐忧 (3.1.1 Brief Glory and Hidden Worries)",
+    "length": 100,
+    "level": 3,
+    "parent": "3.1 暴风雨前的宁静 (3.1 Calm Before the Storm)"
+  },
+  {
+    "title": "3.1.2 暗藏的商业陷阱 (3.1.2 Hidden Business Traps)",
+    "length": 100,
+    "level": 3,
+    "parent": "3.1 暴风雨前的宁静 (3.1 Calm Before the Storm)"
+  },
+  {
+    "title": "3.2 来自内部的背叛 (3.2 Betrayal from Within)",
+    "length": 500,
+    "level": 2,
+    "parent": "第三章：危机与背叛 (Chapter 3: Crisis and Betrayal)"
+  },
+  {
+    "title": "3.2.1 核心成员的倒戈 (3.2.1 Defection of a Core Member)",
+    "length": 200,
+    "level": 3,
+    "parent": "3.2 来自内部的背叛 (3.2 Betrayal from Within)"
+  },
+  {
+    "title": "3.2.2 技术机密的泄露 (3.2.2 Leakage of Technical Secrets)",
+    "length": 150,
+    "level": 3,
+    "parent": "3.2 来自内部的背叛 (3.2 Betrayal from Within)"
+  },
+  {
+    "title": "3.2.3 情感与利益的纠葛 (3.2.3 Entanglement of Emotions and Interests)",
+    "length": 150,
+    "level": 3,
+    "parent": "3.2 来自内部的背叛 (3.2 Betrayal from Within)"
+  },
+  {
+    "title": "3.3 外部冲击与市场寒冬 (3.3 External Shocks and Market Winter)",
+    "length": 400,
+    "level": 2,
+    "parent": "第三章：危机与背叛 (Chapter 3: Crisis and Betrayal)"
+  },
+  {
+    "title": "3.3.1 政策监管的收紧 (3.3.1 Tightening of Policy Regulation)",
+    "length": 150,
+    "level": 3,
+    "parent": "3.3 外部冲击与市场寒冬 (3.3 External Shocks and Market Winter)"
+  },
+  {
+    "title": "3.3.2 资本市场的退潮 (3.3.2 Ebb of the Capital Market)",
+    "length": 150,
+    "level": 3,
+    "parent": "3.3 外部冲击与市场寒冬 (3.3 External Shocks and Market Winter)"
+  },
+  {
+    "title": "3.3.3 竞争对手的恶意打压 (3.3.3 Malicious Suppression by Competitors)",
+    "length": 100,
+    "level": 3,
+    "parent": "3.3 外部冲击与市场寒冬 (3.3 External Shocks and Market Winter)"
+  },
+  {
+    "title": "3.4 蜜蜂会的至暗时刻 (3.4 MiForum's Darkest Hour)",
+    "length": 500,
+    "level": 2,
+    "parent": "第三章：危机与背叛 (Chapter 3: Crisis and Betrayal)"
+  },
+  {
+    "title": "3.4.1 用户流失与社区信任危机 (3.4.1 User Churn and Community Trust Crisis)",
+    "length": 200,
+    "level": 3,
+    "parent": "3.4 蜜蜂会的至暗时刻 (3.4 MiForum's Darkest Hour)"
+  },
+  {
+    "title": "3.4.2 资金链断裂的边缘 (3.4.2 On the Verge of Cash Flow Breakage)",
+    "length": 150,
+    "level": 3,
+    "parent": "3.4 蜜蜂会的至暗时刻 (3.4 MiForum's Darkest Hour)"
+  },
+  {
+    "title": "3.4.3 团队的解散危机 (3.4.3 Crisis of Team Dissolution)",
+    "length": 150,
+    "level": 3,
+    "parent": "3.4 蜜蜂会的至暗时刻 (3.4 MiForum's Darkest Hour)"
+  },
+  {
+    "title": "3.5 绝望与反思 (3.5 Despair and Reflection)",
+    "length": 400,
+    "level": 2,
+    "parent": "第三章：危机与背叛 (Chapter 3: Crisis and Betrayal)"
+  },
+  {
+    "title": "3.5.1 失败的痛苦与教训 (3.5.1 Pain and Lessons of Failure)",
+    "length": 200,
+    "level": 3,
+    "parent": "3.5 绝望与反思 (3.5 Despair and Reflection)"
+  },
+  {
+    "title": "3.5.2 重新审视初心 (3.5.2 Re-examining the Original Intention)",
+    "length": 200,
+    "level": 3,
+    "parent": "3.5 绝望与反思 (3.5 Despair and Reflection)"
+  },
+  {
+    "title": "第四章：涅槃与复仇 (Chapter 4: Rebirth and Revenge)",
+    "length": 2500,
+    "level": 1
+  },
+  {
+    "title": "4.1 从废墟中站起 (4.1 Rising from the Ruins)",
+    "length": 300,
+    "level": 2,
+    "parent": "第四章：涅槃与复仇 (Chapter 4: Rebirth and Revenge)"
+  },
+  {
+    "title": "4.1.1 幸存者的集结 (4.1.1 Gathering of Survivors)",
+    "length": 150,
+    "level": 3,
+    "parent": "4.1 从废墟中站起 (4.1 Rising from the Ruins)"
+  },
+  {
+    "title": "4.1.2 重燃的斗志与希望 (4.1.2 Reignited Fighting Spirit and Hope)",
+    "length": 150,
+    "level": 3,
+    "parent": "4.1 从废墟中站起 (4.1 Rising from the Ruins)"
+  },
+  {
+    "title": "4.2 重塑联盟与分工 (4.2 Reshaping Alliance and Division of Labor)",
+    "length": 400,
+    "level": 2,
+    "parent": "第四章：涅槃与复仇 (Chapter 4: Rebirth and Revenge)"
+  },
+  {
+    "title": "4.2.1 重新定义角色与职责 (4.2.1 Redefining Roles and Responsibilities)",
+    "length": 200,
+    "level": 3,
+    "parent": "4.2 重塑联盟与分工 (4.2 Reshaping Alliance and Division of Labor)"
+  },
+  {
+    "title": "4.2.2 信任与合作的重建 (4.2.2 Rebuilding Trust and Cooperation)",
+    "length": 200,
+    "level": 3,
+    "parent": "4.2 重塑联盟与分工 (4.2 Reshaping Alliance and Division of Labor)"
+  },
+  {
+    "title": "4.3 技术革新与战略升级 (4.3 Technological Innovation and Strategic Upgrade)",
+    "length": 500,
+    "level": 2,
+    "parent": "第四章：涅槃与复仇 (Chapter 4: Rebirth and Revenge)"
+  },
+  {
+    "title": "4.3.1 突破性技术的研发 (4.3.1 R&D of Breakthrough Technologies)",
+    "length": 200,
+    "level": 3,
+    "parent": "4.3 技术革新与战略升级 (4.3 Technological Innovation and Strategic Upgrade)"
+  },
+  {
+    "title": "4.3.2 智能化医疗信息平台的构建 (4.3.2 Building an Intelligent Medical Information Platform)",
+    "length": 200,
+    "level": 3,
+    "parent": "4.3 技术革新与战略升级 (4.3 Technological Innovation and Strategic Upgrade)"
+  },
+  {
+    "title": "4.3.3 差异化竞争策略的制定 (4.3.3 Formulation of Differentiated Competitive Strategy)",
+    "length": 100,
+    "level": 3,
+    "parent": "4.3 技术革新与战略升级 (4.3 Technological Innovation and Strategic Upgrade)"
+  },
+  {
+    "title": "4.4 蛰伏与秘密行动 (4.4 Hibernation and Secret Operations)",
+    "length": 400,
+    "level": 2,
+    "parent": "第四章：涅槃与复仇 (Chapter 4: Rebirth and Revenge)"
+  },
+  {
+    "title": "4.4.1 低调发展与用户回流 (4.4.1 Low-Profile Development and User Return)",
+    "length": 200,
+    "level": 3,
+    "parent": "4.4 蛰伏与秘密行动 (4.4 Hibernation and Secret Operations)"
+  },
+  {
+    "title": "4.4.2 暗中调查与证据搜集 (4.4.2 Secret Investigation and Evidence Collection)",
+    "length": 200,
+    "level": 3,
+    "parent": "4.4 蛰伏与秘密行动 (4.4 Hibernation and Secret Operations)"
+  },
+  {
+    "title": "4.5 揭露真相与反击 (4.5 Revealing the Truth and Counterattack)",
+    "length": 500,
+    "level": 2,
+    "parent": "第四章：涅槃与复仇 (Chapter 4: Rebirth and Revenge)"
+  },
+  {
+    "title": "4.5.1 公开背叛者的阴谋 (4.5.1 Publicly Exposing the Betrayer's Conspiracy)",
+    "length": 200,
+    "level": 3,
+    "parent": "4.5 揭露真相与反击 (4.5 Revealing the Truth and Counterattack)"
+  },
+  {
+    "title": "4.5.2 舆论反转与声誉重建 (4.5.2 Public Opinion Reversal and Reputation Rebuilding)",
+    "length": 200,
+    "level": 3,
+    "parent": "4.5 揭露真相与反击 (4.5 Revealing the Truth and Counterattack)"
+  },
+  {
+    "title": "4.5.3 法律与商业的双重打击 (4.5.3 Dual Blow of Legal and Commercial Actions)",
+    "length": 100,
+    "level": 3,
+    "parent": "4.5 揭露真相与反击 (4.5 Revealing the Truth and Counterattack)"
+  },
+  {
+    "title": "4.6 初战告捷 (4.6 Initial Victory)",
+    "length": 400,
+    "level": 2,
+    "parent": "第四章：涅槃与复仇 (Chapter 4: Rebirth and Revenge)"
+  },
+  {
+    "title": "4.6.1 重新赢得市场认可 (4.6.1 Regaining Market Recognition)",
+    "length": 200,
+    "level": 3,
+    "parent": "4.6 初战告捷 (4.6 Initial Victory)"
+  },
+  {
+    "title": "4.6.2 团队士气的高涨 (4.6.2 Rising Team Morale)",
+    "length": 200,
+    "level": 3,
+    "parent": "4.6 初战告捷 (4.6 Initial Victory)"
+  },
+  {
+    "title": "第五章：崛起与辉煌 (Chapter 5: Rise and Glory)",
+    "length": 1500,
+    "level": 1
+  },
+  {
+    "title": "5.1 高速增长与市场扩张 (5.1 Rapid Growth and Market Expansion)",
+    "length": 300,
+    "level": 2,
+    "parent": "第五章：崛起与辉煌 (Chapter 5: Rise and Glory)"
+  },
+  {
+    "title": "5.1.1 创新产品与服务推陈出新 (5.1.1 Continuous Innovation of Products and Services)",
+    "length": 150,
+    "level": 3,
+    "parent": "5.1 高速增长与市场扩张 (5.1 Rapid Growth and Market Expansion)"
+  },
+  {
+    "title": "5.1.2 战略合作与生态构建 (5.1.2 Strategic Cooperation and Ecosystem Construction)",
+    "length": 150,
+    "level": 3,
+    "parent": "5.1 高速增长与市场扩张 (5.1 Rapid Growth and Market Expansion)"
+  },
+  {
+    "title": "5.2 资本加持与快速融资 (5.2 Capital Support and Rapid Financing)",
+    "length": 300,
+    "level": 2,
+    "parent": "第五章：崛起与辉煌 (Chapter 5: Rise and Glory)"
+  },
+  {
+    "title": "5.2.1 吸引顶级投资机构 (5.2.1 Attracting Top Investment Institutions)",
+    "length": 150,
+    "level": 3,
+    "parent": "5.2 资本加持与快速融资 (5.2 Capital Support and Rapid Financing)"
+  },
+  {
+    "title": "5.2.2 多轮融资与估值飞涨 (5.2.2 Multiple Rounds of Financing and Soaring Valuation)",
+    "length": 150,
+    "level": 3,
+    "parent": "5.2 资本加持与快速融资 (5.2 Capital Support and Rapid Financing)"
+  },
+  {
+    "title": "5.3 扫清障碍与最终胜利 (5.3 Clearing Obstacles and Final Victory)",
+    "length": 400,
+    "level": 2,
+    "parent": "第五章：崛起与辉煌 (Chapter 5: Rise and Glory)"
+  },
+  {
+    "title": "5.3.1 解决遗留问题与法律纠纷 (5.3.1 Resolving Legacy Issues and Legal Disputes)",
+    "length": 200,
+    "level": 3,
+    "parent": "5.3 扫清障碍与最终胜利 (5.3 Clearing Obstacles and Final Victory)"
+  },
+  {
+    "title": "5.3.2 击败最后的竞争对手 (5.3.2 Defeating the Last Competitors)",
+    "length": 200,
+    "level": 3,
+    "parent": "5.3 扫清障碍与最终胜利 (5.3 Clearing Obstacles and Final Victory)"
+  },
+  {
+    "title": "5.4 IPO之路的开启 (5.4 Opening the Road to IPO)",
+    "length": 500,
+    "level": 2,
+    "parent": "第五章：崛起与辉煌 (Chapter 5: Rise and Glory)"
+  },
+  {
+    "title": "5.4.1 筹备上市与规范化运营 (5.4.1 Preparing for IPO and Standardized Operation)",
+    "length": 250,
+    "level": 3,
+    "parent": "5.4 IPO之路的开启 (5.4 Opening the Road to IPO)"
+  },
+  {
+    "title": "5.4.2 路演与资本市场的期待 (5.4.2 Roadshow and Capital Market Expectations)",
+    "length": 250,
+    "level": 3,
+    "parent": "5.4 IPO之路的开启 (5.4 Opening the Road to IPO)"
+  },
+  {
+    "title": "第六章：巅峰与未来 (Chapter 6: Peak and Future)",
+    "length": 1000,
+    "level": 1
+  },
+  {
+    "title": "6.1 成功上市与荣耀时刻 (6.1 Successful IPO and Moment of Glory)",
+    "length": 300,
+    "level": 2,
+    "parent": "第六章：巅峰与未来 (Chapter 6: Peak and Future)"
+  },
+  {
+    "title": "6.1.1 敲钟仪式与市场欢呼 (6.1.1 Ringing the Bell and Market Cheers)",
+    "length": 150,
+    "level": 3,
+    "parent": "6.1 成功上市与荣耀时刻 (6.1 Successful IPO and Moment of Glory)"
+  },
+  {
+    "title": "6.1.2 创始人团队的感言与展望 (6.1.2 Founders' Remarks and Outlook)",
+    "length": 150,
+    "level": 3,
+    "parent": "6.1 成功上市与荣耀时刻 (6.1 Successful IPO and Moment of Glory)"
+  },
+  {
+    "title": "6.2 回顾与反思 (6.2 Review and Reflection)",
+    "length": 300,
+    "level": 2,
+    "parent": "第六章：巅峰与未来 (Chapter 6: Peak and Future)"
+  },
+  {
+    "title": "6.2.1 创业历程的酸甜苦辣 (6.2.1 Sweet and Sour of the Entrepreneurial Journey)",
+    "length": 150,
+    "level": 3,
+    "parent": "6.2 回顾与反思 (6.2 Review and Reflection)"
+  },
+  {
+    "title": "6.2.2 成长与蜕变的代价 (6.2.2 Cost of Growth and Transformation)",
+    "length": 150,
+    "level": 3,
+    "parent": "6.2 回顾与反思 (6.2 Review and Reflection)"
+  },
+  {
+    "title": "6.3 新的挑战与未来蓝图 (6.3 New Challenges and Future Blueprint)",
+    "length": 300,
+    "level": 2,
+    "parent": "第六章：巅峰与未来 (Chapter 6: Peak and Future)"
+  },
+  {
+    "title": "6.3.1 上市后的责任与压力 (6.3.1 Post-IPO Responsibilities and Pressure)",
+    "length": 150,
+    "level": 3,
+    "parent": "6.3 新的挑战与未来蓝图 (6.3 New Challenges and Future Blueprint)"
+  },
+  {
+    "title": "6.3.2 科技前沿的探索与布局 (6.3.2 Exploration and Layout of Science and Technology Frontiers)",
+    "length": 150,
+    "level": 3,
+    "parent": "6.3 新的挑战与未来蓝图 (6.3 New Challenges and Future Blueprint)"
+  },
+  {
+    "title": "6.4 未完待续的情感与梦想 (6.4 Unfinished Emotions and Dreams)",
+    "length": 100,
+    "level": 2,
+    "parent": "第六章：巅峰与未来 (Chapter 6: Peak and Future)"
+  },
+  {
+    "title": "6.4.1 情感的归宿与新的开始 (6.4.1 Destination of Emotions and New Beginnings)",
+    "length": 50,
+    "level": 3,
+    "parent": "6.4 未完待续的情感与梦想 (6.4 Unfinished Emotions and Dreams)"
+  },
+  {
+    "title": "6.4.2 蜜蜂会的新征程 (6.4.2 MiForum's New Journey)",
+    "length": 50,
+    "level": 3,
+    "parent": "6.4 未完待续的情感与梦想 (6.4 Unfinished Emotions and Dreams)"
+  }
+]
+```
+2025-02-14 15:41:17,295 - INFO - Parsed outline: [
+  {
+    "title": "第一章：萌芽 (Chapter 1: Germination)",
+    "length": 1000,
+    "level": 1
+  },
+  {
+    "title": "1.1 时代的痛点：医疗信息孤岛 (1.1 Pain Points of the Era: Medical Information Silos)",
+    "length": 200,
+    "level": 2,
+    "parent": "第一章：萌芽 (Chapter 1: Germination)"
+  },
+  {
+    "title": "1.2 六个不安分的灵魂 (1.2 Six Restless Souls)",
+    "length": 300,
+    "level": 2,
+    "parent": "第一章：萌芽 (Chapter 1: Germination)"
+  },
+  {
+    "title": "1.2.1 石头：代码理想主义者 (1.2.1 Stone: Code Idealist)",
+    "length": 50,
+    "level": 3,
+    "parent": "1.2 六个不安分的灵魂 (1.2 Six Restless Souls)"
+  },
+  {
+    "title": "1.2.2 张琨：精明的市场猎手 (1.2.2 Zhang Kun: Shrewd Market Hunter)",
+    "length": 50,
+    "level": 3,
+    "parent": "1.2 六个不安分的灵魂 (1.2 Six Restless Souls)"
+  },
+  {
+    "title": "1.2.3 明哥：人脉与战略大师 (1.2.3 Ming Ge: Network and Strategy Master)",
+    "length": 50,
+    "level": 3,
+    "parent": "1.2 六个不安分的灵魂 (1.2 Six Restless Souls)"
+  },
+  {
+    "title": "1.2.4 晓阳：用户体验至上 (1.2.4 Xiaoyang: User Experience First)",
+    "length": 50,
+    "level": 3,
+    "parent": "1.2 六个不安分的灵魂 (1.2 Six Restless Souls)"
+  },
+  {
+    "title": "1.2.5 Daniel：国际视野的技术先锋 (1.2.5 Daniel: International Visionary Tech Pioneer)",
+    "length": 50,
+    "level": 3,
+    "parent": "1.2 六个不安分的灵魂 (1.2 Six Restless Souls)"
+  },
+  {
+    "title": "1.2.6 三石：默默耕耘的基石 (1.2.6 Sanshi: Silent and Diligent Cornerstone)",
+    "length": 50,
+    "level": 3,
+    "parent": "1.2 六个不安分的灵魂 (1.2 Six Restless Souls)"
+  },
+  {
+    "title": "1.3 蜜蜂会（MiForum）的诞生 (1.3 Birth of MiForum)",
+    "length": 300,
+    "level": 2,
+    "parent": "第一章：萌芽 (Chapter 1: Germination)"
+  },
+  {
+    "title": "1.3.1 简陋的论坛雏形 (1.3.1 Rudimentary Forum Prototype)",
+    "length": 100,
+    "level": 3,
+    "parent": "1.3 蜜蜂会（MiForum）的诞生 (1.3 Birth of MiForum)"
+  },
+  {
+    "title": "1.3.2 初期的社区氛围 (1.3.2 Initial Community Atmosphere)",
+    "length": 100,
+    "level": 3,
+    "parent": "1.3 蜜蜂会（MiForum）的诞生 (1.3 Birth of MiForum)"
+  },
+  {
+    "title": "1.3.3 梦想与现实的碰撞 (1.3.3 Clash Between Dreams and Reality)",
+    "length": 100,
+    "level": 3,
+    "parent": "1.3 蜜蜂会（MiForum）的诞生 (1.3 Birth of MiForum)"
+  },
+  {
+    "title": "1.4 初露锋芒 (1.4 Showing Initial Promise)",
+    "length": 200,
+    "level": 2,
+    "parent": "第一章：萌芽 (Chapter 1: Germination)"
+  },
+  {
+    "title": "1.4.1 首批忠实用户 (1.4.1 First Batch of Loyal Users)",
+    "length": 100,
+    "level": 3,
+    "parent": "1.4 初露锋芒 (1.4 Showing Initial Promise)"
+  },
+  {
+    "title": "1.4.2 技术的初步积累 (1.4.2 Initial Technology Accumulation)",
+    "length": 100,
+    "level": 3,
+    "parent": "1.4 初露锋芒 (1.4 Showing Initial Promise)"
+  },
+  {
+    "title": "第二章：成长与阵痛 (Chapter 2: Growth and Growing Pains)",
+    "length": 2000,
+    "level": 1
+  },
+  {
+    "title": "2.1 用户井喷与社区扩张 (2.1 User Explosion and Community Expansion)",
+    "length": 400,
+    "level": 2,
+    "parent": "第二章：成长与阵痛 (Chapter 2: Growth and Growing Pains)"
+  },
+  {
+    "title": "2.1.1 口碑传播的力量 (2.1.1 Power of Word-of-Mouth)",
+    "length": 100,
+    "level": 3,
+    "parent": "2.1 用户井喷与社区扩张 (2.1 User Explosion and Community Expansion)"
+  },
+  {
+    "title": "2.1.2 内容生态的建立 (2.1.2 Establishment of Content Ecosystem)",
+    "length": 150,
+    "level": 3,
+    "parent": "2.1 用户井喷与社区扩张 (2.1 User Explosion and Community Expansion)"
+  },
+  {
+    "title": "2.1.3 论坛功能的迭代升级 (2.1.3 Iterative Upgrades of Forum Functions)",
+    "length": 150,
+    "level": 3,
+    "parent": "2.1 用户井喷与社区扩张 (2.1 User Explosion and Community Expansion)"
+  },
+  {
+    "title": "2.2 技术瓶颈与架构升级 (2.2 Technical Bottlenecks and Architecture Upgrade)",
+    "length": 300,
+    "level": 2,
+    "parent": "第二章：成长与阵痛 (Chapter 2: Growth and Growing Pains)"
+  },
+  {
+    "title": "2.2.1 服务器压力与性能优化 (2.2.1 Server Pressure and Performance Optimization)",
+    "length": 150,
+    "level": 3,
+    "parent": "2.2 技术瓶颈与架构升级 (2.2 Technical Bottlenecks and Architecture Upgrade)"
+  },
+  {
+    "title": "2.2.2 云计算的引入 (2.2.2 Introduction of Cloud Computing)",
+    "length": 150,
+    "level": 3,
+    "parent": "2.2 技术瓶颈与架构升级 (2.2 Technical Bottlenecks and Architecture Upgrade)"
+  },
+  {
+    "title": "2.3 商业模式的探索 (2.3 Exploration of Business Models)",
+    "length": 300,
+    "level": 2,
+    "parent": "第二章：成长与阵痛 (Chapter 2: Growth and Growing Pains)"
+  },
+  {
+    "title": "2.3.1 广告与赞助的尝试 (2.3.1 Attempts at Advertising and Sponsorship)",
+    "length": 150,
+    "level": 3,
+    "parent": "2.3 商业模式的探索 (2.3 Exploration of Business Models)"
+  },
+  {
+    "title": "2.3.2 医疗机构合作的初步构想 (2.3.2 Initial Concept of Cooperation with Medical Institutions)",
+    "length": 150,
+    "level": 3,
+    "parent": "2.3 商业模式的探索 (2.3 Exploration of Business Models)"
+  },
+  {
+    "title": "2.4 内部矛盾与分歧 (2.4 Internal Conflicts and Disagreements)",
+    "length": 400,
+    "level": 2,
+    "parent": "第二章：成长与阵痛 (Chapter 2: Growth and Growing Pains)"
+  },
+  {
+    "title": "2.4.1 发展方向的争论 (2.4.1 Debate on Development Direction)",
+    "length": 150,
+    "level": 3,
+    "parent": "2.4 内部矛盾与分歧 (2.4 Internal Conflicts and Disagreements)"
+  },
+  {
+    "title": "2.4.2 利益分配的难题 (2.4.2 Difficulties in Profit Distribution)",
+    "length": 150,
+    "level": 3,
+    "parent": "2.4 内部矛盾与分歧 (2.4 Internal Conflicts and Disagreements)"
+  },
+  {
+    "title": "2.4.3 情感的暗流涌动 (2.4.3 Undercurrents of Emotions)",
+    "length": 100,
+    "level": 3,
+    "parent": "2.4 内部矛盾与分歧 (2.4 Internal Conflicts and Disagreements)"
+  },
+  {
+    "title": "2.5 竞争对手的出现 (2.5 Emergence of Competitors)",
+    "length": 300,
+    "level": 2,
+    "parent": "第二章：成长与阵痛 (Chapter 2: Growth and Growing Pains)"
+  },
+  {
+    "title": "2.5.1 模仿者与创新者 (2.5.1 Imitators and Innovators)",
+    "length": 150,
+    "level": 3,
+    "parent": "2.5 竞争对手的出现 (2.5 Emergence of Competitors)"
+  },
+  {
+    "title": "2.5.2 市场份额的争夺 (2.5.2 Competition for Market Share)",
+    "length": 150,
+    "level": 3,
+    "parent": "2.5 竞争对手的出现 (2.5 Emergence of Competitors)"
+  },
+  {
+    "title": "第三章：危机与背叛 (Chapter 3: Crisis and Betrayal)",
+    "length": 2000,
+    "level": 1
+  },
+  {
+    "title": "3.1 暴风雨前的宁静 (3.1 Calm Before the Storm)",
+    "length": 200,
+    "level": 2,
+    "parent": "第三章：危机与背叛 (Chapter 3: Crisis and Betrayal)"
+  },
+  {
+    "title": "3.1.1 短暂的辉煌与隐忧 (3.1.1 Brief Glory and Hidden Worries)",
+    "length": 100,
+    "level": 3,
+    "parent": "3.1 暴风雨前的宁静 (3.1 Calm Before the Storm)"
+  },
+  {
+    "title": "3.1.2 暗藏的商业陷阱 (3.1.2 Hidden Business Traps)",
+    "length": 100,
+    "level": 3,
+    "parent": "3.1 暴风雨前的宁静 (3.1 Calm Before the Storm)"
+  },
+  {
+    "title": "3.2 来自内部的背叛 (3.2 Betrayal from Within)",
+    "length": 500,
+    "level": 2,
+    "parent": "第三章：危机与背叛 (Chapter 3: Crisis and Betrayal)"
+  },
+  {
+    "title": "3.2.1 核心成员的倒戈 (3.2.1 Defection of a Core Member)",
+    "length": 200,
+    "level": 3,
+    "parent": "3.2 来自内部的背叛 (3.2 Betrayal from Within)"
+  },
+  {
+    "title": "3.2.2 技术机密的泄露 (3.2.2 Leakage of Technical Secrets)",
+    "length": 150,
+    "level": 3,
+    "parent": "3.2 来自内部的背叛 (3.2 Betrayal from Within)"
+  },
+  {
+    "title": "3.2.3 情感与利益的纠葛 (3.2.3 Entanglement of Emotions and Interests)",
+    "length": 150,
+    "level": 3,
+    "parent": "3.2 来自内部的背叛 (3.2 Betrayal from Within)"
+  },
+  {
+    "title": "3.3 外部冲击与市场寒冬 (3.3 External Shocks and Market Winter)",
+    "length": 400,
+    "level": 2,
+    "parent": "第三章：危机与背叛 (Chapter 3: Crisis and Betrayal)"
+  },
+  {
+    "title": "3.3.1 政策监管的收紧 (3.3.1 Tightening of Policy Regulation)",
+    "length": 150,
+    "level": 3,
+    "parent": "3.3 外部冲击与市场寒冬 (3.3 External Shocks and Market Winter)"
+  },
+  {
+    "title": "3.3.2 资本市场的退潮 (3.3.2 Ebb of the Capital Market)",
+    "length": 150,
+    "level": 3,
+    "parent": "3.3 外部冲击与市场寒冬 (3.3 External Shocks and Market Winter)"
+  },
+  {
+    "title": "3.3.3 竞争对手的恶意打压 (3.3.3 Malicious Suppression by Competitors)",
+    "length": 100,
+    "level": 3,
+    "parent": "3.3 外部冲击与市场寒冬 (3.3 External Shocks and Market Winter)"
+  },
+  {
+    "title": "3.4 蜜蜂会的至暗时刻 (3.4 MiForum's Darkest Hour)",
+    "length": 500,
+    "level": 2,
+    "parent": "第三章：危机与背叛 (Chapter 3: Crisis and Betrayal)"
+  },
+  {
+    "title": "3.4.1 用户流失与社区信任危机 (3.4.1 User Churn and Community Trust Crisis)",
+    "length": 200,
+    "level": 3,
+    "parent": "3.4 蜜蜂会的至暗时刻 (3.4 MiForum's Darkest Hour)"
+  },
+  {
+    "title": "3.4.2 资金链断裂的边缘 (3.4.2 On the Verge of Cash Flow Breakage)",
+    "length": 150,
+    "level": 3,
+    "parent": "3.4 蜜蜂会的至暗时刻 (3.4 MiForum's Darkest Hour)"
+  },
+  {
+    "title": "3.4.3 团队的解散危机 (3.4.3 Crisis of Team Dissolution)",
+    "length": 150,
+    "level": 3,
+    "parent": "3.4 蜜蜂会的至暗时刻 (3.4 MiForum's Darkest Hour)"
+  },
+  {
+    "title": "3.5 绝望与反思 (3.5 Despair and Reflection)",
+    "length": 400,
+    "level": 2,
+    "parent": "第三章：危机与背叛 (Chapter 3: Crisis and Betrayal)"
+  },
+  {
+    "title": "3.5.1 失败的痛苦与教训 (3.5.1 Pain and Lessons of Failure)",
+    "length": 200,
+    "level": 3,
+    "parent": "3.5 绝望与反思 (3.5 Despair and Reflection)"
+  },
+  {
+    "title": "3.5.2 重新审视初心 (3.5.2 Re-examining the Original Intention)",
+    "length": 200,
+    "level": 3,
+    "parent": "3.5 绝望与反思 (3.5 Despair and Reflection)"
+  },
+  {
+    "title": "第四章：涅槃与复仇 (Chapter 4: Rebirth and Revenge)",
+    "length": 2500,
+    "level": 1
+  },
+  {
+    "title": "4.1 从废墟中站起 (4.1 Rising from the Ruins)",
+    "length": 300,
+    "level": 2,
+    "parent": "第四章：涅槃与复仇 (Chapter 4: Rebirth and Revenge)"
+  },
+  {
+    "title": "4.1.1 幸存者的集结 (4.1.1 Gathering of Survivors)",
+    "length": 150,
+    "level": 3,
+    "parent": "4.1 从废墟中站起 (4.1 Rising from the Ruins)"
+  },
+  {
+    "title": "4.1.2 重燃的斗志与希望 (4.1.2 Reignited Fighting Spirit and Hope)",
+    "length": 150,
+    "level": 3,
+    "parent": "4.1 从废墟中站起 (4.1 Rising from the Ruins)"
+  },
+  {
+    "title": "4.2 重塑联盟与分工 (4.2 Reshaping Alliance and Division of Labor)",
+    "length": 400,
+    "level": 2,
+    "parent": "第四章：涅槃与复仇 (Chapter 4: Rebirth and Revenge)"
+  },
+  {
+    "title": "4.2.1 重新定义角色与职责 (4.2.1 Redefining Roles and Responsibilities)",
+    "length": 200,
+    "level": 3,
+    "parent": "4.2 重塑联盟与分工 (4.2 Reshaping Alliance and Division of Labor)"
+  },
+  {
+    "title": "4.2.2 信任与合作的重建 (4.2.2 Rebuilding Trust and Cooperation)",
+    "length": 200,
+    "level": 3,
+    "parent": "4.2 重塑联盟与分工 (4.2 Reshaping Alliance and Division of Labor)"
+  },
+  {
+    "title": "4.3 技术革新与战略升级 (4.3 Technological Innovation and Strategic Upgrade)",
+    "length": 500,
+    "level": 2,
+    "parent": "第四章：涅槃与复仇 (Chapter 4: Rebirth and Revenge)"
+  },
+  {
+    "title": "4.3.1 突破性技术的研发 (4.3.1 R&D of Breakthrough Technologies)",
+    "length": 200,
+    "level": 3,
+    "parent": "4.3 技术革新与战略升级 (4.3 Technological Innovation and Strategic Upgrade)"
+  },
+  {
+    "title": "4.3.2 智能化医疗信息平台的构建 (4.3.2 Building an Intelligent Medical Information Platform)",
+    "length": 200,
+    "level": 3,
+    "parent": "4.3 技术革新与战略升级 (4.3 Technological Innovation and Strategic Upgrade)"
+  },
+  {
+    "title": "4.3.3 差异化竞争策略的制定 (4.3.3 Formulation of Differentiated Competitive Strategy)",
+    "length": 100,
+    "level": 3,
+    "parent": "4.3 技术革新与战略升级 (4.3 Technological Innovation and Strategic Upgrade)"
+  },
+  {
+    "title": "4.4 蛰伏与秘密行动 (4.4 Hibernation and Secret Operations)",
+    "length": 400,
+    "level": 2,
+    "parent": "第四章：涅槃与复仇 (Chapter 4: Rebirth and Revenge)"
+  },
+  {
+    "title": "4.4.1 低调发展与用户回流 (4.4.1 Low-Profile Development and User Return)",
+    "length": 200,
+    "level": 3,
+    "parent": "4.4 蛰伏与秘密行动 (4.4 Hibernation and Secret Operations)"
+  },
+  {
+    "title": "4.4.2 暗中调查与证据搜集 (4.4.2 Secret Investigation and Evidence Collection)",
+    "length": 200,
+    "level": 3,
+    "parent": "4.4 蛰伏与秘密行动 (4.4 Hibernation and Secret Operations)"
+  },
+  {
+    "title": "4.5 揭露真相与反击 (4.5 Revealing the Truth and Counterattack)",
+    "length": 500,
+    "level": 2,
+    "parent": "第四章：涅槃与复仇 (Chapter 4: Rebirth and Revenge)"
+  },
+  {
+    "title": "4.5.1 公开背叛者的阴谋 (4.5.1 Publicly Exposing the Betrayer's Conspiracy)",
+    "length": 200,
+    "level": 3,
+    "parent": "4.5 揭露真相与反击 (4.5 Revealing the Truth and Counterattack)"
+  },
+  {
+    "title": "4.5.2 舆论反转与声誉重建 (4.5.2 Public Opinion Reversal and Reputation Rebuilding)",
+    "length": 200,
+    "level": 3,
+    "parent": "4.5 揭露真相与反击 (4.5 Revealing the Truth and Counterattack)"
+  },
+  {
+    "title": "4.5.3 法律与商业的双重打击 (4.5.3 Dual Blow of Legal and Commercial Actions)",
+    "length": 100,
+    "level": 3,
+    "parent": "4.5 揭露真相与反击 (4.5 Revealing the Truth and Counterattack)"
+  },
+  {
+    "title": "4.6 初战告捷 (4.6 Initial Victory)",
+    "length": 400,
+    "level": 2,
+    "parent": "第四章：涅槃与复仇 (Chapter 4: Rebirth and Revenge)"
+  },
+  {
+    "title": "4.6.1 重新赢得市场认可 (4.6.1 Regaining Market Recognition)",
+    "length": 200,
+    "level": 3,
+    "parent": "4.6 初战告捷 (4.6 Initial Victory)"
+  },
+  {
+    "title": "4.6.2 团队士气的高涨 (4.6.2 Rising Team Morale)",
+    "length": 200,
+    "level": 3,
+    "parent": "4.6 初战告捷 (4.6 Initial Victory)"
+  },
+  {
+    "title": "第五章：崛起与辉煌 (Chapter 5: Rise and Glory)",
+    "length": 1500,
+    "level": 1
+  },
+  {
+    "title": "5.1 高速增长与市场扩张 (5.1 Rapid Growth and Market Expansion)",
+    "length": 300,
+    "level": 2,
+    "parent": "第五章：崛起与辉煌 (Chapter 5: Rise and Glory)"
+  },
+  {
+    "title": "5.1.1 创新产品与服务推陈出新 (5.1.1 Continuous Innovation of Products and Services)",
+    "length": 150,
+    "level": 3,
+    "parent": "5.1 高速增长与市场扩张 (5.1 Rapid Growth and Market Expansion)"
+  },
+  {
+    "title": "5.1.2 战略合作与生态构建 (5.1.2 Strategic Cooperation and Ecosystem Construction)",
+    "length": 150,
+    "level": 3,
+    "parent": "5.1 高速增长与市场扩张 (5.1 Rapid Growth and Market Expansion)"
+  },
+  {
+    "title": "5.2 资本加持与快速融资 (5.2 Capital Support and Rapid Financing)",
+    "length": 300,
+    "level": 2,
+    "parent": "第五章：崛起与辉煌 (Chapter 5: Rise and Glory)"
+  },
+  {
+    "title": "5.2.1 吸引顶级投资机构 (5.2.1 Attracting Top Investment Institutions)",
+    "length": 150,
+    "level": 3,
+    "parent": "5.2 资本加持与快速融资 (5.2 Capital Support and Rapid Financing)"
+  },
+  {
+    "title": "5.2.2 多轮融资与估值飞涨 (5.2.2 Multiple Rounds of Financing and Soaring Valuation)",
+    "length": 150,
+    "level": 3,
+    "parent": "5.2 资本加持与快速融资 (5.2 Capital Support and Rapid Financing)"
+  },
+  {
+    "title": "5.3 扫清障碍与最终胜利 (5.3 Clearing Obstacles and Final Victory)",
+    "length": 400,
+    "level": 2,
+    "parent": "第五章：崛起与辉煌 (Chapter 5: Rise and Glory)"
+  },
+  {
+    "title": "5.3.1 解决遗留问题与法律纠纷 (5.3.1 Resolving Legacy Issues and Legal Disputes)",
+    "length": 200,
+    "level": 3,
+    "parent": "5.3 扫清障碍与最终胜利 (5.3 Clearing Obstacles and Final Victory)"
+  },
+  {
+    "title": "5.3.2 击败最后的竞争对手 (5.3.2 Defeating the Last Competitors)",
+    "length": 200,
+    "level": 3,
+    "parent": "5.3 扫清障碍与最终胜利 (5.3 Clearing Obstacles and Final Victory)"
+  },
+  {
+    "title": "5.4 IPO之路的开启 (5.4 Opening the Road to IPO)",
+    "length": 500,
+    "level": 2,
+    "parent": "第五章：崛起与辉煌 (Chapter 5: Rise and Glory)"
+  },
+  {
+    "title": "5.4.1 筹备上市与规范化运营 (5.4.1 Preparing for IPO and Standardized Operation)",
+    "length": 250,
+    "level": 3,
+    "parent": "5.4 IPO之路的开启 (5.4 Opening the Road to IPO)"
+  },
+  {
+    "title": "5.4.2 路演与资本市场的期待 (5.4.2 Roadshow and Capital Market Expectations)",
+    "length": 250,
+    "level": 3,
+    "parent": "5.4 IPO之路的开启 (5.4 Opening the Road to IPO)"
+  },
+  {
+    "title": "第六章：巅峰与未来 (Chapter 6: Peak and Future)",
+    "length": 1000,
+    "level": 1
+  },
+  {
+    "title": "6.1 成功上市与荣耀时刻 (6.1 Successful IPO and Moment of Glory)",
+    "length": 300,
+    "level": 2,
+    "parent": "第六章：巅峰与未来 (Chapter 6: Peak and Future)"
+  },
+  {
+    "title": "6.1.1 敲钟仪式与市场欢呼 (6.1.1 Ringing the Bell and Market Cheers)",
+    "length": 150,
+    "level": 3,
+    "parent": "6.1 成功上市与荣耀时刻 (6.1 Successful IPO and Moment of Glory)"
+  },
+  {
+    "title": "6.1.2 创始人团队的感言与展望 (6.1.2 Founders' Remarks and Outlook)",
+    "length": 150,
+    "level": 3,
+    "parent": "6.1 成功上市与荣耀时刻 (6.1 Successful IPO and Moment of Glory)"
+  },
+  {
+    "title": "6.2 回顾与反思 (6.2 Review and Reflection)",
+    "length": 300,
+    "level": 2,
+    "parent": "第六章：巅峰与未来 (Chapter 6: Peak and Future)"
+  },
+  {
+    "title": "6.2.1 创业历程的酸甜苦辣 (6.2.1 Sweet and Sour of the Entrepreneurial Journey)",
+    "length": 150,
+    "level": 3,
+    "parent": "6.2 回顾与反思 (6.2 Review and Reflection)"
+  },
+  {
+    "title": "6.2.2 成长与蜕变的代价 (6.2.2 Cost of Growth and Transformation)",
+    "length": 150,
+    "level": 3,
+    "parent": "6.2 回顾与反思 (6.2 Review and Reflection)"
+  },
+  {
+    "title": "6.3 新的挑战与未来蓝图 (6.3 New Challenges and Future Blueprint)",
+    "length": 300,
+    "level": 2,
+    "parent": "第六章：巅峰与未来 (Chapter 6: Peak and Future)"
+  },
+  {
+    "title": "6.3.1 上市后的责任与压力 (6.3.1 Post-IPO Responsibilities and Pressure)",
+    "length": 150,
+    "level": 3,
+    "parent": "6.3 新的挑战与未来蓝图 (6.3 New Challenges and Future Blueprint)"
+  },
+  {
+    "title": "6.3.2 科技前沿的探索与布局 (6.3.2 Exploration and Layout of Science and Technology Frontiers)",
+    "length": 150,
+    "level": 3,
+    "parent": "6.3 新的挑战与未来蓝图 (6.3 New Challenges and Future Blueprint)"
+  },
+  {
+    "title": "6.4 未完待续的情感与梦想 (6.4 Unfinished Emotions and Dreams)",
+    "length": 100,
+    "level": 2,
+    "parent": "第六章：巅峰与未来 (Chapter 6: Peak and Future)"
+  },
+  {
+    "title": "6.4.1 情感的归宿与新的开始 (6.4.1 Destination of Emotions and New Beginnings)",
+    "length": 50,
+    "level": 3,
+    "parent": "6.4 未完待续的情感与梦想 (6.4 Unfinished Emotions and Dreams)"
+  },
+  {
+    "title": "6.4.2 蜜蜂会的新征程 (6.4.2 MiForum's New Journey)",
+    "length": 50,
+    "level": 3,
+    "parent": "6.4 未完待续的情感与梦想 (6.4 Unfinished Emotions and Dreams)"
+  }
+]
+2025-02-14 15:41:17,296 - INFO - Outline generated successfully.
+2025-02-14 15:41:17,298 - INFO - Outline saved to: articles/蜜蜂会MiForum逆袭之路_20250214_154117_outline.json
+2025-02-14 15:41:17,298 - INFO - Writing section: 第一章：萌芽 (Chapter 1: Germination)
+2025-02-14 15:41:35,736 - INFO - Writing section: 1.1 时代的痛点：医疗信息孤岛 (1.1 Pain Points of the Era: Medical Information Silos)
+2025-02-14 15:41:44,337 - INFO - Writing section: 1.2 六个不安分的灵魂 (1.2 Six Restless Souls)
+2025-02-14 15:41:52,133 - INFO - Writing section: 1.2.1 石头：代码理想主义者 (1.2.1 Stone: Code Idealist)
+2025-02-14 15:41:58,363 - INFO - Writing section: 1.2.2 张琨：精明的市场猎手 (1.2.2 Zhang Kun: Shrewd Market Hunter)
+2025-02-14 15:42:05,473 - INFO - Writing section: 1.2.3 明哥：人脉与战略大师 (1.2.3 Ming Ge: Network and Strategy Master)
+2025-02-14 15:42:11,778 - INFO - Writing section: 1.2.4 晓阳：用户体验至上 (1.2.4 Xiaoyang: User Experience First)
+2025-02-14 15:42:19,765 - INFO - Writing section: 1.2.5 Daniel：国际视野的技术先锋 (1.2.5 Daniel: International Visionary Tech Pioneer)
+2025-02-14 15:42:28,892 - INFO - Writing section: 1.2.6 三石：默默耕耘的基石 (1.2.6 Sanshi: Silent and Diligent Cornerstone)
+2025-02-14 15:42:37,227 - INFO - Writing section: 1.3 蜜蜂会（MiForum）的诞生 (1.3 Birth of MiForum)
+2025-02-14 15:42:48,642 - INFO - Writing section: 1.3.1 简陋的论坛雏形 (1.3.1 Rudimentary Forum Prototype)
+2025-02-14 15:42:57,149 - INFO - Writing section: 1.3.2 初期的社区氛围 (1.3.2 Initial Community Atmosphere)
+2025-02-14 15:43:03,695 - INFO - Writing section: 1.3.3 梦想与现实的碰撞 (1.3.3 Clash Between Dreams and Reality)
+2025-02-14 15:43:10,045 - INFO - Writing section: 1.4 初露锋芒 (1.4 Showing Initial Promise)
+2025-02-14 15:43:20,079 - INFO - Writing section: 1.4.1 首批忠实用户 (1.4.1 First Batch of Loyal Users)
+2025-02-14 15:43:28,990 - INFO - Writing section: 1.4.2 技术的初步积累 (1.4.2 Initial Technology Accumulation)
+2025-02-14 15:43:37,732 - INFO - Writing section: 第二章：成长与阵痛 (Chapter 2: Growth and Growing Pains)
+2025-02-14 15:44:05,078 - INFO - Writing section: 2.1 用户井喷与社区扩张 (2.1 User Explosion and Community Expansion)
+2025-02-14 15:44:19,370 - INFO - Writing section: 2.1.1 口碑传播的力量 (2.1.1 Power of Word-of-Mouth)
+2025-02-14 15:44:24,595 - INFO - Writing section: 2.1.2 内容生态的建立 (2.1.2 Establishment of Content Ecosystem)
+2025-02-14 15:44:34,013 - INFO - Writing section: 2.1.3 论坛功能的迭代升级 (2.1.3 Iterative Upgrades of Forum Functions)
+2025-02-14 15:44:43,827 - INFO - Writing section: 2.2 技术瓶颈与架构升级 (2.2 Technical Bottlenecks and Architecture Upgrade)
+2025-02-14 15:44:54,390 - INFO - Writing section: 2.2.1 服务器压力与性能优化 (2.2.1 Server Pressure and Performance Optimization)
+2025-02-14 15:45:04,285 - INFO - Writing section: 2.2.2 云计算的引入 (2.2.2 Introduction of Cloud Computing)
+2025-02-14 15:45:12,515 - INFO - Writing section: 2.3 商业模式的探索 (2.3 Exploration of Business Models)
+2025-02-14 15:45:22,467 - INFO - Writing section: 2.3.1 广告与赞助的尝试 (2.3.1 Attempts at Advertising and Sponsorship)
+2025-02-14 15:45:34,498 - INFO - Writing section: 2.3.2 医疗机构合作的初步构想 (2.3.2 Initial Concept of Cooperation with Medical Institutions)
+2025-02-14 15:45:42,965 - INFO - Writing section: 2.4 内部矛盾与分歧 (2.4 Internal Conflicts and Disagreements)
+2025-02-14 15:45:56,036 - INFO - Writing section: 2.4.1 发展方向的争论 (2.4.1 Debate on Development Direction)
+2025-02-14 15:46:06,276 - INFO - Writing section: 2.4.2 利益分配的难题 (2.4.2 Difficulties in Profit Distribution)
+2025-02-14 15:46:13,956 - INFO - Writing section: 2.4.3 情感的暗流涌动 (2.4.3 Undercurrents of Emotions)
+2025-02-14 15:46:19,178 - INFO - Writing section: 2.5 竞争对手的出现 (2.5 Emergence of Competitors)
+2025-02-14 15:46:32,155 - INFO - Writing section: 2.5.1 模仿者与创新者 (2.5.1 Imitators and Innovators)
+2025-02-14 15:46:40,171 - INFO - Writing section: 2.5.2 市场份额的争夺 (2.5.2 Competition for Market Share)
+2025-02-14 15:46:48,362 - INFO - Writing section: 第三章：危机与背叛 (Chapter 3: Crisis and Betrayal)
+2025-02-14 15:47:17,240 - INFO - Writing section: 3.1 暴风雨前的宁静 (3.1 Calm Before the Storm)
+2025-02-14 15:47:29,030 - INFO - Writing section: 3.1.1 短暂的辉煌与隐忧 (3.1.1 Brief Glory and Hidden Worries)
+2025-02-14 15:47:37,925 - INFO - Writing section: 3.1.2 暗藏的商业陷阱 (3.1.2 Hidden Business Traps)
+2025-02-14 15:47:46,731 - INFO - Writing section: 3.2 来自内部的背叛 (3.2 Betrayal from Within)
+2025-02-14 15:48:04,140 - INFO - Writing section: 3.2.1 核心成员的倒戈 (3.2.1 Defection of a Core Member)
+2025-02-14 15:48:15,506 - INFO - Writing section: 3.2.2 技术机密的泄露 (3.2.2 Leakage of Technical Secrets)
+2025-02-14 15:48:24,005 - INFO - Writing section: 3.2.3 情感与利益的纠葛 (3.2.3 Entanglement of Emotions and Interests)
+2025-02-14 15:48:32,811 - INFO - Writing section: 3.3 外部冲击与市场寒冬 (3.3 External Shocks and Market Winter)
+2025-02-14 15:48:43,568 - INFO - Writing section: 3.3.1 政策监管的收紧 (3.3.1 Tightening of Policy Regulation)
+2025-02-14 15:48:52,268 - INFO - Writing section: 3.3.2 资本市场的退潮 (3.3.2 Ebb of the Capital Market)
+2025-02-14 15:49:00,304 - INFO - Writing section: 3.3.3 竞争对手的恶意打压 (3.3.3 Malicious Suppression by Competitors)
+2025-02-14 15:49:09,371 - INFO - Writing section: 3.4 蜜蜂会的至暗时刻 (3.4 MiForum's Darkest Hour)
+2025-02-14 15:49:25,036 - INFO - Writing section: 3.4.1 用户流失与社区信任危机 (3.4.1 User Churn and Community Trust Crisis)
+2025-02-14 15:49:34,662 - INFO - Writing section: 3.4.2 资金链断裂的边缘 (3.4.2 On the Verge of Cash Flow Breakage)
+2025-02-14 15:49:44,499 - INFO - Writing section: 3.4.3 团队的解散危机 (3.4.3 Crisis of Team Dissolution)
+2025-02-14 15:49:52,069 - INFO - Writing section: 3.5 绝望与反思 (3.5 Despair and Reflection)
+2025-02-14 15:50:04,460 - INFO - Writing section: 3.5.1 失败的痛苦与教训 (3.5.1 Pain and Lessons of Failure)
+2025-02-14 15:50:16,544 - INFO - Writing section: 3.5.2 重新审视初心 (3.5.2 Re-examining the Original Intention)
+2025-02-14 15:50:28,115 - INFO - Writing section: 第四章：涅槃与复仇 (Chapter 4: Rebirth and Revenge)
+2025-02-14 15:51:04,738 - INFO - Writing section: 4.1 从废墟中站起 (4.1 Rising from the Ruins)
+2025-02-14 15:51:15,395 - INFO - Writing section: 4.1.1 幸存者的集结 (4.1.1 Gathering of Survivors)
+2025-02-14 15:51:26,779 - INFO - Writing section: 4.1.2 重燃的斗志与希望 (4.1.2 Reignited Fighting Spirit and Hope)
+2025-02-14 15:51:37,936 - INFO - Writing section: 4.2 重塑联盟与分工 (4.2 Reshaping Alliance and Division of Labor)
+2025-02-14 15:51:50,286 - INFO - Writing section: 4.2.1 重新定义角色与职责 (4.2.1 Redefining Roles and Responsibilities)
+2025-02-14 15:52:01,104 - INFO - Writing section: 4.2.2 信任与合作的重建 (4.2.2 Rebuilding Trust and Cooperation)
+2025-02-14 15:52:11,175 - INFO - Writing section: 4.3 技术革新与战略升级 (4.3 Technological Innovation and Strategic Upgrade)
+2025-02-14 15:52:24,750 - INFO - Writing section: 4.3.1 突破性技术的研发 (4.3.1 R&D of Breakthrough Technologies)
+2025-02-14 15:52:31,759 - INFO - Writing section: 4.3.2 智能化医疗信息平台的构建 (4.3.2 Building an Intelligent Medical Information Platform)
+2025-02-14 15:52:42,874 - INFO - Writing section: 4.3.3 差异化竞争策略的制定 (4.3.3 Formulation of Differentiated Competitive Strategy)
+2025-02-14 15:52:52,398 - INFO - Writing section: 4.4 蛰伏与秘密行动 (4.4 Hibernation and Secret Operations)
+2025-02-14 15:53:04,790 - INFO - Writing section: 4.4.1 低调发展与用户回流 (4.4.1 Low-Profile Development and User Return)
+2025-02-14 15:53:13,390 - INFO - Writing section: 4.4.2 暗中调查与证据搜集 (4.4.2 Secret Investigation and Evidence Collection)
+2025-02-14 15:53:24,040 - INFO - Writing section: 4.5 揭露真相与反击 (4.5 Revealing the Truth and Counterattack)
+2025-02-14 15:53:40,283 - INFO - Writing section: 4.5.1 公开背叛者的阴谋 (4.5.1 Publicly Exposing the Betrayer's Conspiracy)
+2025-02-14 15:53:46,776 - INFO - Writing section: 4.5.2 舆论反转与声誉重建 (4.5.2 Public Opinion Reversal and Reputation Rebuilding)
+2025-02-14 15:53:57,013 - INFO - Writing section: 4.5.3 法律与商业的双重打击 (4.5.3 Dual Blow of Legal and Commercial Actions)
+2025-02-14 15:54:06,334 - INFO - Writing section: 4.6 初战告捷 (4.6 Initial Victory)
+2025-02-14 15:54:20,979 - INFO - Writing section: 4.6.1 重新赢得市场认可 (4.6.1 Regaining Market Recognition)
+2025-02-14 15:54:27,733 - INFO - Writing section: 4.6.2 团队士气的高涨 (4.6.2 Rising Team Morale)
+2025-02-14 15:54:37,771 - INFO - Writing section: 第五章：崛起与辉煌 (Chapter 5: Rise and Glory)
+2025-02-14 15:54:59,488 - INFO - Writing section: 5.1 高速增长与市场扩张 (5.1 Rapid Growth and Market Expansion)
+2025-02-14 15:55:11,429 - INFO - Writing section: 5.1.1 创新产品与服务推陈出新 (5.1.1 Continuous Innovation of Products and Services)
+2025-02-14 15:55:52,316 - INFO - Writing section: 5.1.2 战略合作与生态构建 (5.1.2 Strategic Cooperation and Ecosystem Construction)
+2025-02-14 15:56:01,561 - INFO - Writing section: 5.2 资本加持与快速融资 (5.2 Capital Support and Rapid Financing)
+2025-02-14 15:56:13,616 - INFO - Writing section: 5.2.1 吸引顶级投资机构 (5.2.1 Attracting Top Investment Institutions)
+2025-02-14 15:56:22,629 - INFO - Writing section: 5.2.2 多轮融资与估值飞涨 (5.2.2 Multiple Rounds of Financing and Soaring Valuation)
+2025-02-14 15:56:31,714 - INFO - Writing section: 5.3 扫清障碍与最终胜利 (5.3 Clearing Obstacles and Final Victory)
+2025-02-14 15:56:46,181 - INFO - Writing section: 5.3.1 解决遗留问题与法律纠纷 (5.3.1 Resolving Legacy Issues and Legal Disputes)
+2025-02-14 15:56:53,349 - INFO - Writing section: 5.3.2 击败最后的竞争对手 (5.3.2 Defeating the Last Competitors)
+2025-02-14 15:57:02,565 - INFO - Writing section: 5.4 IPO之路的开启 (5.4 Opening the Road to IPO)
+2025-02-14 15:57:18,745 - INFO - Writing section: 5.4.1 筹备上市与规范化运营 (5.4.1 Preparing for IPO and Standardized Operation)
+2025-02-14 15:57:29,574 - INFO - Writing section: 5.4.2 路演与资本市场的期待 (5.4.2 Roadshow and Capital Market Expectations)
+2025-02-14 15:57:40,537 - INFO - Writing section: 第六章：巅峰与未来 (Chapter 6: Peak and Future)
+2025-02-14 15:57:59,916 - INFO - Writing section: 6.1 成功上市与荣耀时刻 (6.1 Successful IPO and Moment of Glory)
+2025-02-14 15:58:11,282 - INFO - Writing section: 6.1.1 敲钟仪式与市场欢呼 (6.1.1 Ringing the Bell and Market Cheers)
+2025-02-14 15:58:21,831 - INFO - Writing section: 6.1.2 创始人团队的感言与展望 (6.1.2 Founders' Remarks and Outlook)
+2025-02-14 15:58:30,636 - INFO - Writing section: 6.2 回顾与反思 (6.2 Review and Reflection)
+2025-02-14 15:58:42,515 - INFO - Writing section: 6.2.1 创业历程的酸甜苦辣 (6.2.1 Sweet and Sour of the Entrepreneurial Journey)
+2025-02-14 15:58:51,936 - INFO - Writing section: 6.2.2 成长与蜕变的代价 (6.2.2 Cost of Growth and Transformation)
+2025-02-14 15:59:00,466 - INFO - Writing section: 6.3 新的挑战与未来蓝图 (6.3 New Challenges and Future Blueprint)
+2025-02-14 15:59:12,621 - INFO - Writing section: 6.3.1 上市后的责任与压力 (6.3.1 Post-IPO Responsibilities and Pressure)
+2025-02-14 15:59:22,042 - INFO - Writing section: 6.3.2 科技前沿的探索与布局 (6.3.2 Exploration and Layout of Science and Technology Frontiers)
+2025-02-14 15:59:30,950 - INFO - Writing section: 6.4 未完待续的情感与梦想 (6.4 Unfinished Emotions and Dreams)
+2025-02-14 15:59:39,450 - INFO - Writing section: 6.4.1 情感的归宿与新的开始 (6.4.1 Destination of Emotions and New Beginnings)
+2025-02-14 15:59:45,803 - INFO - Writing section: 6.4.2 蜜蜂会的新征程 (6.4.2 MiForum's New Journey)
+2025-02-14 15:59:51,226 - INFO - Assembling article...
+2025-02-14 15:59:51,228 - INFO - Article saved to: articles/蜜蜂会MiForum逆袭之路_20250214_155951.md
+2025-02-14 15:59:51,229 - INFO - Article generation completed successfully
+2025-02-14 15:59:51,229 - INFO - Log file: logs/蜜蜂会MiForum逆袭之路_20250214_154039.log
+2025-02-14 15:59:51,229 - INFO - Outline file: articles/蜜蜂会MiForum逆袭之路_20250214_154117_outline.json
+2025-02-14 15:59:51,229 - INFO - Article file: articles/蜜蜂会MiForum逆袭之路_20250214_155951.md

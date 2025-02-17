@@ -1,0 +1,218 @@
+[
+  {
+    "title": "第一章：蜜蜂初鸣 (Chapter 1: The First Buzz)",
+    "length": 1000,
+    "level": 1
+  },
+  {
+    "title": "1.1 燕园夜话：六个人的梦想 (1.1 Yanyuan Night Talk: The Dream of Six)",
+    "length": 200,
+    "level": 2,
+    "parent": "第一章：蜜蜂初鸣 (Chapter 1: The First Buzz)"
+  },
+  {
+    "title": "1.2 石头与代码：MiForum的雏形 (1.2 Stone and Code: The Prototype of MiForum)",
+    "length": 250,
+    "level": 2,
+    "parent": "第一章：蜜蜂初鸣 (Chapter 1: The First Buzz)"
+  },
+  {
+    "title": "1.3 张琨的远见：医疗信息化的蓝海 (1.3 Zhang Kun's Vision: The Blue Ocean of Medical Informatization)",
+    "length": 200,
+    "level": 2,
+    "parent": "第一章：蜜蜂初鸣 (Chapter 1: The First Buzz)"
+  },
+  {
+    "title": "1.4 明哥的江湖气：初期团队的凝聚 (1.4 Ming Ge's Jianghu Spirit: Cohesion of the Early Team)",
+    "length": 150,
+    "level": 2,
+    "parent": "第一章：蜜蜂初鸣 (Chapter 1: The First Buzz)"
+  },
+  {
+    "title": "1.5 晓阳的激情：技术驱动的理想 (1.5 Xiaoyang's Passion: The Ideal of Technology-Driven)",
+    "length": 100,
+    "level": 2,
+    "parent": "第一章：蜜蜂初鸣 (Chapter 1: The First Buzz)"
+  },
+  {
+    "title": "1.6 Daniel的国际视野：走向世界的野心 (1.6 Daniel's International Vision: Ambition to Go Global)",
+    "length": 50,
+    "level": 2,
+    "parent": "第一章：蜜蜂初鸣 (Chapter 1: The First Buzz)"
+  },
+  {
+    "title": "1.7 三石的务实：从论坛到产品 (1.7 Sanshi's Pragmatism: From Forum to Product)",
+    "length": 50,
+    "level": 2,
+    "parent": "第一章：蜜蜂初鸣 (Chapter 1: The First Buzz)"
+  },
+  {
+    "title": "第二章：荆棘之路 (Chapter 2: The Thorny Path)",
+    "length": 2000,
+    "level": 1
+  },
+  {
+    "title": "2.1 医院的壁垒：市场拓展的困境 (2.1 The Walls of Hospitals: Difficulties in Market Expansion)",
+    "length": 300,
+    "level": 2,
+    "parent": "第二章：荆棘之路 (Chapter 2: The Thorny Path)"
+  },
+  {
+    "title": "2.2 资金链的压力：天使轮的挣扎 (2.2 The Pressure of the Funding Chain: The Struggle of the Angel Round)",
+    "length": 350,
+    "level": 2,
+    "parent": "第二章：荆棘之路 (Chapter 2: The Thorny Path)"
+  },
+  {
+    "title": "2.3 技术瓶颈：老旧系统的挑战 (2.3 Technical Bottlenecks: The Challenge of Old Systems)",
+    "length": 300,
+    "level": 2,
+    "parent": "第二章：荆棘之路 (Chapter 2: The Thorny Path)"
+  },
+  {
+    "title": "2.4 团队裂痕：理念的冲突与争执 (2.4 Team Rifts: Conflicts and Disputes of Ideas)",
+    "length": 350,
+    "level": 2,
+    "parent": "第二章：荆棘之路 (Chapter 2: The Thorny Path)"
+  },
+  {
+    "title": "2.5 初遇萧薰儿：办公室的暗涌 (2.5 First Encounter with Xiao Xun'er: Undercurrents in the Office)",
+    "length": 350,
+    "level": 2,
+    "parent": "第二章：荆棘之路 (Chapter 2: The Thorny Path)"
+  },
+  {
+    "title": "2.6 曙光乍现：小医院的突破口 (2.6 A Glimmer of Dawn: The Breakthrough Point of Small Hospitals)",
+    "length": 350,
+    "level": 2,
+    "parent": "第二章：荆棘之路 (Chapter 2: The Thorny Path)"
+  },
+  {
+    "title": "第三章：风起云涌 (Chapter 3: Rising Winds and Clouds)",
+    "length": 2500,
+    "level": 1
+  },
+  {
+    "title": "3.1 政策东风：医疗信息化的春天 (3.1 Policy Favorable Wind: The Spring of Medical Informatization)",
+    "length": 400,
+    "level": 2,
+    "parent": "第三章：风起云涌 (Chapter 3: Rising Winds and Clouds)"
+  },
+  {
+    "title": "3.2 资本入场：A轮融资的博弈 (3.2 Capital Entry: The Game of Series A Financing)",
+    "length": 450,
+    "level": 2,
+    "parent": "第三章：风起云涌 (Chapter 3: Rising Winds and Clouds)"
+  },
+  {
+    "title": "3.3 产品升级：MiForum 2.0的诞生 (3.3 Product Upgrade: The Birth of MiForum 2.0)",
+    "length": 400,
+    "level": 2,
+    "parent": "第三章：风起云涌 (Chapter 3: Rising Winds and Clouds)"
+  },
+  {
+    "title": "3.4 竞争加剧：巨头的觊觎与打压 (3.4 Intensified Competition: Coveting and Suppression by Giants)",
+    "length": 450,
+    "level": 2,
+    "parent": "第三章：风起云涌 (Chapter 3: Rising Winds and Clouds)"
+  },
+  {
+    "title": "3.5 办公室恋情：石头与薰儿的抉择 (3.5 Office Romance: Stone and Xun'er's Choice)",
+    "length": 400,
+    "level": 2,
+    "parent": "第三章：风起云涌 (Chapter 3: Rising Winds and Clouds)"
+  },
+  {
+    "title": "3.6 危机暗藏：数据安全与伦理的拷问 (3.6 Hidden Crisis: The Questioning of Data Security and Ethics)",
+    "length": 400,
+    "level": 2,
+    "parent": "第三章：风起云涌 (Chapter 3: Rising Winds and Clouds)"
+  },
+  {
+    "title": "第四章：逆袭之战 (Chapter 4: The Battle of Counterattack)",
+    "length": 1500,
+    "level": 1
+  },
+  {
+    "title": "4.1 技术突围：人工智能与精准医疗 (4.1 Technical Breakthrough: Artificial Intelligence and Precision Medicine)",
+    "length": 400,
+    "level": 2,
+    "parent": "第四章：逆袭之战 (Chapter 4: The Battle of Counterattack)"
+  },
+  {
+    "title": "4.2 战略合作：与顶尖医院的携手 (4.2 Strategic Cooperation: Partnering with Top Hospitals)",
+    "length": 350,
+    "level": 2,
+    "parent": "第四章：逆袭之战 (Chapter 4: The Battle of Counterattack)"
+  },
+  {
+    "title": "4.3 舆论反击：揭露竞争对手的阴谋 (4.3 Public Opinion Counterattack: Exposing Competitors' Conspiracies)",
+    "length": 350,
+    "level": 2,
+    "parent": "第四章：逆袭之战 (Chapter 4: The Battle of Counterattack)"
+  },
+  {
+    "title": "4.4 梅蝶的诱惑：三角恋的升级 (4.4 Mei Die's Temptation: Escalation of the Love Triangle)",
+    "length": 400,
+    "level": 2,
+    "parent": "第四章：逆袭之战 (Chapter 4: The Battle of Counterattack)"
+  },
+  {
+    "title": "第五章：上市之路 (Chapter 5: The Road to IPO)",
+    "length": 2000,
+    "level": 1
+  },
+  {
+    "title": "5.1 资本市场的洗礼：B轮、C轮融资 (5.1 Baptism of the Capital Market: Series B and C Financing)",
+    "length": 400,
+    "level": 2,
+    "parent": "第五章：上市之路 (Chapter 5: The Road to IPO)"
+  },
+  {
+    "title": "5.2 公司治理：现代企业制度的建立 (5.2 Corporate Governance: Establishment of a Modern Enterprise System)",
+    "length": 350,
+    "level": 2,
+    "parent": "第五章：上市之路 (Chapter 5: The Road to IPO)"
+  },
+  {
+    "title": "5.3 最后的考验：监管审查与市场波动 (5.3 The Final Test: Regulatory Review and Market Fluctuations)",
+    "length": 400,
+    "level": 2,
+    "parent": "第五章：上市之路 (Chapter 5: The Road to IPO)"
+  },
+  {
+    "title": "5.4 兄弟情深：团队的再次凝聚 (5.4 Deep Brotherhood: Team Re-cohesion)",
+    "length": 350,
+    "level": 2,
+    "parent": "第五章：上市之路 (Chapter 5: The Road to IPO)"
+  },
+  {
+    "title": "5.5 IPO之夜：梦想照进现实 (5.5 IPO Night: Dreams Come True)",
+    "length": 500,
+    "level": 2,
+    "parent": "第五章：上市之路 (Chapter 5: The Road to IPO)"
+  },
+  {
+    "title": "第六章：蜜蜂翱翔 (Chapter 6: Bees Soaring)",
+    "length": 1000,
+    "level": 1
+  },
+  {
+    "title": "6.1 新的起点：上市后的MiForum (6.1 A New Starting Point: MiForum After IPO)",
+    "length": 300,
+    "level": 2,
+    "parent": "第六章：蜜蜂翱翔 (Chapter 6: Bees Soaring)"
+  },
+  {
+    "title": "6.2 情感归宿：爱恨情仇的终章 (6.2 Emotional Destination: The Final Chapter of Love and Hate)",
+    "length": 350,
+    "level": 2,
+    "parent": "第六章：蜜蜂翱翔 (Chapter 6: Bees Soaring)"
+  },
+  {
+    "title": "6.3 未来展望：医疗科技的无限可能 (6.3 Future Outlook: The Infinite Possibilities of Medical Technology)",
+    "length": 350,
+    "level": 2,
+    "parent": "第六章：蜜蜂翱翔 (Chapter 6: Bees Soaring)"
+  }
+]
