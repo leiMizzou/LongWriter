@@ -316,30 +316,33 @@ def main():
     """Main function."""
     title, length, genre, language, context = get_user_input()
     
-    # Setup logging
+    # 设置日志
     log_file = setup_logging(title)
     logging.info(f"Starting article generation for: {title}")
     logging.info(f"Log file created at: {log_file}")
     
-    # Generate outline
+    # 生成大纲
     outline = generate_outline(title, length, genre, language, context)
     if not outline:
         logging.error("Exiting due to outline generation failure.")
         return
 
-    # Save outline to JSON file
+    # 保存大纲到 JSON 文件
     if not os.path.exists('articles'):
         os.makedirs('articles')
 
-    outline_file = f'articles/{re.sub(r"[^\w\s-]", "", title).strip()[:30]}_{datetime.now().strftime("%Y%m%d_%H%M%S")}_outline.json'
+    # 先清理标题，避免在 f-string 中使用反斜杠
+    cleaned_title = re.sub(r"[^\w\s-]", "", title).strip()[:30]
+    outline_file = f'articles/{cleaned_title}_{datetime.now().strftime("%Y%m%d_%H%M%S")}_outline.json'
+    
     with open(outline_file, 'w', encoding='utf-8') as f:
         json.dump({"sections": outline}, f, ensure_ascii=False, indent=2)
     logging.info(f"Outline saved to: {outline_file}")
 
-    # Generate article with enhanced context awareness
+    # 生成文章，增强上下文感知能力
     final_article = assemble_article(outline, title, length, genre, language, context)
     
-    # Save the final article
+    # 保存最终文章
     article_file = save_article(title, final_article)
     
     logging.info("Article generation completed successfully")
