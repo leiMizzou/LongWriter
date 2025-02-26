@@ -1,5 +1,0 @@
-2025-02-26 10:44:43,941 - INFO - Starting article generation for: 蜜蜂会（MiForum）逆袭之路
-2025-02-26 10:44:43,941 - INFO - Log file created at: logs/蜜蜂会MiForum逆袭之路_20250226_104443.log
-2025-02-26 10:44:43,941 - INFO - Generating outline for title: 蜜蜂会（MiForum）逆袭之路, length: 10000, genre: 城市科幻逆袭爽文, language: 中文
-2025-02-26 10:44:45,485 - ERROR - Error generating outline: 400 User location is not supported for the API use.
-2025-02-26 10:44:45,485 - ERROR - Exiting due to outline generation failure.
