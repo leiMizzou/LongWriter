@@ -289,7 +289,9 @@ def main():
     if not os.path.exists('articles'):
         os.makedirs('articles')
 
-    outline_file = f'articles/{re.sub(r"[^\w\s-]", "", title).strip()[:30]}_{datetime.now().strftime("%Y%m%d_%H%M%S")}_outline.json'
+    # 清理标题并生成文件名
+    safe_title = re.sub(r"[^\w\s-]", "", title).strip()[:30]  # 清理标题
+    outline_file = f'articles/{safe_title}_{datetime.now().strftime("%Y%m%d_%H%M%S")}_outline.json'
     with open(outline_file, 'w', encoding='utf-8') as f:
         json.dump(outline, f, ensure_ascii=False, indent=2)
     logging.info(f"Outline saved to: {outline_file}")
