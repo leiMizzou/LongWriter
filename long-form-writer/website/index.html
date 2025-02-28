@@ -1,0 +1,1260 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lei's AI Application Lab</title>
+    <style>
+        :root {
+            /* Modern color palette */
+            --primary: #6366F1;
+            --primary-dark: #4F46E5;
+            --primary-light: #EEF2FF;
+            --secondary: #EC4899;
+            --accent: #8B5CF6;
+            --success: #10B981;
+            --warning: #F59E0B;
+            --danger: #EF4444;
+            --gray-50: #F9FAFB;
+            --gray-100: #F3F4F6;
+            --gray-200: #E5E7EB;
+            --gray-300: #D1D5DB;
+            --gray-400: #9CA3AF;
+            --gray-500: #6B7280;
+            --gray-600: #4B5563;
+            --gray-700: #374151;
+            --gray-800: #1F2937;
+            --gray-900: #111827;
+            --sidebar-width: 280px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+        }
+        
+        body {
+            background-color: var(--gray-50);
+            color: var(--gray-800);
+            display: flex;
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .sidebar {
+            width: var(--sidebar-width);
+            background-color: white;
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+            padding: 0;
+            border-right: 1px solid var(--gray-200);
+            z-index: 100;
+            box-shadow: 0 0 20px rgba(0,0,0,0.03);
+            left: 0;
+            top: 0;
+        }
+        
+        .logo {
+            padding: 2rem 1.5rem;
+            text-align: center;
+            border-bottom: 1px solid var(--gray-200);
+        }
+        
+        .logo-placeholder {
+            width: 120px;
+            height: 120px;
+            border-radius: 24px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2.5rem;
+            font-weight: 800;
+            box-shadow: 0 10px 25px -5px rgba(99, 102, 241, 0.5);
+        }
+        
+        .nav-items {
+            list-style-type: none;
+            padding: 0;
+            margin: 1rem 0;
+        }
+        
+        .nav-item {
+            padding: 1rem 1.5rem;
+            cursor: pointer;
+            position: relative;
+            color: var(--gray-700);
+            transition: all 0.2s ease;
+            font-weight: 500;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            border-radius: 8px;
+            margin: 0.25rem 1rem;
+        }
+        
+        .nav-item.active {
+            background-color: var(--primary-light);
+            color: var(--primary);
+        }
+        
+        .nav-item:hover:not(.active) {
+            background-color: var(--gray-100);
+            color: var(--gray-900);
+        }
+        
+        .nav-item::before {
+            content: "";
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            margin-right: 12px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            opacity: 0.7;
+        }
+        
+        .nav-item[data-target="home"]::before {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24' width='24' fill='%236B7280'%3E%3Cpath d='M6 19h3v-6h6v6h3v-9l-6-4.5L6 10Zm0 2q-.825 0-1.413-.588T4 19v-9q0-.475.213-.9t.587-.7l6-4.5q.275-.2.575-.3T12 3.5q.25 0 .525.1t.575.3l6 4.5q.375.275.588.7T20 10v9q0 .825-.588 1.413T18 21h-5v-6h-2v6Zm6-8.75Z'/%3E%3C/svg%3E");
+        }
+        
+        .nav-item[data-target="research"]::before {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24' width='24' fill='%236B7280'%3E%3Cpath d='m19.6 21-6.3-6.3q-.75.6-1.725.95T9.5 16q-2.725 0-4.612-1.888T3 9.5q0-2.725 1.888-4.612T9.5 3q2.725 0 4.613 1.888T16 9.5q0 1.1-.35 2.075T14.7 13.3l6.3 6.3ZM9.5 14q1.875 0 3.188-1.313T14 9.5q0-1.875-1.313-3.188T9.5 5Q7.625 5 6.312 6.313T5 9.5q0 1.875 1.313 3.188T9.5 14Z'/%3E%3C/svg%3E");
+        }
+        
+        .nav-item[data-target="publications"]::before {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24' width='24' fill='%236B7280'%3E%3Cpath d='M6 22q-.825 0-1.413-.588T4 20V4q0-.825.588-1.413T6 2h7.175q.4 0 .763.15t.637.425l4.85 4.85q.275.275.425.638t.15.762V20q0 .825-.588 1.413T18 22Zm7-14V4H6v16h12V9h-4q-.425 0-.713-.288T13 8ZM10 12h4q.425 0 .713-.288T15 11q0-.425-.288-.713T14 10h-4q-.425 0-.713.288T9 11q0 .425.288.713T10 12Zm0 4h4q.425 0 .713-.288T15 15q0-.425-.288-.713T14 14h-4q-.425 0-.713.288T9 15q0 .425.288.713T10 16Z'/%3E%3C/svg%3E");
+        }
+        
+        .nav-item[data-target="projects"]::before {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24' width='24' fill='%236B7280'%3E%3Cpath d='M3 21V3h8v2H5v14h14v-6h2v8Zm13-10V7h-4V5h4V1h2v4h4v2h-4v4Z'/%3E%3C/svg%3E");
+        }
+        
+        .nav-item[data-target="courses"]::before {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24' width='24' fill='%236B7280'%3E%3Cpath d='M12 23.95q-.2 0-.4-.038t-.4-.112l-9-3.25q-.425-.175-.713-.538T1.2 19.2v-14q0-.35.2-.663t.55-.437l9.2-3.45q.225-.075.45-.113T12 .5q.25 0 .475.038t.45.112l9.2 3.45q.35.125.55.438t.2.662v14q0 .425-.288.788T21.8 20.55l-9 3.25q-.2.075-.4.113t-.4.037ZM12 4 3.85 7 12 10l8.15-3ZM12 22l8-2.9V9l-8 3Z'/%3E%3C/svg%3E");
+        }
+        
+        .nav-item[data-target="team"]::before {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24' width='24' fill='%236B7280'%3E%3Cpath d='M1 20v-2.8q0-.85.438-1.563T2.6 14.55q1.55-.775 3.15-1.163T9 13q1.65 0 3.25.388t3.15 1.162q.725.375 1.163 1.088T17 17.2V20Zm18 0v-3q0-1.1-.612-2.113T16.85 13.35q1.275.15 2.413.512t2.062.888q.825.475 1.25 1.088T23 17.2V20ZM9 12q-1.65 0-2.825-1.175T5 8q0-1.65 1.175-2.825T9 4q1.65 0 2.825 1.175T13 8q0 1.65-1.175 2.825T9 12Zm10-4q0 1.65-1.175 2.825T15 12q-.275 0-.7-.063t-.7-.137q.675-.8 1.038-1.775T15 8q0-1.05-.363-2.025T13.6 4.2q.275-.075.7-.138T15 4q1.65 0 2.825 1.175T19 8ZM3 18h12v-.8q0-.275-.138-.5t-.362-.35q-1.35-.675-2.725-1.012T9 15q-1.4 0-2.775.338T3.5 16.35q-.225.125-.363.35T3 17.2Zm6-8q.825 0 1.413-.588T11 8q0-.825-.588-1.413T9 6q-.825 0-1.413.588T7 8q0 .825.588 1.413T9 10Zm0-2Zm0 10Z'/%3E%3C/svg%3E");
+        }
+        
+        .nav-item[data-target="contact"]::before {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24' width='24' fill='%236B7280'%3E%3Cpath d='M4 20q-.825 0-1.413-.588T2 18V6q0-.825.588-1.413T4 4h16q.825 0 1.413.588T22 6v12q0 .825-.588 1.413T20 20Zm8-7L4 8v10h16V8Zm0-2 8-5H4Zm-8 3v-6 12Z'/%3E%3C/svg%3E");
+        }
+        
+        .nav-item[data-target="config"]::before {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24' width='24' fill='%236B7280'%3E%3Cpath d='m9.25 22-.4-3.2q-.325-.125-.612-.3t-.563-.375L4.7 19.375l-2.75-4.75 2.625-2q-.05-.325-.05-.663v-.674q0-.338.05-.663l-2.625-2L4.7 3.625l2.975 1.25q.275-.2.563-.375t.612-.3l.4-3.2h5.5l.4 3.2q.325.125.613.3t.562.375l2.975-1.25 2.75 4.75-2.625 2q.05.325.05.663v.674q0 .338-.05.663l2.625 2-2.75 4.75-2.975-1.25q-.275.2-.562.375t-.613.3l-.4 3.2Zm2.75-6.5q1.45 0 2.475-1.025T15.5 12q0-1.45-1.025-2.475T12 8.5q-1.45 0-2.475 1.025T8.5 12q0 1.45 1.025 2.475T12 15.5Zm0-2q-.625 0-1.063-.438T10.5 12q0-.625.438-1.063T12 10.5q.625 0 1.063.438T13.5 12q0 .625-.438 1.063T12 13.5Zm0-1.5Z'/%3E%3C/svg%3E");
+        }
+        
+        .nav-item.active::before {
+            filter: invert(31%) sepia(94%) saturate(1352%) hue-rotate(229deg) brightness(100%) contrast(96%);
+            opacity: 1;
+        }
+        
+        .main-content {
+            margin-left: var(--sidebar-width);
+            width: calc(100% - var(--sidebar-width));
+            padding: 2rem 3rem;
+            background-color: white;
+        }
+        
+        .section {
+            margin-bottom: 3rem;
+            display: none;
+        }
+        
+        .section.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--gray-900);
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+        }
+        
+        h2 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--gray-800);
+            margin-top: 2rem;
+        }
+        
+        h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+            margin-top: 1.5rem;
+            color: var(--gray-800);
+        }
+        
+        p {
+            font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+            color: var(--gray-700);
+        }
+        
+        .button {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 0.7rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            margin-top: 1rem;
+            transition: all 0.2s;
+            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.2);
+            font-size: 0.9rem;
+        }
+        
+        .button:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(99, 102, 241, 0.3);
+        }
+        
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .card {
+            background-color: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            transition: box-shadow 0.3s, transform 0.3s;
+            border: 1px solid var(--gray-100);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .card:hover {
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.15);
+            transform: translateY(-5px);
+        }
+        
+        .card-img-placeholder {
+            width: 100%;
+            height: 160px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+            font-weight: 800;
+            transition: all 0.3s;
+        }
+        
+        .card:nth-child(1) .card-img-placeholder {
+            background: linear-gradient(135deg, #6366F1, #A78BFA);
+        }
+        
+        .card:nth-child(2) .card-img-placeholder {
+            background: linear-gradient(135deg, #EC4899, #8B5CF6);
+        }
+        
+        .card:nth-child(3) .card-img-placeholder {
+            background: linear-gradient(135deg, #10B981, #3B82F6);
+        }
+        
+        .card:nth-child(4) .card-img-placeholder {
+            background: linear-gradient(135deg, #F59E0B, #EF4444);
+        }
+        
+        .card-content {
+            padding: 1.5rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .card h3 {
+            margin-top: 0;
+            font-size: 1.2rem;
+        }
+        
+        .tag-container {
+            margin-top: auto;
+        }
+        
+        .tag {
+            display: inline-block;
+            background-color: var(--primary-light);
+            color: var(--primary);
+            padding: 0.3rem 0.8rem;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .publication {
+            padding: 1.5rem;
+            border-radius: 16px;
+            background-color: white;
+            margin-bottom: 1.2rem;
+            border-left: 4px solid var(--primary);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            transition: box-shadow 0.3s, transform 0.3s;
+        }
+        
+        .publication:hover {
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.15);
+            transform: translateY(-3px);
+        }
+        
+        .pub-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .pub-authors {
+            font-size: 0.9rem;
+            color: var(--gray-500);
+            margin-bottom: 0.5rem;
+        }
+        
+        .pub-venue {
+            font-size: 0.9rem;
+            font-style: italic;
+            color: var(--gray-500);
+            margin-bottom: 0.5rem;
+        }
+        
+        .stats-container {
+            display: flex;
+            justify-content: space-between;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .stat-box {
+            background-color: white;
+            padding: 1.8rem;
+            border-radius: 16px;
+            text-align: center;
+            min-width: 180px;
+            flex: 1;
+            margin: 0.5rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            transition: box-shadow 0.3s, transform 0.3s;
+            border: 1px solid var(--gray-100);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .stat-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+        }
+        
+        .stat-box:hover {
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.15);
+            transform: translateY(-5px);
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            font-size: 1rem;
+            color: var(--gray-600);
+            font-weight: 500;
+        }
+        
+        .team-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .team-member {
+            text-align: center;
+        }
+        
+        .team-photo-placeholder {
+            width: 120px;
+            height: 120px;
+            border-radius: 24px;
+            margin: 0 auto 1rem auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 700;
+            color: white;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+        
+        /* Unique color for each team member */
+        .team-member:nth-child(3n+1) .team-photo-placeholder {
+            background: linear-gradient(135deg, #6366F1, #2563EB);
+        }
+        
+        .team-member:nth-child(3n+2) .team-photo-placeholder {
+            background: linear-gradient(135deg, #EC4899, #8B5CF6);
+        }
+        
+        .team-member:nth-child(3n+3) .team-photo-placeholder {
+            background: linear-gradient(135deg, #10B981, #3B82F6);
+        }
+        
+        .team-member:hover .team-photo-placeholder {
+            transform: scale(1.05);
+            box-shadow: 0 6px 25px rgba(99, 102, 241, 0.25);
+        }
+        
+        .team-name {
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+            color: var(--gray-800);
+        }
+        
+        .team-role {
+            color: var(--gray-500);
+            font-size: 0.9rem;
+        }
+        
+        .course-box {
+            border: none;
+            border-radius: 16px;
+            padding: 1.8rem;
+            margin-bottom: 1.5rem;
+            transition: box-shadow 0.3s, transform 0.3s;
+            background-color: white;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            border-left: 4px solid var(--primary);
+            position: relative;
+        }
+        
+        .course-box:hover {
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.15);
+            transform: translateY(-5px);
+        }
+        
+        .course-code {
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            background-color: var(--primary-light);
+            border-radius: 6px;
+        }
+        
+        footer {
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--gray-200);
+            color: var(--gray-500);
+            font-size: 0.9rem;
+        }
+        
+        .contact-info {
+            margin-top: 1.5rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-icon {
+            width: 24px;
+            height: 24px;
+            margin-right: 1rem;
+            color: var(--primary);
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--gray-700);
+        }
+        
+        input[type="text"], 
+        input[type="email"],
+        select {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            margin-bottom: 1rem;
+            border: 1px solid var(--gray-300);
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.2s;
+        }
+        
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        select:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+        }
+        
+        button[type="submit"], button[type="button"] {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.2s;
+            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.2);
+        }
+        
+        button[type="submit"]:hover, button[type="button"]:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(99, 102, 241, 0.3);
+        }
+        
+        .hero-banner {
+            width: 100%;
+            height: 280px;
+            border-radius: 16px;
+            margin-bottom: 2rem;
+            background: linear-gradient(120deg, var(--primary), var(--accent));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2.5rem;
+            font-weight: 700;
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-banner::before {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            top: -100px;
+            right: -100px;
+        }
+        
+        .hero-banner::after {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            bottom: -70px;
+            left: -70px;
+        }
+        
+        /* New styling for badges */
+        .featured-badge {
+            display: inline-block;
+            background-color: var(--warning);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .new-badge {
+            display: inline-block;
+            background-color: var(--success);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            margin-left: 0.5rem;
+        }
+        
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+                padding-bottom: 1rem;
+            }
+            
+            .main-content {
+                margin-left: 0;
+                width: 100%;
+            }
+            
+            body {
+                flex-direction: column;
+            }
+            
+            .logo-placeholder {
+                width: 80px;
+                height: 80px;
+                font-size: 1.8rem;
+            }
+            
+            .hero-banner {
+                height: 200px;
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+        <div class="logo">
+            <div class="logo-placeholder">AI</div>
+            <h2 style="margin-top: 1rem; font-size: 1.2rem; font-weight: 600;">Lei's AI Application Lab</h2>
+        </div>
+        <ul class="nav-items">
+            <li class="nav-item active" data-target="home">首页</li>
+            <li class="nav-item" data-target="research">研究方向</li>
+            <li class="nav-item" data-target="publications">发表论文</li>
+            <li class="nav-item" data-target="projects">GitHub 项目</li>
+            <li class="nav-item" data-target="courses">公开课程</li>
+            <li class="nav-item" data-target="team">实验室成员</li>
+            <li class="nav-item" data-target="contact">联系我们</li>
+            <li class="nav-item" data-target="config">配置</li>
+        </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Home Section -->
+        <section id="home" class="section active">
+            <h1>欢迎来到 Lei's AI Application Lab</h1>
+            <p class="subtitle" style="font-size: 1.2rem; margin-bottom: 2rem; color: var(--gray-600);">探索人工智能前沿应用，解决现实世界问题</p>
+            
+            <div class="hero-banner">
+                <span>智能创新 · 应用未来</span>
+            </div>
+            
+            <p>Lei's AI Application Lab 是一个领先的研究团队，致力于人工智能技术的开发与应用研究。我们的使命是将前沿AI技术应用于解决现实世界中的实际问题，促进AI领域的创新与可持续发展。</p>
+            
+            <p>实验室由 Lei 教授领导，拥有来自计算机科学、数据科学和应用数学等多个领域的研究人员。我们与工业界和学术界保持密切合作，推动AI技术在医疗保健、金融、教育和环境科学等领域的应用。</p>
+            
+            <div class="stats-container">
+                <div class="stat-box">
+                    <div class="stat-number">25+</div>
+                    <div class="stat-label">发表论文</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">12</div>
+                    <div class="stat-label">进行中项目</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">15+</div>
+                    <div class="stat-label">研究人员</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">8</div>
+                    <div class="stat-label">合作伙伴</div>
+                </div>
+            </div>
+            
+            <h2>实验室动态</h2>
+            <ul style="list-style-position: inside; margin-left: 1rem; color: var(--gray-600);">
+                <li style="margin-bottom: 0.8rem;"><strong>2025年2月：</strong>实验室推出新项目 <a href="#" onclick="showSection('projects')" style="color: var(--primary); text-decoration: none; font-weight: 500;">AI 文章生成器</a>，支持多语言长篇内容自动生成</li>
+                <li style="margin-bottom: 0.8rem;">2024年10月：Lei教授在国际AI应用会议上发表主题演讲</li>
+                <li style="margin-bottom: 0.8rem;">2024年9月：实验室获得国家自然科学基金重点项目资助</li>
+                <li style="margin-bottom: 0.8rem;">2024年8月：三名实验室成员论文被顶级AI会议AAAI 2025接收</li>
+            </ul>
+            
+            <a href="#research" class="button" onclick="showSection('research')">了解我们的研究</a>
+        </section>
+
+        <!-- Research Section -->
+        <section id="research" class="section">
+            <h1>研究方向</h1>
+            <p>我们的研究立足于人工智能的基础和应用研究，专注于以下几个关键领域：</p>
+            
+            <div class="card-container">
+                <div class="card">
+                    <div class="card-img-placeholder">LLM</div>
+                    <div class="card-content">
+                        <h3>大型语言模型优化与应用</h3>
+                        <p>研究LLM在特定领域的优化与定制，提高模型效率与可解释性，探索在复杂任务中的实际应用。</p>
+                        <div class="tag-container">
+                            <span class="tag">LLM</span>
+                            <span class="tag">NLP</span>
+                            <span class="tag">模型优化</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-img-placeholder">VL</div>
+                    <div class="card-content">
+                        <h3>多模态智能系统</h3>
+                        <p>研究视觉-语言协同理解，跨模态知识表示与推理，开发能够处理多种信息类型的综合智能系统。</p>
+                        <div class="tag-container">
+                            <span class="tag">多模态</span>
+                            <span class="tag">计算机视觉</span>
+                            <span class="tag">知识表示</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-img-placeholder">ET</div>
+                    <div class="card-content">
+                        <h3>可信AI与伦理计算</h3>
+                        <p>研究AI系统的公平性、透明度与可解释性，构建符合伦理标准的AI应用，减轻算法偏见与歧视。</p>
+                        <div class="tag-container">
+                            <span class="tag">AI伦理</span>
+                            <span class="tag">可解释性</span>
+                            <span class="tag">算法公平</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-img-placeholder">MED</div>
+                    <div class="card-content">
+                        <h3>医疗健康AI应用</h3>
+                        <p>利用AI技术进行医学影像分析、疾病预测与诊断辅助，研发智能健康监测系统，提高医疗资源配置效率。</p>
+                        <div class="tag-container">
+                            <span class="tag">医疗AI</span>
+                            <span class="tag">医学影像</span>
+                            <span class="tag">健康监测</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <h2 style="margin-top: 3rem;">研究基础设施</h2>
+            <p>实验室配备先进的计算设施，支持大规模AI模型的训练与部署：</p>
+            <ul style="list-style-position: inside; margin-left: 1rem; color: var(--gray-600);">
+                <li style="margin-bottom: 0.8rem;">高性能GPU计算集群，配备NVIDIA A100/H100加速卡</li>
+                <li style="margin-bottom: 0.8rem;">大规模数据存储与分析平台</li>
+                <li style="margin-bottom: 0.8rem;">IoT设备测试环境</li>
+                <li style="margin-bottom: 0.8rem;">专业医学影像分析工作站</li>
+            </ul>
+        </section>
+
+        <!-- Publications Section -->
+        <section id="publications" class="section">
+            <h1>发表论文</h1>
+            <p>我们致力于在顶级学术会议和期刊上发表研究成果，推动AI领域的知识创新。</p>
+            
+            <h2>2024年</h2>
+            <div class="publication">
+                <div class="pub-title">Efficient Fine-tuning Strategies for Domain-Specific Large Language Models</div>
+                <div class="pub-authors">Zhang, L., Wang, Y., Lei, J., & Chen, H.</div>
+                <div class="pub-venue">Proceedings of the 38th Conference on Neural Information Processing Systems (NeurIPS 2024)</div>
+                <a href="#" class="button" style="margin-top: 0.5rem;">PDF</a>
+                <a href="#" class="button" style="margin-top: 0.5rem; margin-left: 0.5rem;">代码</a>
+            </div>
+            
+            <div class="publication">
+                <div class="pub-title">MultiModal-GPT: A Vision-Language Model for Cross-Modal Understanding and Generation</div>
+                <div class="pub-authors">Lei, J., Li, M., Zhao, T., & Wu, X.</div>
+                <div class="pub-venue">IEEE Transactions on Pattern Analysis and Machine Intelligence, 46(8), 1423-1438</div>
+                <a href="#" class="button" style="margin-top: 0.5rem;">PDF</a>
+            </div>
+            
+            <div class="publication">
+                <div class="pub-title">Towards Ethical AI: A Framework for Bias Detection and Mitigation in Deep Learning Systems</div>
+                <div class="pub-authors">Chen, H., Lei, J., & Garcia, J.</div>
+                <div class="pub-venue">ACM Conference on Fairness, Accountability, and Transparency (FAccT 2024)</div>
+                <a href="#" class="button" style="margin-top: 0.5rem;">PDF</a>
+                <a href="#" class="button" style="margin-top: 0.5rem; margin-left: 0.5rem;">代码</a>
+            </div>
+            
+            <h2>2023年</h2>
+            <div class="publication">
+                <div class="pub-title">MedicalGPT: Specialized Large Language Models for Medical Diagnosis and Treatment</div>
+                <div class="pub-authors">Lei, J., Zhang, L., Wang, Y., & Liu, S.</div>
+                <div class="pub-venue">Nature Medicine, 29(12), 3245-3257</div>
+                <a href="#" class="button" style="margin-top: 0.5rem;">PDF</a>
+            </div>
+            
+            <div class="publication">
+                <div class="pub-title">Advancing Reinforcement Learning from Human Feedback: A Comparative Study</div>
+                <div class="pub-authors">Wang, Y., Lei, J., & Johnson, T.</div>
+                <div class="pub-venue">International Conference on Machine Learning (ICML 2023)</div>
+                <a href="#" class="button" style="margin-top: 0.5rem;">PDF</a>
+                <a href="#" class="button" style="margin-top: 0.5rem; margin-left: 0.5rem;">代码</a>
+            </div>
+            
+            <a href="#" class="button" style="margin-top: 2rem;">查看更多论文</a>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="section">
+            <h1>GitHub 项目</h1>
+            <p>我们积极开发开源工具和框架，与全球AI社区共享我们的研究成果。请在"配置"页面设置OpenRouter AI的API密钥和模型，以体验项目Demo。</p>
+            
+            <div class="card-container">
+                <!-- 新增的AI文章生成器项目 -->
+                <div class="card">
+                    <div class="card-content">
+                        <div>
+                            <span class="featured-badge">特色项目</span>
+                            <span class="new-badge">新</span>
+                        </div>
+                        <h3>AI文章生成器</h3>
+                        <p>基于大型语言模型的智能长文本生成系统，支持学术论文、科普文章、新闻报道等多种体裁的自动撰写，可根据自定义大纲生成结构化内容。</p>
+                        <div style="margin-bottom: 1rem;">
+                            <span class="tag">Python</span>
+                            <span class="tag">Flask</span>
+                            <span class="tag">LLM</span>
+                            <span class="tag">内容生成</span>
+                        </div>
+                        <div style="display: flex; align-items: center; margin-bottom: 1rem;">
+                            <span style="margin-right: 1rem;">⭐ 1.5k</span>
+                            <span style="margin-right: 1rem;">🍴 280</span>
+                        </div>
+                        <a href="https://github.com/username/article-generator" class="button" style="margin-right: 0.5rem;">查看项目</a>
+                        <a href="article_generator.html" class="button">查看Demo</a>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-content">
+                        <h3>FastLLM</h3>
+                        <p>一个高效的大型语言模型推理与部署框架，支持量化、剪枝等优化技术，适用于资源受限环境。</p>
+                        <div style="margin-bottom: 1rem;">
+                            <span class="tag">Python</span>
+                            <span class="tag">C++</span>
+                            <span class="tag">CUDA</span>
+                        </div>
+                        <div style="display: flex; align-items: center; margin-bottom: 1rem;">
+                            <span style="margin-right: 1rem;">⭐ 2.8k</span>
+                            <span style="margin-right: 1rem;">🍴 520</span>
+                        </div>
+                        <a href="#" class="button" style="margin-right: 0.5rem;">查看项目</a>
+                        <a href="fastllm-demo.html" class="button">查看Demo</a>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-content">
+                        <h3>MedVision-AI</h3>
+                        <p>专注于医学影像分析的深度学习工具包，集成多种先进的计算机视觉模型，用于医学影像分割、分类与异常检测。</p>
+                        <div style="margin-bottom: 1rem;">
+                            <span class="tag">Python</span>
+                            <span class="tag">PyTorch</span>
+                            <span class="tag">医学影像</span>
+                        </div>
+                        <div style="display: flex; align-items: center; margin-bottom: 1rem;">
+                            <span style="margin-right: 1rem;">⭐ 1.6k</span>
+                            <span style="margin-right: 1rem;">🍴 312</span>
+                        </div>
+                        <a href="#" class="button" style="margin-right: 0.5rem;">查看项目</a>
+                        <a href="medvision-demo.html" class="button">查看Demo</a>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-content">
+                        <h3>EthicalAI-Toolkit</h3>
+                        <p>用于评估和减轻AI系统偏见的工具集，包含偏见检测、公平性评估与模型解释组件，适用于各类机器学习模型。</p>
+                        <div style="margin-bottom: 1rem;">
+                            <span class="tag">Python</span>
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">AI伦理</span>
+                        </div>
+                        <div style="display: flex; align-items: center; margin-bottom: 1rem;">
+                            <span style="margin-right: 1rem;">⭐ 980</span>
+                            <span style="margin-right: 1rem;">🍴 185</span>
+                        </div>
+                        <a href="#" class="button" style="margin-right: 0.5rem;">查看项目</a>
+                        <a href="ethicalai-demo.html" class="button">查看Demo</a>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-content">
+                        <h3>MultiModal-Bench</h3>
+                        <p>多模态AI模型评测基准，包含多样化的视觉-语言任务数据集与评估指标，支持模型性能的全面对比与分析。</p>
+                        <div style="margin-bottom: 1rem;">
+                            <span class="tag">Python</span>
+                            <span class="tag">多模态</span>
+                            <span class="tag">基准测试</span>
+                        </div>
+                        <div style="display: flex; align-items: center; margin-bottom: 1rem;">
+                            <span style="margin-right: 1rem;">⭐ 1.2k</span>
+                            <span style="margin-right: 1rem;">🍴 230</span>
+                        </div>
+                        <a href="#" class="button" style="margin-right: 0.5rem;">查看项目</a>
+                        <a href="multimodal-demo.html" class="button">查看Demo</a>
+                    </div>
+                </div>
+            </div>
+            
+            <h2 style="margin-top: 3rem;">开源贡献</h2>
+            <p>我们积极参与和贡献各类开源AI项目，包括：</p>
+            <ul style="list-style-position: inside; margin-left: 1rem; color: var(--gray-600);">
+                <li style="margin-bottom: 0.8rem;">Hugging Face Transformers - 贡献专业领域模型与数据集</li>
+                <li style="margin-bottom: 0.8rem;">PyTorch - 优化深度学习框架在医疗领域的应用</li>
+                <li style="margin-bottom: 0.8rem;">TensorFlow - 开发多模态模型训练工具</li>
+            </ul>
+        </section>
+
+        <!-- Courses Section -->
+        <section id="courses" class="section">
+            <h1>公开课程</h1>
+            <p>实验室提供多种AI相关课程，面向本科生、研究生和行业专业人士。</p>
+            
+            <h2>研究生课程</h2>
+            <div class="course-box">
+                <div class="course-code">CS 6320</div>
+                <h3>高级机器学习理论与应用</h3>
+                <p>探讨机器学习最新理论进展，包括深度学习、强化学习、生成模型等，并结合实际应用案例分析。</p>
+                <p><strong>学期：</strong> 春季 | <strong>学分：</strong> 4</p>
+                <a href="#" class="button">课程大纲</a>
+            </div>
+            
+            <div class="course-box">
+                <div class="course-code">CS 6420</div>
+                <h3>大型语言模型：原理与应用</h3>
+                <p>深入研究LLM的架构设计、训练方法、推理优化，以及在各领域的应用实践与挑战。</p>
+                <p><strong>学期：</strong> 秋季 | <strong>学分：</strong> 4</p>
+                <a href="#" class="button">课程大纲</a>
+            </div>
+            
+            <h2>本科生课程</h2>
+            <div class="course-box">
+                <div class="course-code">CS 4150</div>
+                <h3>人工智能导论</h3>
+                <p>介绍AI的基本概念、算法与技术，包括搜索、知识表示、机器学习、自然语言处理等核心内容。</p>
+                <p><strong>学期：</strong> 春季/秋季 | <strong>学分：</strong> 3</p>
+                <a href="#" class="button">课程大纲</a>
+            </div>
+            
+            <div class="course-box">
+                <div class="course-code">CS 4180</div>
+                <h3>机器学习基础</h3>
+                <p>讲授机器学习的核心算法、数学基础与实践技能，带领学生完成从数据处理到模型部署的全流程项目。</p>
+                <p><strong>学期：</strong> 秋季 | <strong>学分：</strong> 3</p>
+                <a href="#" class="button">课程大纲</a>
+            </div>
+            
+            <h2>在线公开课</h2>
+            <div class="course-box">
+                <div class="course-code">MOOC</div>
+                <h3>实用AI应用开发</h3>
+                <p>面向开发者的实战课程，教授如何利用现代AI技术构建实用应用，覆盖从API调用到模型部署的全栈技能。</p>
+                <p><strong>平台：</strong> Coursera | <strong>难度：</strong> 中级 | <strong>时长：</strong> 8周</p>
+                <a href="#" class="button">免费注册</a>
+            </div>
+            
+            <div class="course-box">
+                <div class="course-code">MOOC</div>
+                <h3>医疗AI入门与实践</h3>
+                <p>专为医疗专业人士设计的AI应用课程，讲解AI技术在临床诊断、医学影像、健康管理等领域的应用。</p>
+                <p><strong>平台：</strong> edX | <strong>难度：</strong> 入门 | <strong>时长：</strong> 6周</p>
+                <a href="#" class="button">免费注册</a>
+            </div>
+        </section>
+
+        <!-- Team Section -->
+        <section id="team" class="section">
+            <h1>实验室成员</h1>
+            <p>我们的团队由来自全球各地的研究人员组成，拥有多元化的学术背景和专业技能。</p>
+            
+            <h2>教师</h2>
+            <div class="team-container">
+                <div class="team-member">
+                    <div class="team-photo-placeholder">L</div>
+                    <div class="team-name">Lei 教授</div>
+                    <div class="team-role">实验室主任</div>
+                    <p style="font-size: 0.9rem;">人工智能 | 机器学习</p>
+                </div>
+                
+                <div class="team-member">
+                    <div class="team-photo-placeholder">W</div>
+                    <div class="team-name">王博士</div>
+                    <div class="team-role">副教授</div>
+                    <p style="font-size: 0.9rem;">自然语言处理 | 大型语言模型</p>
+                </div>
+                
+                <div class="team-member">
+                    <div class="team-photo-placeholder">Z</div>
+                    <div class="team-name">张博士</div>
+                    <div class="team-role">助理教授</div>
+                    <p style="font-size: 0.9rem;">计算机视觉 | 多模态学习</p>
+                </div>
+            </div>
+            
+            <h2>博士后研究员</h2>
+            <div class="team-container">
+                <div class="team-member">
+                    <div class="team-photo-placeholder">C</div>
+                    <div class="team-name">陈博士</div>
+                    <div class="team-role">博士后研究员</div>
+                    <p style="font-size: 0.9rem;">医疗AI | 生物信息学</p>
+                </div>
+                
+                <div class="team-member">
+                    <div class="team-photo-placeholder">J</div>
+                    <div class="team-name">Dr. Johnson</div>
+                    <div class="team-role">博士后研究员</div>
+                    <p style="font-size: 0.9rem;">强化学习 | 机器人学</p>
+                </div>
+            </div>
+            
+            <h2>博士研究生</h2>
+            <div class="team-container">
+                <div class="team-member">
+                    <div class="team-photo-placeholder">LM</div>
+                    <div class="team-name">李明</div>
+                    <div class="team-role">博士研究生</div>
+                    <p style="font-size: 0.9rem;">大型语言模型 | 知识表示</p>
+                </div>
+                
+                <div class="team-member">
+                    <div class="team-photo-placeholder">ZT</div>
+                    <div class="team-name">赵婷</div>
+                    <div class="team-role">博士研究生</div>
+                    <p style="font-size: 0.9rem;">多模态学习 | 视觉-语言模型</p>
+                </div>
+                
+                <div class="team-member">
+                    <div class="team-photo-placeholder">WX</div>
+                    <div class="team-name">吴欣</div>
+                    <div class="team-role">博士研究生</div>
+                    <p style="font-size: 0.9rem;">AI伦理 | 算法公平性</p>
+                </div>
+                
+                <div class="team-member">
+                    <div class="team-photo-placeholder">G</div>
+                    <div class="team-name">Garcia</div>
+                    <div class="team-role">博士研究生</div>
+                    <p style="font-size: 0.9rem;">医学影像分析 | 计算机视觉</p>
+                </div>
+            </div>
+            
+            <h2>硕士研究生</h2>
+            <div class="team-container">
+                <div class="team-member">
+                    <div class="team-photo-placeholder">LS</div>
+                    <div class="team-name">刘思</div>
+                    <div class="team-role">硕士研究生</div>
+                    <p style="font-size: 0.9rem;">自然语言处理 | 情感分析</p>
+                </div>
+                
+                <div class="team-member">
+                    <div class="team-photo-placeholder">WF</div>
+                    <div class="team-name">王飞</div>
+                    <div class="team-role">硕士研究生</div>
+                    <p style="font-size: 0.9rem;">深度学习 | 推荐系统</p>
+                </div>
+                
+                <div class="team-member">
+                    <div class="team-photo-placeholder">HY</div>
+                    <div class="team-name">黄宇</div>
+                    <div class="team-role">硕士研究生</div>
+                    <p style="font-size: 0.9rem;">强化学习 | 自动驾驶</p>
+                </div>
+            </div>
+            
+            <h2>行政人员</h2>
+            <div class="team-container">
+                <div class="team-member">
+                    <div class="team-photo-placeholder">ZW</div>
+                    <div class="team-name">张伟</div>
+                    <div class="team-role">实验室主管</div>
+                    <p style="font-size: 0.9rem;">实验室运营 | 项目管理</p>
+                </div>
+                
+                <div class="team-member">
+                    <div class="team-photo-placeholder">LH</div>
+                    <div class="team-name">林华</div>
+                    <div class="team-role">行政助理</div>
+                    <p style="font-size: 0.9rem;">行政事务 | 外联合作</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section">
+            <h1>联系我们</h1>
+            <p>欢迎就合作研究、学位项目或其他事宜与我们联系。</p>
+            
+            <div style="display: flex; flex-wrap: wrap; margin-top: 2rem;">
+                <div style="flex: 1; min-width: 300px; margin-right: 2rem; margin-bottom: 2rem;">
+                    <h2>联系方式</h2>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <div class="contact-icon">📧</div>
+                            <div>lei@university.edu</div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">📞</div>
+                            <div>+1 (123) 456-7890</div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">📍</div>
+                            <div>Computer Science Building, Room 3401<br>University Campus, CA 94305</div>
+                        </div>
+                    </div>
+                    
+                    <h2 style="margin-top: 2rem;">社交媒体</h2>
+                    <div style="display: flex; margin-top: 1rem;">
+                        <a href="#" style="margin-right: 1rem; color: var(--primary); text-decoration: none; font-weight: 500;">Twitter</a>
+                        <a href="#" style="margin-right: 1rem; color: var(--primary); text-decoration: none; font-weight: 500;">LinkedIn</a>
+                        <a href="#" style="margin-right: 1rem; color: var(--primary); text-decoration: none; font-weight: 500;">GitHub</a>
+                        <a href="#" style="color: var(--primary); text-decoration: none; font-weight: 500;">YouTube</a>
+                    </div>
+                </div>
+                
+                <div style="flex: 1; min-width: 300px;">
+                    <h2>加入我们</h2>
+                    <p>我们欢迎优秀的学生和研究人员加入我们的团队：</p>
+                    <ul style="list-style-position: inside; margin-left: 1rem; color: var(--gray-600);">
+                        <li style="margin-bottom: 0.8rem;"><strong>博士生申请：</strong>每年12月15日截止</li>
+                        <li style="margin-bottom: 0.8rem;"><strong>博士后职位：</strong>全年开放申请</li>
+                        <li style="margin-bottom: 0.8rem;"><strong>本科生研究机会：</strong>春季和秋季学期开放</li>
+                        <li style="margin-bottom: 0.8rem;"><strong>访问学者：</strong>请提前6个月申请</li>
+                    </ul>
+                    <a href="#" class="button" style="margin-top: 1rem;">查看招聘信息</a>
+                </div>
+            </div>
+            
+            <div style="margin-top: 3rem;">
+                <h2>订阅实验室简报</h2>
+                <p>获取我们的最新研究成果、活动和招聘信息。</p>
+                <div style="margin-top: 1rem; display: flex;">
+                    <input type="email" placeholder="您的邮箱地址" style="padding: 0.8rem 1.2rem; border-radius: 8px 0 0 8px; border: 1px solid var(--gray-300); width: 300px; outline: none;">
+                    <button style="background-color: var(--primary); color: white; border: none; padding: 0.8rem 1.5rem; border-radius: 0 8px 8px 0; cursor: pointer; font-weight: 500;">订阅</button>
+                </div>
+            </div>
+            
+            <footer>
+                <p>© 2025 Lei's AI Application Lab. All rights reserved.</p>
+            </footer>
+        </section>
+
+        <!-- Config Section -->
+        <section id="config" class="section">
+            <h1>配置 OpenRouter AI</h1>
+            <p>请在此处配置您的 OpenRouter AI API 密钥和选择模型。这些配置将用于所有项目的Demo。</p>
+            <div style="background-color: var(--gray-50); padding: 2rem; border-radius: 16px; margin-top: 1.5rem; box-shadow: 0 4px 20px rgba(0,0,0,0.06);">
+                <form id="config-form">
+                    <label for="api-key">API 密钥：</label>
+                    <input type="text" id="api-key" name="api-key" placeholder="例如：sk-or-v1-abc123..." required>
+                    <label for="model">选择模型：</label>
+                    <select id="model" name="model">
+                        <option value="deepseek-r1-free" selected>DeepSeek R1 (免费)</option>
+                        <option value="model1">Model 1</option>
+                        <option value="model2">Model 2</option>
+                        <!-- 根据OpenRouter AI文档添加更多模型选项 -->
+                    </select>
+                    <div style="margin-top: 1.5rem;">
+                        <button type="submit">保存</button>
+                        <button type="button" onclick="resetConfig()" style="background-color: var(--gray-200); color: var(--gray-700); box-shadow: none; margin-left: 0.5rem;">重置</button>
+                    </div>
+                </form>
+            </div>
+            <p style="color: var(--danger); margin-top: 1rem; font-weight: 500;">注意：请勿在公共场合输入您的 API 密钥，所有配置仅保存在您的浏览器本地存储中。</p>
+            <p>如果您还没有API密钥，请访问 <a href="https://openrouter.ai" target="_blank" style="color: var(--primary); text-decoration: none; font-weight: 500;">OpenRouter AI官网</a> 获取。</p>
+        </section>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navItems = document.querySelectorAll('.nav-item');
+            const sections = document.querySelectorAll('.section');
+            
+            function showSection(targetId) {
+                sections.forEach(section => section.classList.remove('active'));
+                navItems.forEach(item => item.classList.remove('active'));
+                
+                const targetSection = document.getElementById(targetId);
+                if (targetSection) targetSection.classList.add('active');
+                
+                const targetNavItem = document.querySelector(`.nav-item[data-target="${targetId}"]`);
+                if (targetNavItem) targetNavItem.classList.add('active');
+            }
+            
+            navItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    const targetId = this.getAttribute('data-target');
+                    showSection(targetId);
+                });
+            });
+            
+            // Handle URL hash on load and change
+            function handleHashChange() {
+                const hash = window.location.hash.substring(1);
+                if (hash) showSection(hash);
+            }
+            window.addEventListener('hashchange', handleHashChange);
+            if (window.location.hash) handleHashChange();
+
+            // Config form handling
+            const configForm = document.getElementById('config-form');
+            configForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const apiKey = document.getElementById('api-key').value;
+                const model = document.getElementById('model').value;
+                localStorage.setItem('openrouter-api-key', apiKey);
+                localStorage.setItem('openrouter-model', model);
+                alert('配置已保存');
+            });
+
+            // Load saved config
+            const savedApiKey = localStorage.getItem('openrouter-api-key');
+            const savedModel = localStorage.getItem('openrouter-model');
+            if (savedApiKey) document.getElementById('api-key').value = savedApiKey;
+            if (savedModel) document.getElementById('model').value = savedModel;
+
+            // Reset config
+            window.resetConfig = function() {
+                localStorage.removeItem('openrouter-api-key');
+                localStorage.removeItem('openrouter-model');
+                document.getElementById('api-key').value = '';
+                document.getElementById('model').value = 'deepseek-r1-free';
+                alert('配置已重置');
+            };
+
+            window.showSection = showSection;
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,1327 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 文章生成器 - Lei's AI Application Lab</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --claude-purple: #6A2FED;
+            --claude-purple-light: #EFE9FC;
+            --claude-purple-hover: #5928D0;
+            --claude-dark-purple: #4F28A8;
+            --claude-bg: #f9f9fb;
+            --claude-text: #1a1a1a;
+        }
+        
+        body {
+            background-color: var(--claude-bg);
+            color: var(--claude-text);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+        
+        .claude-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .claude-header {
+            border-bottom: 1px solid #e5e5e5;
+            padding-bottom: 1rem;
+        }
+        
+        .claude-btn {
+            background-color: var(--claude-purple);
+            color: white;
+            transition: background-color 0.2s;
+        }
+        
+        .claude-btn:hover {
+            background-color: var(--claude-purple-hover);
+        }
+        
+        .claude-btn-outline {
+            border: 1px solid var(--claude-purple);
+            color: var(--claude-purple);
+            background-color: transparent;
+            transition: background-color 0.2s, color 0.2s;
+        }
+        
+        .claude-btn-outline:hover {
+            background-color: var(--claude-purple);
+            color: white;
+        }
+        
+        .template-preview {
+            border: 1px solid #e5e5e5;
+            border-radius: 0.5rem;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        
+        .form-input:focus, .form-textarea:focus, .form-select:focus {
+            border-color: var(--claude-purple-light);
+            box-shadow: 0 0 0 3px rgba(106, 47, 237, 0.3);
+        }
+        
+        .template-item {
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid #e5e5e5;
+            padding: 0.5rem;
+        }
+        
+        .template-item:last-child {
+            border-bottom: none;
+        }
+        
+        .tabs {
+            display: flex;
+            border-bottom: 1px solid #e5e5e5;
+        }
+        
+        .tab {
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+        }
+        
+        .tab.active {
+            border-bottom: 2px solid var(--claude-purple);
+            color: var(--claude-purple);
+            font-weight: 500;
+        }
+        
+        .tab-content {
+            padding: 1rem 0;
+        }
+        
+        .page-section {
+            margin-bottom: 2rem;
+        }
+        
+        /* Animation for loading */
+        @keyframes pulse {
+            0% { opacity: 0.6; }
+            50% { opacity: 1; }
+            100% { opacity: 0.6; }
+        }
+        
+        .loading {
+            animation: pulse 1.5s infinite;
+        }
+
+        /* Console output style */
+        .console-output {
+            background-color: #1a1a1a;
+            color: #f8f8f8;
+            font-family: 'Courier New', monospace;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            white-space: pre-wrap;
+            overflow-x: auto;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .console-output .success {
+            color: #a8ff60;
+        }
+
+        .console-output .error {
+            color: #ff6060;
+        }
+
+        .console-output .info {
+            color: #60a8ff;
+        }
+
+        .console-output .warning {
+            color: #ffb760;
+        }
+
+        /* Status badges */
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .status-badge.initializing {
+            background-color: #e2e8f0;
+            color: #4a5568;
+        }
+
+        .status-badge.preparing {
+            background-color: #ebf4ff;
+            color: #3182ce;
+        }
+
+        .status-badge.running {
+            background-color: #ebf8ff;
+            color: #2c5282;
+        }
+
+        .status-badge.generating_outline {
+            background-color: #e6fffa;
+            color: #2c7a7b;
+        }
+
+        .status-badge.outline_completed {
+            background-color: #f0fff4;
+            color: #2f855a;
+        }
+
+        .status-badge.generating_article {
+            background-color: #fffaf0;
+            color: #c05621;
+        }
+
+        .status-badge.completed {
+            background-color: #f0fff4;
+            color: #2f855a;
+        }
+
+        .status-badge.error {
+            background-color: #fff5f5;
+            color: #c53030;
+        }
+
+        /* 日志滚动区域 */
+        .log-container {
+            height: 300px;
+            overflow-y: auto;
+            background-color: #1a1a1a;
+            color: #f8f8f8;
+            font-family: 'Courier New', monospace;
+            padding: 1rem;
+            border-radius: 0.5rem;
+        }
+
+        .log-line {
+            margin-bottom: 0.25rem;
+            word-wrap: break-word;
+        }
+
+        .log-time {
+            color: #a0aec0;
+            margin-right: 0.5rem;
+        }
+
+        /* 进度指示器 */
+        .progress-indicator {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .progress-bar-container {
+            width: 100%;
+            background-color: #e2e8f0;
+            border-radius: 9999px;
+            height: 0.75rem;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background-color: var(--claude-purple);
+            border-radius: 9999px;
+            transition: width 0.3s ease;
+        }
+
+        .progress-details {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.75rem;
+            color: #4a5568;
+        }
+
+        .stages-container {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+        }
+
+        .stage {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            width: 80px;
+        }
+
+        .stage-dot {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #e2e8f0;
+            margin-bottom: 0.5rem;
+            z-index: 1;
+            border: 2px solid #fff;
+            transition: background-color 0.3s ease;
+        }
+
+        .stage-dot.active {
+            background-color: var(--claude-purple);
+        }
+
+        .stage-dot.completed {
+            background-color: #68d391;
+        }
+
+        .stage-dot.error {
+            background-color: #fc8181;
+        }
+
+        .stage-line {
+            position: absolute;
+            top: 10px;
+            right: -50%;
+            width: 100%;
+            height: 2px;
+            background-color: #e2e8f0;
+            z-index: 0;
+        }
+
+        .stage-line.active {
+            background-color: var(--claude-purple);
+        }
+
+        .stage:last-child .stage-line {
+            display: none;
+        }
+
+        .stage-label {
+            font-size: 0.75rem;
+            text-align: center;
+            color: #4a5568;
+            width: 80px;
+        }
+
+        /* 导航栏样式 */
+        .lab-navbar {
+            background-color: var(--claude-purple);
+            color: white;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .lab-logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .lab-logo img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 1rem;
+        }
+
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 0.25rem;
+            transition: background-color 0.2s;
+        }
+
+        .nav-link:hover {
+            background-color: var(--claude-purple-hover);
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <div class="lab-navbar">
+        <div class="lab-logo">
+            <img src="/api/placeholder/80/80" alt="Lab Logo">
+            <span class="text-xl font-bold">AI 文章生成器</span>
+        </div>
+        <div>
+            <a href="http://127.0.0.1:8000" class="nav-link">← 返回实验室主页</a>
+        </div>
+    </div>
+
+    <div class="claude-container">
+        <header class="claude-header mb-6">
+            <div class="flex items-center justify-between mb-2">
+                <div>
+                    <h1 class="text-2xl font-bold">AI 文章生成器</h1>
+                    <p class="text-gray-600">基于大型语言模型的智能长文本生成系统</p>
+                </div>
+                <div>
+                    <span class="text-sm text-gray-500">由 Lei's AI Application Lab 开发</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="bg-purple-50 border-l-4 border-purple-400 p-4 mb-6">
+            <div class="flex">
+                <div class="flex-shrink-0">
+                    <svg class="h-5 w-5 text-purple-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                    </svg>
+                </div>
+                <div class="ml-3">
+                    <h3 class="text-sm font-medium text-purple-800">使用说明</h3>
+                    <div class="mt-2 text-sm text-purple-700">
+                        <p>本工具可以根据您提供的标题、字数和文章体裁，自动生成结构良好的长篇内容。还可以自定义大纲模板，精确控制文章结构。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="tabs mb-4">
+            <div class="tab active" data-tab="basics">基本设置</div>
+            <div class="tab" data-tab="template">大纲模板</div>
+            <div class="tab" data-tab="advanced">高级设置</div>
+            <div class="tab" data-tab="output">生成结果</div>
+        </div>
+        
+        <form id="article-form" class="mb-8">
+            <!-- 基本设置 Tab -->
+            <div class="tab-content" id="basics-content">
+                <div class="page-section">
+                    <h2 class="text-xl font-semibold mb-4">文章基本信息</h2>
+                    
+                    <div class="mb-4">
+                        <label for="title" class="block text-sm font-medium text-gray-700 mb-1">文章标题 *</label>
+                        <input type="text" id="title" name="title" required class="form-input w-full px-3 py-2 border rounded-md focus:outline-none" placeholder="请输入文章标题">
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                        <div>
+                            <label for="length" class="block text-sm font-medium text-gray-700 mb-1">文章字数 *</label>
+                            <input type="number" id="length" name="length" required min="500" max="50000" step="500" value="3000" class="form-input w-full px-3 py-2 border rounded-md focus:outline-none">
+                            <p class="text-xs text-gray-500 mt-1">推荐范围: 1,000 - 20,000 字</p>
+                        </div>
+                        
+                        <div>
+                            <label for="language" class="block text-sm font-medium text-gray-700 mb-1">文章语言 *</label>
+                            <select id="language" name="language" required class="form-select w-full px-3 py-2 border rounded-md focus:outline-none">
+                                <option value="zh">中文</option>
+                                <option value="en">英文</option>
+                                <option value="ja">日文</option>
+                                <option value="ko">韩文</option>
+                                <option value="fr">法文</option>
+                                <option value="de">德文</option>
+                                <option value="es">西班牙文</option>
+                                <option value="ru">俄文</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label for="genre" class="block text-sm font-medium text-gray-700 mb-1">文章体裁 *</label>
+                        <select id="genre" name="genre" required class="form-select w-full px-3 py-2 border rounded-md focus:outline-none">
+                            <option value="学术论文">学术论文</option>
+                            <option value="科普文章">科普文章</option>
+                            <option value="科幻小说">科幻小说</option>
+                            <option value="历史叙事">历史叙事</option>
+                            <option value="技术文档">技术文档</option>
+                            <option value="商业报告">商业报告</option>
+                            <option value="旅行游记">旅行游记</option>
+                            <option value="产品介绍">产品介绍</option>
+                            <option value="人物传记">人物传记</option>
+                            <option value="议论文">议论文</option>
+                            <option value="散文">散文</option>
+                            <option value="教程">教程</option>
+                            <option value="自定义">自定义</option>
+                        </select>
+                    </div>
+                    
+                    <div id="custom-genre-container" class="mb-4 hidden">
+                        <label for="custom-genre" class="block text-sm font-medium text-gray-700 mb-1">自定义体裁</label>
+                        <input type="text" id="custom-genre" name="custom-genre" class="form-input w-full px-3 py-2 border rounded-md focus:outline-none" placeholder="请输入自定义体裁">
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label for="context" class="block text-sm font-medium text-gray-700 mb-1">上下文/背景信息</label>
+                        <textarea id="context" name="context" rows="4" class="form-textarea w-full px-3 py-2 border rounded-md focus:outline-none" placeholder="提供额外的上下文信息以指导文章生成，例如特定要求、风格偏好或关键观点"></textarea>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 大纲模板 Tab -->
+            <div class="tab-content hidden" id="template-content">
+                <div class="page-section">
+                    <h2 class="text-xl font-semibold mb-4">大纲模板设置</h2>
+                    
+                    <div class="mb-4">
+                        <div class="flex items-center mb-2">
+                            <input type="radio" id="auto-outline" name="outline-type" value="auto" checked class="mr-2">
+                            <label for="auto-outline" class="text-sm font-medium text-gray-700">AI自动生成大纲</label>
+                        </div>
+                        <div class="flex items-center">
+                            <input type="radio" id="custom-outline" name="outline-type" value="custom" class="mr-2">
+                            <label for="custom-outline" class="text-sm font-medium text-gray-700">使用自定义大纲模板</label>
+                        </div>
+                    </div>
+                    
+                    <div id="custom-outline-container" class="hidden">
+                        <div class="mb-4">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">选择上传方式</label>
+                            <div class="flex items-center mb-2">
+                                <input type="radio" id="upload-json" name="template-source" value="upload" checked class="mr-2">
+                                <label for="upload-json" class="text-sm font-medium text-gray-700">上传JSON文件</label>
+                            </div>
+                            <div class="flex items-center">
+                                <input type="radio" id="create-json" name="template-source" value="create" class="mr-2">
+                                <label for="create-json" class="text-sm font-medium text-gray-700">在线创建大纲</label>
+                            </div>
+                        </div>
+                        
+                        <div id="upload-json-container" class="mb-4">
+                            <label for="template-file" class="block text-sm font-medium text-gray-700 mb-1">上传大纲模板文件</label>
+                            <input type="file" id="template-file" name="template-file" accept=".json" class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-purple-50 file:text-purple-700 hover:file:bg-purple-100">
+                            <p class="text-xs text-gray-500 mt-1">请上传有效的JSON格式文件</p>
+                        </div>
+                        
+                        <div id="create-json-container" class="mb-4 hidden">
+                            <div class="flex justify-between items-center mb-2">
+                                <label class="block text-sm font-medium text-gray-700">创建章节列表</label>
+                                <button type="button" id="add-section" class="text-sm claude-btn-outline px-2 py-1 rounded-md">添加章节</button>
+                            </div>
+                            
+                            <div id="outline-items" class="template-preview p-2 mb-2">
+                                <div class="template-item section-item">
+                                    <div class="flex-1 mr-2">
+                                        <input type="text" placeholder="章节标题" class="section-title form-input w-full px-2 py-1 border rounded-md text-sm" value="引言">
+                                    </div>
+                                    <div class="w-20 mr-2">
+                                        <input type="number" placeholder="字数" class="section-length form-input w-full px-2 py-1 border rounded-md text-sm" value="500">
+                                    </div>
+                                    <div class="w-16 mr-2">
+                                        <input type="number" placeholder="级别" class="section-level form-input w-full px-2 py-1 border rounded-md text-sm" value="1" readonly>
+                                    </div>
+                                    <div>
+                                        <button type="button" class="delete-section text-red-500 px-1">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                <path d="M6 18L18 6M6 6l12 12"></path>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="template-item section-item">
+                                    <div class="flex-1 mr-2">
+                                        <input type="text" placeholder="章节标题" class="section-title form-input w-full px-2 py-1 border rounded-md text-sm" value="结论">
+                                    </div>
+                                    <div class="w-20 mr-2">
+                                        <input type="number" placeholder="字数" class="section-length form-input w-full px-2 py-1 border rounded-md text-sm" value="500">
+                                    </div>
+                                    <div class="w-16 mr-2">
+                                        <input type="number" placeholder="级别" class="section-level form-input w-full px-2 py-1 border rounded-md text-sm" value="1" readonly>
+                                    </div>
+                                    <div>
+                                        <button type="button" class="delete-section text-red-500 px-1">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                <path d="M6 18L18 6M6 6l12 12"></path>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="flex justify-between items-center text-xs text-gray-500">
+                                <p>总章节数: <span id="section-count">2</span></p>
+                                <p>总字数: <span id="total-words">1000</span></p>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <div class="flex justify-between items-center mb-2">
+                                <label class="block text-sm font-medium text-gray-700">大纲预览</label>
+                                <button type="button" id="refresh-preview" class="text-sm claude-btn-outline px-2 py-1 rounded-md">刷新预览</button>
+                            </div>
+                            <div id="outline-preview" class="template-preview p-4 bg-gray-50 font-mono text-sm whitespace-pre"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 高级设置 Tab -->
+            <div class="tab-content hidden" id="advanced-content">
+                <div class="page-section">
+                    <h2 class="text-xl font-semibold mb-4">高级设置</h2>
+                    
+                    <div class="mb-4">
+                        <label for="api-key" class="block text-sm font-medium text-gray-700 mb-1">Gemini API Key</label>
+                        <input type="password" id="api-key" name="api-key" class="form-input w-full px-3 py-2 border rounded-md focus:outline-none" placeholder="输入您的API密钥 (可选，也可通过环境变量设置)">
+                        <p class="text-xs text-gray-500 mt-1">如果不提供，将使用环境变量中的GEMINI_API_KEY</p>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label for="max-retries" class="block text-sm font-medium text-gray-700 mb-1">最大重试次数</label>
+                        <input type="number" id="max-retries" name="max-retries" min="1" max="20" value="10" class="form-input w-full px-3 py-2 border rounded-md focus:outline-none">
+                    </div>
+                    
+                    <div class="mb-4">
+                        <div class="flex items-center">
+                            <input type="checkbox" id="save-logs" name="save-logs" checked class="mr-2">
+                            <label for="save-logs" class="text-sm font-medium text-gray-700">保存详细日志</label>
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="polling-interval" class="block text-sm font-medium text-gray-700 mb-1">轮询间隔 (毫秒)</label>
+                        <input type="number" id="polling-interval" name="polling-interval" min="500" max="10000" value="2000" class="form-input w-full px-3 py-2 border rounded-md focus:outline-none">
+                        <p class="text-xs text-gray-500 mt-1">设置轮询进度的时间间隔，较短的间隔可以获得更及时的更新，但会增加服务器负担</p>
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="command-preview" class="block text-sm font-medium text-gray-700 mb-1">命令预览</label>
+                        <div id="command-preview" class="p-4 bg-gray-100 text-sm font-mono rounded-md whitespace-pre-wrap">
+                            python article_generator.py "文章标题" 3000 "学术论文" "zh"
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 生成结果 Tab -->
+            <div class="tab-content hidden" id="output-content">
+                <div class="page-section">
+                    <h2 class="text-xl font-semibold mb-4">生成结果</h2>
+                    
+                    <div id="output-placeholder" class="text-center py-8 text-gray-500">
+                        <svg class="mx-auto h-12 w-12 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                        </svg>
+                        <p class="mt-2">完成设置后点击"生成文章"按钮</p>
+                    </div>
+                    
+                    <div id="output-loading" class="hidden">
+                        <div class="mb-6">
+                            <div class="flex justify-between items-center mb-2">
+                                <h3 class="text-lg font-medium">当前状态</h3>
+                                <div id="task-status-badge" class="status-badge initializing">初始化中</div>
+                            </div>
+                            
+                            <!-- 阶段进度指示器 -->
+                            <div class="stages-container">
+                                <div class="stage">
+                                    <div class="stage-dot" id="stage-init"></div>
+                                    <div class="stage-line"></div>
+                                    <div class="stage-label">初始化</div>
+                                </div>
+                                <div class="stage">
+                                    <div class="stage-dot" id="stage-outline"></div>
+                                    <div class="stage-line"></div>
+                                    <div class="stage-label">生成大纲</div>
+                                </div>
+                                <div class="stage">
+                                    <div class="stage-dot" id="stage-article"></div>
+                                    <div class="stage-line"></div>
+                                    <div class="stage-label">生成文章</div>
+                                </div>
+                                <div class="stage">
+                                    <div class="stage-dot" id="stage-complete"></div>
+                                    <div class="stage-label">完成</div>
+                                </div>
+                            </div>
+                            
+                            <!-- 进度条 -->
+                            <div class="progress-indicator">
+                                <div class="progress-bar-container">
+                                    <div id="progress-bar" class="progress-bar" style="width: 0%"></div>
+                                </div>
+                                <div class="progress-details">
+                                    <span id="progress-percent">0%</span>
+                                    <span id="progress-message">正在初始化...</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <div class="flex justify-between items-center mb-2">
+                                <h3 class="text-lg font-medium">实时日志</h3>
+                                <button id="auto-scroll" class="text-xs claude-btn-outline px-2 py-1 rounded-md">自动滚动: 开</button>
+                            </div>
+                            <div id="log-container" class="log-container"></div>
+                        </div>
+                    </div>
+                    
+                    <div id="output-results" class="hidden mt-6">
+                        <div class="mb-4">
+                            <div class="flex justify-between items-center mb-2">
+                                <h3 class="text-lg font-medium">大纲</h3>
+                                <span id="outline-status" class="text-xs bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full">等待中</span>
+                            </div>
+                            <div id="outline-result" class="template-preview p-4 bg-gray-50 font-mono text-sm whitespace-pre"></div>
+                        </div>
+                        
+                        <div id="result-files" class="hidden mb-4">
+                            <h3 class="text-lg font-medium mb-2">文件</h3>
+                            <div class="bg-gray-50 p-4 rounded-md">
+                                <div class="mb-2">
+                                    <span class="text-sm font-medium">文章文件:</span>
+                                    <span id="article-file" class="text-sm ml-2 text-purple-600"></span>
+                                    <button type="button" id="download-article" class="ml-2 text-xs claude-btn-outline px-2 py-1 rounded-md">下载</button>
+                                </div>
+                                <div class="mb-2">
+                                    <span class="text-sm font-medium">大纲文件:</span>
+                                    <span id="outline-file" class="text-sm ml-2 text-purple-600"></span>
+                                    <button type="button" id="download-outline" class="ml-2 text-xs claude-btn-outline px-2 py-1 rounded-md">下载</button>
+                                </div>
+                                <div>
+                                    <span class="text-sm font-medium">日志文件:</span>
+                                    <span id="log-file" class="text-sm ml-2 text-purple-600"></span>
+                                    <button type="button" id="download-log" class="ml-2 text-xs claude-btn-outline px-2 py-1 rounded-md">下载</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="flex justify-center mt-8">
+                <button type="submit" id="generate-btn" class="claude-btn px-6 py-3 rounded-md text-center font-medium">生成文章</button>
+            </div>
+        </form>
+        
+        <div id="error-message" class="hidden bg-red-100 border-l-4 border-red-500 text-red-700 p-4 mb-4" role="alert">
+            <p class="font-bold">错误</p>
+            <p id="error-text"></p>
+        </div>
+        
+        <footer class="text-center text-gray-500 text-sm mt-12 pt-4 border-t">
+            <p>© 2025 Lei's AI Application Lab - 基于 Python 和 Gemini API</p>
+            <p class="mt-2">
+                <a href="http://127.0.0.1:8000" class="text-purple-600 hover:text-purple-800">返回实验室主页</a>
+            </p>
+        </footer>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // 基础配置
+            let API_BASE_URL = "http://127.0.0.1:5000";
+            let currentTaskId = null;
+            let pollingInterval = null;
+            let autoScroll = true;
+            
+            // Tab 切换
+            const tabs = document.querySelectorAll('.tab');
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    // 隐藏所有内容
+                    document.querySelectorAll('.tab-content').forEach(content => {
+                        content.classList.add('hidden');
+                    });
+                    
+                    // 移除所有active类
+                    tabs.forEach(t => {
+                        t.classList.remove('active');
+                    });
+                    
+                    // 显示选中的内容并添加active类
+                    const tabId = tab.getAttribute('data-tab');
+                    document.getElementById(`${tabId}-content`).classList.remove('hidden');
+                    tab.classList.add('active');
+                });
+            });
+            
+            // 处理自定义体裁
+            const genreSelect = document.getElementById('genre');
+            const customGenreContainer = document.getElementById('custom-genre-container');
+            
+            genreSelect.addEventListener('change', () => {
+                if (genreSelect.value === '自定义') {
+                    customGenreContainer.classList.remove('hidden');
+                } else {
+                    customGenreContainer.classList.add('hidden');
+                }
+                updateCommandPreview();
+            });
+            
+            // 处理大纲类型切换
+            const autoOutline = document.getElementById('auto-outline');
+            const customOutline = document.getElementById('custom-outline');
+            const customOutlineContainer = document.getElementById('custom-outline-container');
+            
+            autoOutline.addEventListener('change', () => {
+                if (autoOutline.checked) {
+                    customOutlineContainer.classList.add('hidden');
+                }
+                updateCommandPreview();
+            });
+            
+            customOutline.addEventListener('change', () => {
+                if (customOutline.checked) {
+                    customOutlineContainer.classList.remove('hidden');
+                }
+                updateCommandPreview();
+            });
+            
+            // 处理模板来源切换
+            const uploadJson = document.getElementById('upload-json');
+            const createJson = document.getElementById('create-json');
+            const uploadJsonContainer = document.getElementById('upload-json-container');
+            const createJsonContainer = document.getElementById('create-json-container');
+            
+            uploadJson.addEventListener('change', () => {
+                if (uploadJson.checked) {
+                    uploadJsonContainer.classList.remove('hidden');
+                    createJsonContainer.classList.add('hidden');
+                }
+                updateCommandPreview();
+            });
+            
+            createJson.addEventListener('change', () => {
+                if (createJson.checked) {
+                    createJsonContainer.classList.remove('hidden');
+                    uploadJsonContainer.classList.add('hidden');
+                    updateOutlineCounts();
+                }
+                updateCommandPreview();
+            });
+            
+            // 添加章节
+            const addSectionBtn = document.getElementById('add-section');
+            const outlineItems = document.getElementById('outline-items');
+            
+            addSectionBtn.addEventListener('click', () => {
+                const newItem = document.createElement('div');
+                newItem.className = 'template-item section-item';
+                newItem.innerHTML = `
+                    <div class="flex-1 mr-2">
+                        <input type="text" placeholder="章节标题" class="section-title form-input w-full px-2 py-1 border rounded-md text-sm">
+                    </div>
+                    <div class="w-20 mr-2">
+                        <input type="number" placeholder="字数" class="section-length form-input w-full px-2 py-1 border rounded-md text-sm" value="1000">
+                    </div>
+                    <div class="w-16 mr-2">
+                        <input type="number" placeholder="级别" class="section-level form-input w-full px-2 py-1 border rounded-md text-sm" value="1" readonly>
+                    </div>
+                    <div>
+                        <button type="button" class="delete-section text-red-500 px-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M6 18L18 6M6 6l12 12"></path>
+                            </svg>
+                        </button>
+                    </div>
+                `;
+                
+                outlineItems.appendChild(newItem);
+                addDeleteSectionHandlers();
+                addSectionInputHandlers();
+                updateOutlineCounts();
+                updateOutlinePreview();
+            });
+            
+            // 删除章节
+            function addDeleteSectionHandlers() {
+                document.querySelectorAll('.delete-section').forEach(button => {
+                    button.addEventListener('click', function() {
+                        const sectionItems = document.querySelectorAll('.section-item');
+                        if (sectionItems.length > 1) {
+                            this.closest('.section-item').remove();
+                            updateOutlineCounts();
+                            updateOutlinePreview();
+                        } else {
+                            alert('至少需要保留一个章节');
+                        }
+                    });
+                });
+            }
+            
+            // 为章节输入添加事件处理器
+            function addSectionInputHandlers() {
+                document.querySelectorAll('.section-title, .section-length').forEach(input => {
+                    input.addEventListener('change', () => {
+                        updateOutlineCounts();
+                        updateOutlinePreview();
+                    });
+                });
+            }
+            
+            // 更新章节计数
+            function updateOutlineCounts() {
+                const sectionCount = document.querySelectorAll('.section-item').length;
+                document.getElementById('section-count').textContent = sectionCount;
+                
+                let totalWords = 0;
+                document.querySelectorAll('.section-length').forEach(input => {
+                    totalWords += parseInt(input.value) || 0;
+                });
+                document.getElementById('total-words').textContent = totalWords;
+                
+                // 自动更新total length输入框
+                if (totalWords > 0) {
+                    document.getElementById('length').value = totalWords;
+                }
+                
+                updateCommandPreview();
+            }
+            
+            // 更新大纲预览
+            function updateOutlinePreview() {
+                const outlineData = [];
+                document.querySelectorAll('.section-item').forEach(item => {
+                    const title = item.querySelector('.section-title').value || '未命名章节';
+                    const length = parseInt(item.querySelector('.section-length').value) || 1000;
+                    const level = parseInt(item.querySelector('.section-level').value) || 1;
+                    
+                    outlineData.push({
+                        title: title,
+                        length: length,
+                        level: level
+                    });
+                });
+                
+                document.getElementById('outline-preview').textContent = JSON.stringify(outlineData, null, 2);
+            }
+            
+            // 刷新预览按钮
+            document.getElementById('refresh-preview').addEventListener('click', updateOutlinePreview);
+            
+            // 上传文件处理
+            document.getElementById('template-file').addEventListener('change', function(e) {
+                const file = e.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        try {
+                            const data = JSON.parse(e.target.result);
+                            document.getElementById('outline-preview').textContent = JSON.stringify(data, null, 2);
+                            
+                            // 计算总字数
+                            let totalWords = 0;
+                            data.forEach(item => {
+                                totalWords += item.length || 0;
+                            });
+                            document.getElementById('total-words').textContent = totalWords;
+                            document.getElementById('section-count').textContent = data.length;
+                            
+                            updateCommandPreview();
+                        } catch (error) {
+                            alert('JSON格式无效，请检查文件内容');
+                            console.error(error);
+                        }
+                    };
+                    reader.readAsText(file);
+                }
+            });
+            
+            // 更新命令预览
+            function updateCommandPreview() {
+                const title = document.getElementById('title').value || "文章标题";
+                const length = document.getElementById('length').value || "3000";
+                
+                let genre = document.getElementById('genre').value;
+                if (genre === '自定义') {
+                    genre = document.getElementById('custom-genre').value || "自定义体裁";
+                }
+                
+                const language = document.getElementById('language').value || "zh";
+                const context = document.getElementById('context').value;
+                
+                let command = `python article_generator.py "${title}" ${length} "${genre}" "${language}"`;
+                
+                if (context) {
+                    command += ` --context "${context}"`;
+                }
+                
+                if (document.getElementById('custom-outline').checked) {
+                    if (document.getElementById('upload-json').checked) {
+                        const file = document.getElementById('template-file').files[0];
+                        if (file) {
+                            command += ` --template "${file.name}"`;
+                        }
+                    } else {
+                        command += ` --template "custom_template.json"`;
+                    }
+                }
+                
+                document.getElementById('command-preview').textContent = command;
+            }
+            
+            // 监听各输入字段变化，更新命令预览
+            document.querySelectorAll('#title, #length, #language, #context, #api-key, #max-retries').forEach(input => {
+                input.addEventListener('input', updateCommandPreview);
+            });
+            
+            // 自动滚动按钮
+            document.getElementById('auto-scroll').addEventListener('click', function() {
+                autoScroll = !autoScroll;
+                this.textContent = autoScroll ? "自动滚动: 开" : "自动滚动: 关";
+            });
+            
+            // 添加日志行
+            function addLogLine(text) {
+                const logContainer = document.getElementById('log-container');
+                const logLine = document.createElement('div');
+                logLine.className = 'log-line';
+                
+                // 对不同类型的日志进行颜色处理
+                if (text.includes('错误') || text.includes('Error') || text.includes('error')) {
+                    logLine.style.color = '#ff6060'; // 红色
+                } else if (text.includes('完成') || text.includes('成功')) {
+                    logLine.style.color = '#a8ff60'; // 绿色
+                } else if (text.includes('警告') || text.includes('Warning')) {
+                    logLine.style.color = '#ffb760'; // 黄色
+                } else if (text.includes('章节') && text.includes('写作完成')) {
+                    logLine.style.color = '#60d8ff'; // 浅蓝色
+                }
+                
+                logLine.textContent = text;
+                logContainer.appendChild(logLine);
+                
+                // 如果启用了自动滚动，滚动到底部
+                if (autoScroll) {
+                    logContainer.scrollTop = logContainer.scrollHeight;
+                }
+            }
+            
+            // 更新进度指示器
+            function updateProgressIndicator(status, progress, message) {
+                document.getElementById('task-status-badge').textContent = getStatusText(status);
+                document.getElementById('task-status-badge').className = `status-badge ${status}`;
+                document.getElementById('progress-bar').style.width = `${progress}%`;
+                document.getElementById('progress-percent').textContent = `${progress}%`;
+                document.getElementById('progress-message').textContent = message;
+                
+                // 更新阶段指示器
+                updateStageIndicators(status);
+            }
+            
+            // 更新阶段指示器
+            function updateStageIndicators(status) {
+                // 重置所有指示器
+                document.querySelectorAll('.stage-dot').forEach(dot => {
+                    dot.className = 'stage-dot';
+                });
+                document.querySelectorAll('.stage-line').forEach(line => {
+                    line.className = 'stage-line';
+                });
+                
+                // 根据状态更新阶段指示器
+                if (status === 'error') {
+                    // 错误状态，找到当前进行的阶段并标记为错误
+                    if (status.includes('outline')) {
+                        document.getElementById('stage-init').className = 'stage-dot completed';
+                        document.getElementById('stage-outline').className = 'stage-dot error';
+                    } else if (status.includes('article')) {
+                        document.getElementById('stage-init').className = 'stage-dot completed';
+                        document.getElementById('stage-outline').className = 'stage-dot completed';
+                        document.getElementById('stage-article').className = 'stage-dot error';
+                    } else {
+                        document.getElementById('stage-init').className = 'stage-dot error';
+                    }
+                } else if (status === 'initializing' || status === 'preparing') {
+                    document.getElementById('stage-init').className = 'stage-dot active';
+                } else if (status === 'generating_outline' || status === 'outline_completed') {
+                    document.getElementById('stage-init').className = 'stage-dot completed';
+                    document.getElementById('stage-outline').className = 'stage-dot active';
+                    document.querySelector('.stage:nth-child(1) .stage-line').className = 'stage-line active';
+                } else if (status === 'generating_article') {
+                    document.getElementById('stage-init').className = 'stage-dot completed';
+                    document.getElementById('stage-outline').className = 'stage-dot completed';
+                    document.getElementById('stage-article').className = 'stage-dot active';
+                    document.querySelector('.stage:nth-child(1) .stage-line').className = 'stage-line active';
+                    document.querySelector('.stage:nth-child(2) .stage-line').className = 'stage-line active';
+                } else if (status === 'completed') {
+                    document.getElementById('stage-init').className = 'stage-dot completed';
+                    document.getElementById('stage-outline').className = 'stage-dot completed';
+                    document.getElementById('stage-article').className = 'stage-dot completed';
+                    document.getElementById('stage-complete').className = 'stage-dot completed';
+                    document.querySelectorAll('.stage-line').forEach(line => {
+                        line.className = 'stage-line active';
+                    });
+                }
+            }
+            
+            // 获取状态文本
+            function getStatusText(status) {
+                const statusMap = {
+                    'initializing': '初始化中',
+                    'preparing': '准备中',
+                    'running': '正在运行',
+                    'generating_outline': '生成大纲中',
+                    'outline_completed': '大纲已完成',
+                    'generating_article': '生成文章中',
+                    'completed': '已完成',
+                    'error': '出错'
+                };
+                return statusMap[status] || status;
+            }
+            
+            // 开始轮询任务状态
+            function startPolling(taskId) {
+                // 清除现有的轮询
+                if (pollingInterval) {
+                    clearInterval(pollingInterval);
+                }
+                
+                // 获取轮询间隔
+                const interval = parseInt(document.getElementById('polling-interval').value) || 2000;
+                
+                // 设置新的轮询
+                pollingInterval = setInterval(() => {
+                    pollTaskStatus(taskId);
+                }, interval);
+            }
+            
+            // 停止轮询
+            function stopPolling() {
+                if (pollingInterval) {
+                    clearInterval(pollingInterval);
+                    pollingInterval = null;
+                }
+            }
+            
+            // 轮询任务状态
+            function pollTaskStatus(taskId) {
+                fetch(`${API_BASE_URL}/api/task/${taskId}`)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('获取任务状态失败');
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        if (!data.success) {
+                            throw new Error(data.error || '未知错误');
+                        }
+                        
+                        const task = data.task;
+                        
+                        // 更新进度指示器
+                        updateProgressIndicator(task.status, task.progress, task.message);
+                        
+                        // 添加新的日志行
+                        const logContainer = document.getElementById('log-container');
+                        const currentLogs = Array.from(logContainer.querySelectorAll('.log-line')).map(line => line.textContent);
+                        const newLogs = task.logs.filter(log => !currentLogs.includes(log));
+                        
+                        newLogs.forEach(log => {
+                            addLogLine(log);
+                        });
+                        
+                        // 更新大纲内容
+                        if (task.outline) {
+                            document.getElementById('outline-status').textContent = '完成';
+                            document.getElementById('outline-status').className = 'text-xs bg-green-100 text-green-800 px-2 py-1 rounded-full';
+                            document.getElementById('outline-result').textContent = JSON.stringify(task.outline, null, 2);
+                            document.getElementById('output-results').classList.remove('hidden');
+                        }
+                        
+                        // 更新文件信息
+                        if (task.article_file || task.outline_file || task.log_file) {
+                            document.getElementById('result-files').classList.remove('hidden');
+                            
+                            if (task.article_file) {
+                                document.getElementById('article-file').textContent = task.article_file;
+                                document.getElementById('download-article').setAttribute('data-path', task.article_file);
+                            }
+                            
+                            if (task.outline_file) {
+                                document.getElementById('outline-file').textContent = task.outline_file;
+                                document.getElementById('download-outline').setAttribute('data-path', task.outline_file);
+                            }
+                            
+                            if (task.log_file) {
+                                document.getElementById('log-file').textContent = task.log_file;
+                                document.getElementById('download-log').setAttribute('data-path', task.log_file);
+                            }
+                        }
+                        
+                        // 如果任务已完成或出错，停止轮询
+                        if (task.status === 'completed' || task.status === 'error') {
+                            stopPolling();
+                            
+                            // 添加完成或错误标记
+                            if (task.status === 'completed') {
+                                addLogLine('===== 任务完成 =====');
+                            } else {
+                                addLogLine('===== 任务出错 =====');
+                            }
+                        }
+                    })
+                    .catch(error => {
+                        console.error('轮询任务状态失败:', error);
+                        // 添加错误日志
+                        addLogLine(`轮询错误: ${error.message}`);
+                    });
+            }
+            
+            // 设置下载按钮事件处理
+            function setupDownloadButtons() {
+                document.querySelectorAll('#download-article, #download-outline, #download-log').forEach(button => {
+                    button.addEventListener('click', function(e) {
+                        e.preventDefault(); // 阻止默认行为
+                        e.stopPropagation(); // 阻止事件冒泡
+                        
+                        const filePath = this.getAttribute('data-path');
+                        if (filePath) {
+                            // 创建下载链接
+                            const downloadUrl = `${API_BASE_URL}/api/download/${this.id.split('-')[1]}?path=${encodeURIComponent(filePath)}`;
+                            
+                            // 使用隐藏的a元素触发下载
+                            const downloadLink = document.createElement('a');
+                            downloadLink.href = downloadUrl;
+                            downloadLink.target = '_blank'; // 可选：在新窗口打开
+                            downloadLink.rel = 'noopener noreferrer';
+                            downloadLink.style.display = 'none';
+                            document.body.appendChild(downloadLink);
+                            downloadLink.click();
+                            
+                            // 清理DOM
+                            setTimeout(() => {
+                                document.body.removeChild(downloadLink);
+                            }, 100);
+                            
+                            return false; // 确保不会触发其他行为
+                        }
+                    });
+                });
+            }
+            
+            // 表单提交
+            document.getElementById('article-form').addEventListener('submit', async function(e) {
+                e.preventDefault();
+                
+                // 隐藏错误消息
+                document.getElementById('error-message').classList.add('hidden');
+                
+                // 显示加载状态
+                document.getElementById('output-placeholder').classList.add('hidden');
+                document.getElementById('output-loading').classList.remove('hidden');
+                document.getElementById('result-files').classList.add('hidden');
+                document.getElementById('output-results').classList.add('hidden');
+                
+                // 重置日志和进度显示
+                document.getElementById('log-container').innerHTML = '';
+                document.getElementById('outline-result').textContent = '';
+                updateProgressIndicator('initializing', 0, '正在初始化...');
+                
+                // 切换到输出标签
+                document.querySelectorAll('.tab')[3].click();
+                
+                // 收集表单数据
+                const formData = new FormData();
+                formData.append('title', document.getElementById('title').value);
+                formData.append('length', document.getElementById('length').value);
+                
+                // 处理体裁
+                let genre = document.getElementById('genre').value;
+                if (genre === '自定义') {
+                    genre = document.getElementById('custom-genre').value;
+                }
+                formData.append('genre', genre);
+                
+                formData.append('language', document.getElementById('language').value);
+                
+                if (document.getElementById('context').value) {
+                    formData.append('context', document.getElementById('context').value);
+                }
+                
+                // 处理大纲模板
+                if (document.getElementById('custom-outline').checked) {
+                    if (document.getElementById('upload-json').checked) {
+                        const fileInput = document.getElementById('template-file');
+                        if (fileInput.files.length > 0) {
+                            formData.append('template_file', fileInput.files[0]);
+                            addLogLine(`使用模板文件: ${fileInput.files[0].name}`);
+                        } else {
+                            showError('请上传模板文件或切换到AI自动生成大纲');
+                            return;
+                        }
+                    } else if (document.getElementById('create-json').checked) {
+                        // 从在线编辑器收集数据
+                        const templateData = [];
+                        document.querySelectorAll('.section-item').forEach(item => {
+                            const title = item.querySelector('.section-title').value || '未命名章节';
+                            const length = parseInt(item.querySelector('.section-length').value) || 1000;
+                            const level = parseInt(item.querySelector('.section-level').value) || 1;
+                            
+                            templateData.push({
+                                title: title,
+                                length: length,
+                                level: level
+                            });
+                        });
+                        
+                        const templateBlob = new Blob([JSON.stringify(templateData)], {type: 'application/json'});
+                        formData.append('template_file', templateBlob, 'custom_template.json');
+                        addLogLine('使用自定义大纲模板');
+                    }
+                }
+                
+                // API密钥
+                if (document.getElementById('api-key').value) {
+                    formData.append('api_key', document.getElementById('api-key').value);
+                    addLogLine('使用自定义API密钥');
+                }
+                
+                // 其他高级设置
+                formData.append('max_retries', document.getElementById('max-retries').value);
+                formData.append('save_logs', document.getElementById('save-logs').checked);
+                
+                try {
+                    addLogLine(`正在向服务器提交请求: ${API_BASE_URL}/api/generate`);
+                    
+                    // 发送请求到后端API
+                    const response = await fetch(`${API_BASE_URL}/api/generate`, {
+                        method: 'POST',
+                        body: formData
+                    });
+                    
+                    if (!response.ok) {
+                        const errorText = await response.text();
+                        throw new Error('服务器响应错误: ' + errorText);
+                    }
+                    
+                    const data = await response.json();
+                    
+                    if (!data.success) {
+                        throw new Error(data.error || '请求失败');
+                    }
+                    
+                    // 保存任务ID并开始轮询
+                    currentTaskId = data.task_id;
+                    addLogLine(`任务已提交，ID: ${currentTaskId}`);
+                    addLogLine(`开始轮询任务状态，间隔: ${document.getElementById('polling-interval').value}ms`);
+                    
+                    // 设置下载按钮
+                    setupDownloadButtons();
+                    
+                    startPolling(currentTaskId);
+                    
+                } catch (error) {
+                    // 处理错误
+                    addLogLine(`错误: ${error.message}`);
+                    showError('请求失败: ' + error.message);
+                    updateProgressIndicator('error', 100, '发生错误');
+                }
+            });
+            
+            // 显示错误信息
+            function showError(message) {
+                const errorMessage = document.getElementById('error-message');
+                const errorText = document.getElementById('error-text');
+                
+                errorText.textContent = message;
+                errorMessage.classList.remove('hidden');
+            }
+            
+            // 初始化页面
+            addDeleteSectionHandlers();
+            addSectionInputHandlers();
+            updateOutlineCounts();
+            updateOutlinePreview();
+            updateCommandPreview();
+            setupDownloadButtons();
+        });
+    </script>
+</body>
+</html>

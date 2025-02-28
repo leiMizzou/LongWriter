@@ -708,6 +708,24 @@ def get_remaining_outline(outline: List[Dict[str, Any]], written_content: str) -
     
     return remaining
 
+def clean_text_formatting(text):
+    """Clean excessive formatting and spaces from generated text"""
+    # Replace sequences of multiple asterisks with just two
+    text = re.sub(r'\*{3,}', '**', text)
+    
+    # Find patterns of every word being bolded and remove the formatting
+    text = re.sub(r'(\*\*\s*\w+\s*\*\*\s*){3,}', 
+                  lambda m: m.group(0).replace('**', ''), 
+                  text)
+    
+    # Remove multiple spaces (keep single spaces)
+    text = re.sub(r' {2,}', ' ', text)
+    
+    # Fix spaces before punctuation
+    text = re.sub(r' ([,.!?:;])', r'\1', text)
+    
+    return text
+
 def assemble_article(outline: List[Dict[str, Any]], title: str, length: int, 
                     genre: str, language: str, context: Optional[str] = None) -> str:
     """
@@ -799,6 +817,7 @@ def assemble_article(outline: List[Dict[str, Any]], title: str, length: int,
             try:
                 # 调用API生成当前章节内容
                 content = call_gemini_api(section_prompt)
+                content = clean_text_formatting(content)  # Add this line
                 # 内容生成成功，重置阻止计数
                 block_retry_count = 0 
                 

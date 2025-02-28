@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 文章生成器</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --claude-purple: #7e57c2;
+            --claude-purple-light: #b085f5;
+            --claude-purple-dark: #5c36a0;
+            --claude-bg: #f9f9fb;
+            --claude-text: #1a1a1a;
+        }
+        
+        body {
+            background-color: var(--claude-bg);
+            color: var(--claude-text);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+        
+        .claude-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .claude-header {
+            border-bottom: 1px solid #e5e5e5;
+            padding-bottom: 1rem;
+        }
+        
+        .claude-btn {
+            background-color: var(--claude-purple);
+            color: white;
+            transition: background-color 0.2s;
+        }
+        
+        .claude-btn:hover {
+            background-color: var(--claude-purple-dark);
+        }
+        
+        .claude-btn-outline {
+            border: 1px solid var(--claude-purple);
+            color: var(--claude-purple);
+            background-color: transparent;
+            transition: background-color 0.2s, color 0.2s;
+        }
+        
+        .claude-btn-outline:hover {
+            background-color: var(--claude-purple);
+            color: white;
+        }
+        
+        .template-preview {
+            border: 1px solid #e5e5e5;
+            border-radius: 0.5rem;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        
+        .form-input:focus, .form-textarea:focus, .form-select:focus {
+            border-color: var(--claude-purple-light);
+            box-shadow: 0 0 0 3px rgba(126, 87, 194, 0.3);
+        }
+        
+        .template-item {
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid #e5e5e5;
+            padding: 0.5rem;
+        }
+        
+        .template-item:last-child {
+            border-bottom: none;
+        }
+        
+        .tabs {
+            display: flex;
+            border-bottom: 1px solid #e5e5e5;
+        }
+        
+        .tab {
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+        }
+        
+        .tab.active {
+            border-bottom: 2px solid var(--claude-purple);
+            color: var(--claude-purple);
+            font-weight: 500;
+        }
+        
+        .tab-content {
+            padding: 1rem 0;
+        }
+        
+        .page-section {
+            margin-bottom: 2rem;
+        }
+        
+        /* Animation for loading */
+        @keyframes pulse {
+            0% { opacity: 0.6; }
+            50% { opacity: 1; }
+            100% { opacity: 0.6; }
+        }
+        
+        .loading {
+            animation: pulse 1.5s infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="claude-container">
+        <header class="claude-header mb-6">
+            <div class="flex items-center justify-between mb-2">
+                <div class="flex items-center">
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" class="mr-2">
+                        <path d="M16 2C8.268 2 2 8.268 2 16s6.268 14 14 14 14-6.268 14-14S23.732 2 16 2z" fill="#7e57c2"/>
+                        <path d="M22 16c0 3.314-2.686 6-6 6s-6-2.686-6-6 2.686-6 6-6 6 2.686 6 6z" fill="white"/>
+                    </svg>
+                    <h1 class="text-2xl font-bold">文章生成器</h1>
+                </div>
+                <div>
+                    <span class="text-sm text-gray-500">Powered by Gemini API</span>
+                </div>
+            </div>
+            <p class="text-gray-600">基于AI的文章生成工具，用于创建高质量、结构化的长篇内容</p>
+        </header>
+        
+        <div class="tabs mb-4">
+            <div class="tab active" data-tab="basics">基本设置</div>
+            <div class="tab" data-tab="template">大纲模板</div>
+            <div class="tab" data-tab="advanced">高级设置</div>
+            <div class="tab" data-tab="output">生成结果</div>
+        </div>
+        
+        <form id="article-form" class="mb-8">
+            <!-- 基本设置 Tab -->
+            <div class="tab-content" id="basics-content">
+                <div class="page-section">
+                    <h2 class="text-xl font-semibold mb-4">文章基本信息</h2>
+                    
+                    <div class="mb-4">
+                        <label for="title" class="block text-sm font-medium text-gray-700 mb-1">文章标题 *</label>
+                        <input type="text" id="title" name="title" required class="form-input w-full px-3 py-2 border rounded-md focus:outline-none" placeholder="请输入文章标题">
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                        <div>
+                            <label for="length" class="block text-sm font-medium text-gray-700 mb-1">文章字数 *</label>
+                            <input type="number" id="length" name="length" required min="500" max="50000" step="500" value="3000" class="form-input w-full px-3 py-2 border rounded-md focus:outline-none">
+                            <p class="text-xs text-gray-500 mt-1">推荐范围: 1,000 - 20,000 字</p>
+                        </div>
+                        
+                        <div>
+                            <label for="language" class="block text-sm font-medium text-gray-700 mb-1">文章语言 *</label>
+                            <select id="language" name="language" required class="form-select w-full px-3 py-2 border rounded-md focus:outline-none">
+                                <option value="zh">中文</option>
+                                <option value="en">英文</option>
+                                <option value="ja">日文</option>
+                                <option value="ko">韩文</option>
+                                <option value="fr">法文</option>
+                                <option value="de">德文</option>
+                                <option value="es">西班牙文</option>
+                                <option value="ru">俄文</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label for="genre" class="block text-sm font-medium text-gray-700 mb-1">文章体裁 *</label>
+                        <select id="genre" name="genre" required class="form-select w-full px-3 py-2 border rounded-md focus:outline-none">
+                            <option value="学术论文">学术论文</option>
+                            <option value="科普文章">科普文章</option>
+                            <option value="科幻小说">科幻小说</option>
+                            <option value="历史叙事">历史叙事</option>
+                            <option value="技术文档">技术文档</option>
+                            <option value="商业报告">商业报告</option>
+                            <option value="旅行游记">旅行游记</option>
+                            <option value="产品介绍">产品介绍</option>
+                            <option value="人物传记">人物传记</option>
+                            <option value="议论文">议论文</option>
+                            <option value="散文">散文</option>
+                            <option value="教程">教程</option>
+                            <option value="自定义">自定义</option>
+                        </select>
+                    </div>
+                    
+                    <div id="custom-genre-container" class="mb-4 hidden">
+                        <label for="custom-genre" class="block text-sm font-medium text-gray-700 mb-1">自定义体裁</label>
+                        <input type="text" id="custom-genre" name="custom-genre" class="form-input w-full px-3 py-2 border rounded-md focus:outline-none" placeholder="请输入自定义体裁">
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label for="context" class="block text-sm font-medium text-gray-700 mb-1">上下文/背景信息</label>
+                        <textarea id="context" name="context" rows="4" class="form-textarea w-full px-3 py-2 border rounded-md focus:outline-none" placeholder="提供额外的上下文信息以指导文章生成，例如特定要求、风格偏好或关键观点"></textarea>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 大纲模板 Tab -->
+            <div class="tab-content hidden" id="template-content">
+                <div class="page-section">
+                    <h2 class="text-xl font-semibold mb-4">大纲模板设置</h2>
+                    
+                    <div class="mb-4">
+                        <div class="flex items-center mb-2">
+                            <input type="radio" id="auto-outline" name="outline-type" value="auto" checked class="mr-2">
+                            <label for="auto-outline" class="text-sm font-medium text-gray-700">AI自动生成大纲</label>
+                        </div>
+                        <div class="flex items-center">
+                            <input type="radio" id="custom-outline" name="outline-type" value="custom" class="mr-2">
+                            <label for="custom-outline" class="text-sm font-medium text-gray-700">使用自定义大纲模板</label>
+                        </div>
+                    </div>
+                    
+                    <div id="custom-outline-container" class="hidden">
+                        <div class="mb-4">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">选择上传方式</label>
+                            <div class="flex items-center mb-2">
+                                <input type="radio" id="upload-json" name="template-source" value="upload" checked class="mr-2">
+                                <label for="upload-json" class="text-sm font-medium text-gray-700">上传JSON文件</label>
+                            </div>
+                            <div class="flex items-center">
+                                <input type="radio" id="create-json" name="template-source" value="create" class="mr-2">
+                                <label for="create-json" class="text-sm font-medium text-gray-700">在线创建大纲</label>
+                            </div>
+                        </div>
+                        
+                        <div id="upload-json-container" class="mb-4">
+                            <label for="template-file" class="block text-sm font-medium text-gray-700 mb-1">上传大纲模板文件</label>
+                            <input type="file" id="template-file" name="template-file" accept=".json" class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-purple-50 file:text-purple-700 hover:file:bg-purple-100">
+                            <p class="text-xs text-gray-500 mt-1">请上传有效的JSON格式文件</p>
+                        </div>
+                        
+                        <div id="create-json-container" class="mb-4 hidden">
+                            <div class="flex justify-between items-center mb-2">
+                                <label class="block text-sm font-medium text-gray-700">创建章节列表</label>
+                                <button type="button" id="add-section" class="text-sm claude-btn-outline px-2 py-1 rounded-md">添加章节</button>
+                            </div>
+                            
+                            <div id="outline-items" class="template-preview p-2 mb-2">
+                                <div class="template-item section-item">
+                                    <div class="flex-1 mr-2">
+                                        <input type="text" placeholder="章节标题" class="section-title form-input w-full px-2 py-1 border rounded-md text-sm" value="引言">
+                                    </div>
+                                    <div class="w-20 mr-2">
+                                        <input type="number" placeholder="字数" class="section-length form-input w-full px-2 py-1 border rounded-md text-sm" value="500">
+                                    </div>
+                                    <div class="w-16 mr-2">
+                                        <input type="number" placeholder="级别" class="section-level form-input w-full px-2 py-1 border rounded-md text-sm" value="1" readonly>
+                                    </div>
+                                    <div>
+                                        <button type="button" class="delete-section text-red-500 px-1">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                <path d="M6 18L18 6M6 6l12 12"></path>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="template-item section-item">
+                                    <div class="flex-1 mr-2">
+                                        <input type="text" placeholder="章节标题" class="section-title form-input w-full px-2 py-1 border rounded-md text-sm" value="结论">
+                                    </div>
+                                    <div class="w-20 mr-2">
+                                        <input type="number" placeholder="字数" class="section-length form-input w-full px-2 py-1 border rounded-md text-sm" value="500">
+                                    </div>
+                                    <div class="w-16 mr-2">
+                                        <input type="number" placeholder="级别" class="section-level form-input w-full px-2 py-1 border rounded-md text-sm" value="1" readonly>
+                                    </div>
+                                    <div>
+                                        <button type="button" class="delete-section text-red-500 px-1">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                <path d="M6 18L18 6M6 6l12 12"></path>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="flex justify-between items-center text-xs text-gray-500">
+                                <p>总章节数: <span id="section-count">2</span></p>
+                                <p>总字数: <span id="total-words">1000</span></p>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <div class="flex justify-between items-center mb-2">
+                                <label class="block text-sm font-medium text-gray-700">大纲预览</label>
+                                <button type="button" id="refresh-preview" class="text-sm claude-btn-outline px-2 py-1 rounded-md">刷新预览</button>
+                            </div>
+                            <div id="outline-preview" class="template-preview p-4 bg-gray-50 font-mono text-sm whitespace-pre"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 高级设置 Tab -->
+            <div class="tab-content hidden" id="advanced-content">
+                <div class="page-section">
+                    <h2 class="text-xl font-semibold mb-4">高级设置</h2>
+                    
+                    <div class="mb-4">
+                        <label for="api-key" class="block text-sm font-medium text-gray-700 mb-1">Gemini API Key</label>
+                        <input type="password" id="api-key" name="api-key" class="form-input w-full px-3 py-2 border rounded-md focus:outline-none" placeholder="输入您的API密钥 (可选，也可通过环境变量设置)">
+                        <p class="text-xs text-gray-500 mt-1">如果不提供，将使用环境变量中的GEMINI_API_KEY</p>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label for="max-retries" class="block text-sm font-medium text-gray-700 mb-1">最大重试次数</label>
+                        <input type="number" id="max-retries" name="max-retries" min="1" max="20" value="10" class="form-input w-full px-3 py-2 border rounded-md focus:outline-none">
+                    </div>
+                    
+                    <div class="mb-4">
+                        <div class="flex items-center">
+                            <input type="checkbox" id="save-logs" name="save-logs" checked class="mr-2">
+                            <label for="save-logs" class="text-sm font-medium text-gray-700">保存详细日志</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 生成结果 Tab -->
+            <div class="tab-content hidden" id="output-content">
+                <div class="page-section">
+                    <h2 class="text-xl font-semibold mb-4">生成结果</h2>
+                    
+                    <div id="output-placeholder" class="text-center py-8 text-gray-500">
+                        <svg class="mx-auto h-12 w-12 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                        </svg>
+                        <p class="mt-2">完成设置后点击"生成文章"按钮</p>
+                    </div>
+                    
+                    <div id="output-loading" class="hidden text-center py-8">
+                        <div class="loading inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-purple-500 border-r-transparent"></div>
+                        <p class="mt-4 text-gray-600" id="loading-status">正在生成大纲...</p>
+                    </div>
+                    
+                    <div id="output-results" class="hidden">
+                        <div class="mb-4">
+                            <div class="flex justify-between items-center mb-2">
+                                <h3 class="text-lg font-medium">大纲</h3>
+                                <span class="text-xs bg-green-100 text-green-800 px-2 py-1 rounded-full">完成</span>
+                            </div>
+                            <div id="outline-result" class="template-preview p-4 bg-gray-50 font-mono text-sm whitespace-pre"></div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <div class="flex justify-between items-center mb-2">
+                                <h3 class="text-lg font-medium">文章生成进度</h3>
+                                <span id="generation-status" class="text-xs bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full">进行中</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                <div id="progress-bar" class="bg-purple-600 h-2.5 rounded-full" style="width: 0%"></div>
+                            </div>
+                            <div class="flex justify-between text-xs text-gray-500 mt-1">
+                                <span id="progress-percent">0%</span>
+                                <span id="progress-count">0/0 章节</span>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <h3 class="text-lg font-medium mb-2">生成结果</h3>
+                            <div id="chapter-progress" class="template-preview p-4 bg-gray-50 text-sm"></div>
+                        </div>
+                        
+                        <div id="result-files" class="hidden mb-4">
+                            <h3 class="text-lg font-medium mb-2">文件</h3>
+                            <div class="bg-gray-50 p-4 rounded-md">
+                                <div class="mb-2">
+                                    <span class="text-sm font-medium">文章文件:</span>
+                                    <span id="article-file" class="text-sm ml-2 text-purple-600"></span>
+                                    <button id="download-article" class="ml-2 text-xs claude-btn-outline px-2 py-1 rounded-md">下载</button>
+                                </div>
+                                <div class="mb-2">
+                                    <span class="text-sm font-medium">大纲文件:</span>
+                                    <span id="outline-file" class="text-sm ml-2 text-purple-600"></span>
+                                    <button id="download-outline" class="ml-2 text-xs claude-btn-outline px-2 py-1 rounded-md">下载</button>
+                                </div>
+                                <div>
+                                    <span class="text-sm font-medium">日志文件:</span>
+                                    <span id="log-file" class="text-sm ml-2 text-purple-600"></span>
+                                    <button id="download-log" class="ml-2 text-xs claude-btn-outline px-2 py-1 rounded-md">下载</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="flex justify-center mt-8">
+                <button type="submit" id="generate-btn" class="claude-btn px-6 py-3 rounded-md text-center font-medium">生成文章</button>
+            </div>
+        </form>
+        
+        <div id="error-message" class="hidden bg-red-100 border-l-4 border-red-500 text-red-700 p-4 mb-4" role="alert">
+            <p class="font-bold">错误</p>
+            <p id="error-text"></p>
+        </div>
+        
+        <footer class="text-center text-gray-500 text-sm mt-12 pt-4 border-t">
+            <p>© 2025 AI 文章生成器 - 基于 Python 和 Gemini API</p>
+        </footer>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Tab 切换
+            const tabs = document.querySelectorAll('.tab');
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    // 隐藏所有内容
+                    document.querySelectorAll('.tab-content').forEach(content => {
+                        content.classList.add('hidden');
+                    });
+                    
+                    // 移除所有active类
+                    tabs.forEach(t => {
+                        t.classList.remove('active');
+                    });
+                    
+                    // 显示选中的内容并添加active类
+                    const tabId = tab.getAttribute('data-tab');
+                    document.getElementById(`${tabId}-content`).classList.remove('hidden');
+                    tab.classList.add('active');
+                });
+            });
+            
+            // 处理自定义体裁
+            const genreSelect = document.getElementById('genre');
+            const customGenreContainer = document.getElementById('custom-genre-container');
+            
+            genreSelect.addEventListener('change', () => {
+                if (genreSelect.value === '自定义') {
+                    customGenreContainer.classList.remove('hidden');
+                } else {
+                    customGenreContainer.classList.add('hidden');
+                }
+            });
+            
+            // 处理大纲类型切换
+            const autoOutline = document.getElementById('auto-outline');
+            const customOutline = document.getElementById('custom-outline');
+            const customOutlineContainer = document.getElementById('custom-outline-container');
+            
+            autoOutline.addEventListener('change', () => {
+                if (autoOutline.checked) {
+                    customOutlineContainer.classList.add('hidden');
+                }
+            });
+            
+            customOutline.addEventListener('change', () => {
+                if (customOutline.checked) {
+                    customOutlineContainer.classList.remove('hidden');
+                }
+            });
+            
+            // 处理模板来源切换
+            const uploadJson = document.getElementById('upload-json');
+            const createJson = document.getElementById('create-json');
+            const uploadJsonContainer = document.getElementById('upload-json-container');
+            const createJsonContainer = document.getElementById('create-json-container');
+            
+            uploadJson.addEventListener('change', () => {
+                if (uploadJson.checked) {
+                    uploadJsonContainer.classList.remove('hidden');
+                    createJsonContainer.classList.add('hidden');
+                }
+            });
+            
+            createJson.addEventListener('change', () => {
+                if (createJson.checked) {
+                    createJsonContainer.classList.remove('hidden');
+                    uploadJsonContainer.classList.add('hidden');
+                    updateOutlineCounts();
+                }
+            });
+            
+            // 添加章节
+            const addSectionBtn = document.getElementById('add-section');
+            const outlineItems = document.getElementById('outline-items');
+            
+            addSectionBtn.addEventListener('click', () => {
+                const newItem = document.createElement('div');
+                newItem.className = 'template-item section-item';
+                newItem.innerHTML = `
+                    <div class="flex-1 mr-2">
+                        <input type="text" placeholder="章节标题" class="section-title form-input w-full px-2 py-1 border rounded-md text-sm">
+                    </div>
+                    <div class="w-20 mr-2">
+                        <input type="number" placeholder="字数" class="section-length form-input w-full px-2 py-1 border rounded-md text-sm" value="1000">
+                    </div>
+                    <div class="w-16 mr-2">
+                        <input type="number" placeholder="级别" class="section-level form-input w-full px-2 py-1 border rounded-md text-sm" value="1" readonly>
+                    </div>
+                    <div>
+                        <button type="button" class="delete-section text-red-500 px-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M6 18L18 6M6 6l12 12"></path>
+                            </svg>
+                        </button>
+                    </div>
+                `;
+                
+                outlineItems.appendChild(newItem);
+                addDeleteSectionHandlers();
+                addSectionInputHandlers();
+                updateOutlineCounts();
+                updateOutlinePreview();
+            });
+            
+            // 删除章节
+            function addDeleteSectionHandlers() {
+                document.querySelectorAll('.delete-section').forEach(button => {
+                    button.addEventListener('click', function() {
+                        const sectionItems = document.querySelectorAll('.section-item');
+                        if (sectionItems.length > 1) {
+                            this.closest('.section-item').remove();
+                            updateOutlineCounts();
+                            updateOutlinePreview();
+                        } else {
+                            alert('至少需要保留一个章节');
+                        }
+                    });
+                });
+            }
+            
+            // 为章节输入添加事件处理器
+            function addSectionInputHandlers() {
+                document.querySelectorAll('.section-title, .section-length').forEach(input => {
+                    input.addEventListener('change', () => {
+                        updateOutlineCounts();
+                        updateOutlinePreview();
+                    });
+                });
+            }
+            
+            // 更新章节计数
+            function updateOutlineCounts() {
+                const sectionCount = document.querySelectorAll('.section-item').length;
+                document.getElementById('section-count').textContent = sectionCount;
+                
+                let totalWords = 0;
+                document.querySelectorAll('.section-length').forEach(input => {
+                    totalWords += parseInt(input.value) || 0;
+                });
+                document.getElementById('total-words').textContent = totalWords;
+                
+                // 自动更新total length输入框
+                if (totalWords > 0) {
+                    document.getElementById('length').value = totalWords;
+                }
+            }
+            
+            // 更新大纲预览
+            function updateOutlinePreview() {
+                const outlineData = [];
+                document.querySelectorAll('.section-item').forEach(item => {
+                    const title = item.querySelector('.section-title').value || '未命名章节';
+                    const length = parseInt(item.querySelector('.section-length').value) || 1000;
+                    const level = parseInt(item.querySelector('.section-level').value) || 1;
+                    
+                    outlineData.push({
+                        title: title,
+                        length: length,
+                        level: level
+                    });
+                });
+                
+                document.getElementById('outline-preview').textContent = JSON.stringify(outlineData, null, 2);
+            }
+            
+            // 刷新预览按钮
+            document.getElementById('refresh-preview').addEventListener('click', updateOutlinePreview);
+            
+            // 上传文件处理
+            document.getElementById('template-file').addEventListener('change', function(e) {
+                const file = e.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        try {
+                            const data = JSON.parse(e.target.result);
+                            document.getElementById('outline-preview').textContent = JSON.stringify(data, null, 2);
+                            
+                            // 计算总字数
+                            let totalWords = 0;
+                            data.forEach(item => {
+                                totalWords += item.length || 0;
+                            });
+                            document.getElementById('total-words').textContent = totalWords;
+                            document.getElementById('section-count').textContent = data.length;
+                            
+                        } catch (error) {
+                            alert('JSON格式无效，请检查文件内容');
+                            console.error(error);
+                        }
+                    };
+                    reader.readAsText(file);
+                }
+            });
+            
+            // 表单提交
+            document.getElementById('article-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // 显示加载状态
+                document.getElementById('output-placeholder').classList.add('hidden');
+                document.getElementById('output-loading').classList.remove('hidden');
+                document.getElementById('error-message').classList.add('hidden');
+                
+                // 切换到输出标签
+                document.querySelectorAll('.tab')[3].click();
+                
+                // 收集表单数据
+                const formData = new FormData();
+                formData.append('title', document.getElementById('title').value);
+                formData.append('length', document.getElementById('length').value);
+                
+                // 处理体裁
+                let genre = document.getElementById('genre').value;
+                if (genre === '自定义') {
+                    genre = document.getElementById('custom-genre').value;
+                }
+                formData.append('genre', genre);
+                
+                formData.append('language', document.getElementById('language').value);
+                
+                if (document.getElementById('context').value) {
+                    formData.append('context', document.getElementById('context').value);
+                }
+                
+                // 处理大纲模板
+                if (document.getElementById('custom-outline').checked) {
+                    let templateData;
+                    
+                    if (document.getElementById('upload-json').checked) {
+                        const fileInput = document.getElementById('template-file');
+                        if (fileInput.files.length > 0) {
+                            formData.append('template_file', fileInput.files[0]);
+                        } else {
+                            showError('请上传模板文件或切换到AI自动生成大纲');
+                            return;
+                        }
+                    } else if (document.getElementById('create-json').checked) {
+                        // 从在线编辑器收集数据
+                        templateData = [];
+                        document.querySelectorAll('.section-item').forEach(item => {
+                            const title = item.querySelector('.section-title').value || '未命名章节';
+                            const length = parseInt(item.querySelector('.section-length').value) || 1000;
+                            const level = parseInt(item.querySelector('.section-level').value) || 1;
+                            
+                            templateData.push({
+                                title: title,
+                                length: length,
+                                level: level
+                            });
+                        });
+                        
+                        const templateBlob = new Blob([JSON.stringify(templateData)], {type: 'application/json'});
+                        formData.append('template_file', templateBlob, 'custom_template.json');
+                    }
+                }
+                
+                // API密钥
+                if (document.getElementById('api-key').value) {
+                    formData.append('api_key', document.getElementById('api-key').value);
+                }
+                
+                // 其他高级设置
+                formData.append('max_retries', document.getElementById('max-retries').value);
+                formData.append('save_logs', document.getElementById('save-logs').checked);
+                
+                // 模拟API调用 - 在实际应用中这里会发送到服务器
+                simulateAPICall(formData);
+            });
+            
+            // 模拟API调用和进度更新
+            function simulateAPICall(formData) {
+                document.getElementById('loading-status').textContent = '正在生成大纲...';
+                
+                // 这里我们模拟与Python脚本交互的过程
+                // 在实际应用中，这里应该是一个真正的AJAX请求
+                setTimeout(() => {
+                    // 模拟大纲生成完成
+                    document.getElementById('loading-status').textContent = '大纲生成完成，开始撰写文章...';
+                    
+                    // 生成模拟大纲
+                    const title = formData.get('title');
+                    const length = parseInt(formData.get('length'));
+                    const mockOutline = generateMockOutline(title, length);
+                    
+                    // 显示大纲结果
+                    document.getElementById('outline-result').textContent = JSON.stringify(mockOutline, null, 2);
+                    document.getElementById('output-results').classList.remove('hidden');
+                    
+                    // 模拟章节生成进度
+                    simulateChapterProgress(mockOutline);
+                }, 2000);
+            }
+            
+            // 生成模拟大纲
+            function generateMockOutline(title, totalLength) {
+                const chapterCount = Math.max(3, Math.min(12, Math.floor(totalLength / 1000)));
+                const outline = [];
+                
+                // 添加引言
+                outline.push({
+                    "title": "引言",
+                    "length": Math.floor(totalLength * 0.1),
+                    "level": 1
+                });
+                
+                // 添加主体章节
+                const mainChaptersLength = totalLength * 0.8;
+                const lengthPerChapter = Math.floor(mainChaptersLength / (chapterCount - 2));
+                
+                for (let i = 1; i <= chapterCount - 2; i++) {
+                    outline.push({
+                        "title": `${title} - 第${i}章`,
+                        "length": lengthPerChapter,
+                        "level": 1
+                    });
+                }
+                
+                // 添加结论
+                outline.push({
+                    "title": "结论",
+                    "length": Math.floor(totalLength * 0.1),
+                    "level": 1
+                });
+                
+                return outline;
+            }
+            
+            // 模拟章节生成进度
+            function simulateChapterProgress(outline) {
+                const chapterProgress = document.getElementById('chapter-progress');
+                const totalChapters = outline.length;
+                let currentChapter = 0;
+                
+                // 创建进度项
+                outline.forEach((chapter, index) => {
+                    const chapterItem = document.createElement('div');
+                    chapterItem.className = 'mb-2';
+                    chapterItem.innerHTML = `
+                        <div class="flex items-center">
+                            <div class="w-4 h-4 rounded-full bg-gray-300 mr-2" id="chapter-status-${index}"></div>
+                            <div class="font-medium">${chapter.title}</div>
+                            <div class="ml-2 text-gray-500">(${chapter.length}字)</div>
+                            <div class="ml-auto text-xs text-gray-500" id="chapter-time-${index}">等待中...</div>
+                        </div>
+                    `;
+                    chapterProgress.appendChild(chapterItem);
+                });
+                
+                // 模拟生成进度
+                const interval = setInterval(() => {
+                    if (currentChapter < totalChapters) {
+                        // 更新当前章节状态
+                        document.getElementById(`chapter-status-${currentChapter}`).className = 'w-4 h-4 rounded-full bg-green-500 mr-2';
+                        document.getElementById(`chapter-time-${currentChapter}`).textContent = '完成';
+                        
+                        // 更新总进度
+                        currentChapter++;
+                        const percent = Math.floor((currentChapter / totalChapters) * 100);
+                        document.getElementById('progress-bar').style.width = `${percent}%`;
+                        document.getElementById('progress-percent').textContent = `${percent}%`;
+                        document.getElementById('progress-count').textContent = `${currentChapter}/${totalChapters} 章节`;
+                        
+                        if (currentChapter === totalChapters) {
+                            // 所有章节完成
+                            clearInterval(interval);
+                            document.getElementById('generation-status').textContent = '已完成';
+                            document.getElementById('generation-status').className = 'text-xs bg-green-100 text-green-800 px-2 py-1 rounded-full';
+                            document.getElementById('loading-status').textContent = '文章生成完成！';
+                            document.getElementById('output-loading').classList.add('hidden');
+                            
+                            // 显示文件信息
+                            document.getElementById('result-files').classList.remove('hidden');
+                            document.getElementById('article-file').textContent = `${formData.get('title').replace(/[^\w\s-]/g, '')}_20250227_120000.md`;
+                            document.getElementById('outline-file').textContent = `${formData.get('title').replace(/[^\w\s-]/g, '')}_20250227_120000_outline.json`;
+                            document.getElementById('log-file').textContent = `${formData.get('title').replace(/[^\w\s-]/g, '')}_20250227_120000.log`;
+                        }
+                    }
+                }, 1500);
+            }
+            
+            // 显示错误信息
+            function showError(message) {
+                const errorMessage = document.getElementById('error-message');
+                const errorText = document.getElementById('error-text');
+                
+                errorText.textContent = message;
+                errorMessage.classList.remove('hidden');
+                document.getElementById('output-loading').classList.add('hidden');
+                document.getElementById('output-placeholder').classList.remove('hidden');
+            }
+            
+            // 初始化页面
+            addDeleteSectionHandlers();
+            addSectionInputHandlers();
+            updateOutlineCounts();
+            updateOutlinePreview();
+        });
+    </script>
+</body>
+</html>

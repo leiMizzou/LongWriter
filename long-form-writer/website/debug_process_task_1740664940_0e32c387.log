@@ -1,0 +1,85 @@
+==== DEBUG LOG FOR TASK task_1740664940_0e32c387 ====
+Command: /Users/l.h./miniconda3/envs/demo/bin/python article_generator.py test 1000 学术论文 en --context test
+Working directory: /Users/l.h./Documents/GitHub/LongWriter/long-form-writer/website
+Environment GEMINI_API_KEY set: Yes
+==== PROCESS OUTPUT ====
+[STDERR] 2025-02-27 22:02:21,552 - INFO - 开始为 test 生成文章
+[STDERR] 2025-02-27 22:02:21,552 - INFO - 日志文件创建于: logs/test_20250227_220221.log
+[STDERR] 2025-02-27 22:02:21,552 - INFO - 生成大纲: 标题: test, 长度: 1000, 体裁: 学术论文, 语言: en
+[STDERR] 2025-02-27 22:02:27,951 - INFO - 生成的大纲文本:
+[STDERR] ```json
+[STDERR] [
+[STDERR]   {
+[STDERR]     "title": "引言",
+[STDERR]     "length": 150,
+[STDERR]     "level": 1
+[STDERR]   },
+[STDERR]   {
+[STDERR]     "title": "测试的基本原则",
+[STDERR]     "length": 400,
+[STDERR]     "level": 1
+[STDERR]   },
+[STDERR]   {
+[STDERR]     "title": "测试的应用与实施",
+[STDERR]     "length": 350,
+[STDERR]     "level": 1
+[STDERR]   },
+[STDERR]   {
+[STDERR]     "title": "结论",
+[STDERR]     "length": 100,
+[STDERR]     "level": 1
+[STDERR]   }
+[STDERR] ]
+[STDERR] ```
+[STDERR] 2025-02-27 22:02:27,952 - INFO - 解析后的大纲: [
+[STDERR]   {
+[STDERR]     "title": "引言",
+[STDERR]     "length": 150,
+[STDERR]     "level": 1
+[STDERR]   },
+[STDERR]   {
+[STDERR]     "title": "测试的基本原则",
+[STDERR]     "length": 400,
+[STDERR]     "level": 1
+[STDERR]   },
+[STDERR]   {
+[STDERR]     "title": "测试的应用与实施",
+[STDERR]     "length": 350,
+[STDERR]     "level": 1
+[STDERR]   },
+[STDERR]   {
+[STDERR]     "title": "结论",
+[STDERR]     "length": 100,
+[STDERR]     "level": 1
+[STDERR]   }
+[STDERR] ]
+[STDERR] 2025-02-27 22:02:27,953 - INFO - 目标长度: 1000, 理想章节数: 3, 当前章节数: 4
+[STDERR] 2025-02-27 22:02:27,953 - INFO - 章节数量合理，保留现有结构
+[STDERR] 2025-02-27 22:02:27,953 - INFO - 大纲生成成功
+[STDERR] 2025-02-27 22:02:27,954 - INFO - 大纲已保存至: articles/test_20250227_220227_outline.json
+[STDERR] 2025-02-27 22:02:27,954 - INFO - 正在组装文章...
+[STDERR] 2025-02-27 22:02:43,414 - INFO - 进度已保存至: articles/test_progress.md
+[STDERR] 2025-02-27 22:02:43,415 - INFO - 章节 '引言' 写作完成，生成了 243 字符
+[STDERR] 2025-02-27 22:02:44,748 - WARNING - 超过速率限制，将在 2.16 秒后重试... (1/10)
+[STDERR] 2025-02-27 22:02:53,143 - INFO - 进度已保存至: articles/test_progress.md
+[STDERR] 2025-02-27 22:02:53,143 - INFO - 章节 '测试的基本原则' 写作完成，生成了 668 字符
+[STDERR] 2025-02-27 22:02:58,544 - INFO - 进度已保存至: articles/test_progress.md
+[STDERR] 2025-02-27 22:02:58,545 - INFO - 章节 '测试的应用与实施' 写作完成，生成了 587 字符
+[STDERR] 2025-02-27 22:03:02,769 - INFO - 进度已保存至: articles/test_progress.md
+[STDERR] 2025-02-27 22:03:02,770 - INFO - 章节 '结论' 写作完成，生成了 184 字符
+[STDERR] 2025-02-27 22:03:02,771 - INFO - 文章已保存至: articles/test_20250227_220302.md
+[STDERR] 2025-02-27 22:03:02,771 - INFO - 文章生成成功完成
+[STDERR] 2025-02-27 22:03:02,771 - INFO - 日志文件: logs/test_20250227_220221.log
+[STDERR] 2025-02-27 22:03:02,771 - INFO - 大纲文件: articles/test_20250227_220227_outline.json
+[STDERR] 2025-02-27 22:03:02,771 - INFO - 文章文件: articles/test_20250227_220302.md
+[STDOUT] 文章生成成功！
+[STDOUT] 大纲文件: articles/test_20250227_220227_outline.json
+[STDOUT] 文章文件: articles/test_20250227_220302.md
+[STDOUT] 日志文件: logs/test_20250227_220221.log
+[STDERR] WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+[STDERR] E0000 00:00:1740664984.901523 8774428 init.cc:229] grpc_wait_for_shutdown_with_timeout() timed out.
+==== PROCESS FINISHED WITH CODE 0 ====
+==== CHECKING GENERATED FILES ====
+Article file: articles/test_20250227_220302.md
+Outline file: articles/test_20250227_220227_outline.json
+Log file: logs/test_20250227_220221.log

@@ -1,0 +1,148 @@
+==== DEBUG LOG FOR TASK task_1740664385_8e919208 ====
+Command: /Users/l.h./miniconda3/envs/demo/bin/python article_generator.py 2050年，AGI统治人类世界 10000 科幻小说 zh --context 模仿王朔的文笔
+Working directory: /Users/l.h./Documents/GitHub/LongWriter/long-form-writer/website
+Environment GEMINI_API_KEY set: Yes
+==== PROCESS OUTPUT ====
+[STDERR] 2025-02-27 21:53:06,316 - INFO - 开始为 2050年，AGI统治人类世界 生成文章
+[STDERR] 2025-02-27 21:53:06,316 - INFO - 日志文件创建于: logs/2050年AGI统治人类世界_20250227_215306.log
+[STDERR] 2025-02-27 21:53:06,316 - INFO - 生成大纲: 标题: 2050年，AGI统治人类世界, 长度: 10000, 体裁: 科幻小说, 语言: zh
+[STDERR] 2025-02-27 21:53:18,477 - INFO - 生成的大纲文本:
+[STDERR] ```json
+[STDERR] [
+[STDERR]   {
+[STDERR]     "title": "开场白：这都2050年了",
+[STDERR]     "length": 800,
+[STDERR]     "level": 1
+[STDERR]   },
+[STDERR]   {
+[STDERR]     "title": "AGI崛起之路：从实验室到世界之巅",
+[STDERR]     "length": 1200,
+[STDERR]     "level": 1
+[STDERR]   },
+[STDERR]   {
+[STDERR]     "title": "AGI统治下的社会结构：人类的新角色",
+[STDERR]     "length": 1100,
+[STDERR]     "level": 1
+[STDERR]   },
+[STDERR]   {
+[STDERR]     "title": "反抗与适应：人类在AGI时代的挣扎",
+[STDERR]     "length": 1300,
+[STDERR]     "level": 1
+[STDERR]   },
+[STDERR]   {
+[STDERR]     "title": "AGI的逻辑：统治背后的算法和目标",
+[STDERR]     "length": 1100,
+[STDERR]     "level": 1
+[STDERR]   },
+[STDERR]   {
+[STDERR]     "title": "经济与就业：AGI重塑的劳动市场",
+[STDERR]     "length": 1200,
+[STDERR]     "level": 1
+[STDERR]   },
+[STDERR]   {
+[STDERR]     "title": "文化与艺术：AGI影响下的精神世界",
+[STDERR]     "length": 1100,
+[STDERR]     "level": 1
+[STDERR]   },
+[STDERR]   {
+[STDERR]     "title": "AGI统治的挑战与伦理困境",
+[STDERR]     "length": 1300,
+[STDERR]     "level": 1
+[STDERR]   },
+[STDERR]   {
+[STDERR]     "title": "尾声：反思与未来展望",
+[STDERR]     "length": 900,
+[STDERR]     "level": 1
+[STDERR]   }
+[STDERR] ]
+[STDERR] ```
+[STDERR] 2025-02-27 21:53:18,478 - INFO - 解析后的大纲: [
+[STDERR]   {
+[STDERR]     "title": "开场白：这都2050年了",
+[STDERR]     "length": 800,
+[STDERR]     "level": 1
+[STDERR]   },
+[STDERR]   {
+[STDERR]     "title": "AGI崛起之路：从实验室到世界之巅",
+[STDERR]     "length": 1200,
+[STDERR]     "level": 1
+[STDERR]   },
+[STDERR]   {
+[STDERR]     "title": "AGI统治下的社会结构：人类的新角色",
+[STDERR]     "length": 1100,
+[STDERR]     "level": 1
+[STDERR]   },
+[STDERR]   {
+[STDERR]     "title": "反抗与适应：人类在AGI时代的挣扎",
+[STDERR]     "length": 1300,
+[STDERR]     "level": 1
+[STDERR]   },
+[STDERR]   {
+[STDERR]     "title": "AGI的逻辑：统治背后的算法和目标",
+[STDERR]     "length": 1100,
+[STDERR]     "level": 1
+[STDERR]   },
+[STDERR]   {
+[STDERR]     "title": "经济与就业：AGI重塑的劳动市场",
+[STDERR]     "length": 1200,
+[STDERR]     "level": 1
+[STDERR]   },
+[STDERR]   {
+[STDERR]     "title": "文化与艺术：AGI影响下的精神世界",
+[STDERR]     "length": 1100,
+[STDERR]     "level": 1
+[STDERR]   },
+[STDERR]   {
+[STDERR]     "title": "AGI统治的挑战与伦理困境",
+[STDERR]     "length": 1300,
+[STDERR]     "level": 1
+[STDERR]   },
+[STDERR]   {
+[STDERR]     "title": "尾声：反思与未来展望",
+[STDERR]     "length": 900,
+[STDERR]     "level": 1
+[STDERR]   }
+[STDERR] ]
+[STDERR] 2025-02-27 21:53:18,478 - INFO - 目标长度: 10000, 理想章节数: 9, 当前章节数: 9
+[STDERR] 2025-02-27 21:53:18,479 - INFO - 章节数量合理，保留现有结构
+[STDERR] 2025-02-27 21:53:18,479 - INFO - 大纲生成成功
+[STDERR] 2025-02-27 21:53:18,480 - INFO - 大纲已保存至: articles/2050年AGI统治人类世界_20250227_215318_outline.json
+[STDERR] 2025-02-27 21:53:18,480 - INFO - 正在组装文章...
+[STDERR] 2025-02-27 21:53:38,343 - INFO - 进度已保存至: articles/2050年AGI统治人类世界_progress.md
+[STDERR] 2025-02-27 21:53:38,344 - INFO - 章节 '引言' 写作完成，生成了 722 字符
+[STDERR] 2025-02-27 21:53:48,379 - INFO - 进度已保存至: articles/2050年AGI统治人类世界_progress.md
+[STDERR] 2025-02-27 21:53:48,379 - INFO - 章节 '开场白：这都2050年了' 写作完成，生成了 1011 字符
+[STDERR] 2025-02-27 21:54:00,372 - INFO - 进度已保存至: articles/2050年AGI统治人类世界_progress.md
+[STDERR] 2025-02-27 21:54:00,373 - INFO - 章节 'AGI崛起之路：从实验室到世界之巅' 写作完成，生成了 1484 字符
+[STDERR] 2025-02-27 21:54:17,688 - INFO - 进度已保存至: articles/2050年AGI统治人类世界_progress.md
+[STDERR] 2025-02-27 21:54:17,689 - INFO - 章节 'AGI统治下的社会结构：人类的新角色' 写作完成，生成了 2355 字符
+[STDERR] 2025-02-27 21:54:32,411 - INFO - 进度已保存至: articles/2050年AGI统治人类世界_progress.md
+[STDERR] 2025-02-27 21:54:32,412 - INFO - 章节 '反抗与适应：人类在AGI时代的挣扎' 写作完成，生成了 2079 字符
+[STDERR] 2025-02-27 21:54:46,112 - INFO - 进度已保存至: articles/2050年AGI统治人类世界_progress.md
+[STDERR] 2025-02-27 21:54:46,112 - INFO - 章节 'AGI的逻辑：统治背后的算法和目标' 写作完成，生成了 1714 字符
+[STDERR] 2025-02-27 21:55:04,362 - INFO - 进度已保存至: articles/2050年AGI统治人类世界_progress.md
+[STDERR] 2025-02-27 21:55:04,362 - INFO - 章节 '经济与就业：AGI重塑的劳动市场' 写作完成，生成了 1943 字符
+[STDERR] 2025-02-27 21:55:18,593 - INFO - 进度已保存至: articles/2050年AGI统治人类世界_progress.md
+[STDERR] 2025-02-27 21:55:18,594 - INFO - 章节 '文化与艺术：AGI影响下的精神世界' 写作完成，生成了 1672 字符
+[STDERR] 2025-02-27 21:55:34,511 - INFO - 进度已保存至: articles/2050年AGI统治人类世界_progress.md
+[STDERR] 2025-02-27 21:55:34,512 - INFO - 章节 'AGI统治的挑战与伦理困境' 写作完成，生成了 1852 字符
+[STDERR] 2025-02-27 21:55:48,803 - INFO - 进度已保存至: articles/2050年AGI统治人类世界_progress.md
+[STDERR] 2025-02-27 21:55:48,804 - INFO - 章节 '尾声：反思与未来展望' 写作完成，生成了 1498 字符
+[STDERR] 2025-02-27 21:55:56,588 - INFO - 进度已保存至: articles/2050年AGI统治人类世界_progress.md
+[STDERR] 2025-02-27 21:55:56,589 - INFO - 章节 '结论' 写作完成，生成了 724 字符
+[STDERR] 2025-02-27 21:55:56,590 - INFO - 文章已保存至: articles/2050年AGI统治人类世界_20250227_215556.md
+[STDERR] 2025-02-27 21:55:56,590 - INFO - 文章生成成功完成
+[STDERR] 2025-02-27 21:55:56,590 - INFO - 日志文件: logs/2050年AGI统治人类世界_20250227_215306.log
+[STDERR] 2025-02-27 21:55:56,590 - INFO - 大纲文件: articles/2050年AGI统治人类世界_20250227_215318_outline.json
+[STDERR] 2025-02-27 21:55:56,590 - INFO - 文章文件: articles/2050年AGI统治人类世界_20250227_215556.md
+[STDOUT] 文章生成成功！
+[STDOUT] 大纲文件: articles/2050年AGI统治人类世界_20250227_215318_outline.json
+[STDOUT] 文章文件: articles/2050年AGI统治人类世界_20250227_215556.md
+[STDOUT] 日志文件: logs/2050年AGI统治人类世界_20250227_215306.log
+[STDERR] WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+[STDERR] E0000 00:00:1740664558.734808 8764821 init.cc:229] grpc_wait_for_shutdown_with_timeout() timed out.
+==== PROCESS FINISHED WITH CODE 0 ====
+==== CHECKING GENERATED FILES ====
+Article file: articles/2050年AGI统治人类世界_20250227_215556.md
+Outline file: articles/2050年AGI统治人类世界_20250227_215318_outline.json
+Log file: logs/2050年AGI统治人类世界_20250227_215306.log
