@@ -1,0 +1,6 @@
+2025-04-09 22:27:09,134 - INFO - 开始为 蜜蜂会（MiForum）逆袭之路 生成文章
+2025-04-09 22:27:09,134 - INFO - 日志文件创建于: logs/蜜蜂会MiForum逆袭之路_20250409_222709.log
+2025-04-09 22:27:09,134 - INFO - 生成大纲: 标题: 蜜蜂会（MiForum）逆袭之路, 长度: 10000, 体裁: 城市科幻逆袭爽文, 语言: 中文
+2025-04-09 22:27:10,637 - WARNING - API调用失败: 400 User location is not supported for the API use., 将在 3.14 秒后重试... (1/10)
+2025-04-09 22:27:14,124 - WARNING - API调用失败: 400 User location is not supported for the API use., 将在 4.81 秒后重试... (2/10)
+2025-04-09 22:27:14,776 - INFO - 用户中断操作
