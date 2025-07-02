@@ -1,0 +1,13 @@
+2025-04-12 14:03:28,711 - INFO - 开始为 专委会成立贺词 生成文章
+2025-04-12 14:03:28,711 - INFO - 日志文件创建于: logs/专委会成立贺词_20250412_140328.log
+2025-04-12 14:03:28,712 - INFO - 生成大纲: 标题: 专委会成立贺词, 长度: 10000, 体裁: 贺词, 语言: 中文
+2025-04-12 14:03:29,850 - WARNING - API调用失败: 400 API key not valid. Please pass a valid API key. [reason: "API_KEY_INVALID"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "generativelanguage.googleapis.com"
+}
+, locale: "en-US"
+message: "API key not valid. Please pass a valid API key."
+], 将在 3.78 秒后重试... (1/10)
+2025-04-12 14:03:33,840 - INFO - 用户中断操作
